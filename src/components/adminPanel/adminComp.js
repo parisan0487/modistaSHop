@@ -1,3 +1,9 @@
+import AddProductsToDB from "./addProToDB";
+
 export default function AdminPanel() {
-  return <div></div>;
+  return (
+    <div>
+      <AddProductsToDB />
+    </div>
+  );
 }
