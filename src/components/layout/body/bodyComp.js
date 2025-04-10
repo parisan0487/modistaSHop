@@ -1,1 +1,3 @@
-export default function BodyComp() {}
+export default function BodyComp() {
+  return <div></div>;
+}
