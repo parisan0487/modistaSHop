@@ -1,5 +1,4 @@
 import BodyComp from "@/components/layout/body/bodyComp";
-import FooterComp from "@/components/layout/footer/footerComp";
 import HeaderComp from "@/components/layout/header/headerComp";
 
 export default function Home() {
@@ -8,7 +7,6 @@ export default function Home() {
       <p>Hello World</p>
       <HeaderComp />
       <BodyComp />
-      <FooterComp />
     </div>
   );
 }
