@@ -1,11 +1,11 @@
 import BodyComp from "@/components/layout/body/bodyComp";
 import FooterComp from "@/components/layout/footer/footerComp";
 import HeaderComp from "@/components/layout/header/headerComp";
+import "./globals.css"
 
 export default function Home() {
   return (
-    <div className="text-[#fd5504] grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <p>Hello World</p>
+    <div className="bg-[#ffffff] font-[400]  items-center justify-items-center min-h-screen  font-[family-name:var(--font-kalameh)]">
       <HeaderComp />
       <BodyComp />
       <FooterComp />
