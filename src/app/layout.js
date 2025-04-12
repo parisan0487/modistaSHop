@@ -8,47 +8,47 @@ import localFont from "next/font/local";
 const kalameh = localFont({
   src: [
     {
-      path: "../../public/fonts/kalameh/Kalameh-Thin.ttf",
+      path: "/fonts/kalameh/Kalameh-Thin.ttf",
       weight: "100",
       style: "normal",
     },
     {
-      path: "../../public/fonts/kalameh/Kalameh-ExtraLight.ttf",
+      path: "/fonts/kalameh/Kalameh-ExtraLight.ttf",
       weight: "200",
       style: "normal",
     },
     {
-      path: "../../public/fonts/kalameh/Kalameh-Light.ttf",
+      path: "/fonts/kalameh/Kalameh-Light.ttf",
       weight: "300",
       style: "normal",
     },
     {
-      path: "../../public/fonts/kalameh/Kalameh-Regular.ttf",
+      path: "/fonts/kalameh/Kalameh-Regular.ttf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../../public/fonts/kalameh/Kalameh-Medium.ttf",
+      path: "/fonts/kalameh/Kalameh-Medium.ttf",
       weight: "500",
       style: "normal",
     },
     {
-      path: "../../public/fonts/kalameh/Kalameh-SemiBold.ttf",
+      path: "/fonts/kalameh/Kalameh-SemiBold.ttf",
       weight: "600",
       style: "normal",
     },
     {
-      path: "../../public/fonts/kalameh/Kalameh-Bold.ttf",
+      path: "/fonts/kalameh/Kalameh-Bold.ttf",
       weight: "700",
       style: "normal",
     },
     {
-      path: "../../public/fonts/kalameh/Kalameh-ExtraBold.ttf",
+      path: "/fonts/kalameh/Kalameh-ExtraBold.ttf",
       weight: "800",
       style: "normal",
     },
     {
-      path: "../../public/fonts/kalameh/Kalameh-Black.ttf",
+      path: "/fonts/kalameh/Kalameh-Black.ttf",
       weight: "900",
       style: "normal",
     },
