@@ -60,7 +60,7 @@ export default function TopSellingProducts() {
   };
 
   return (
-    <div className="w-full px-6 py-10 max-w-7xl mx-auto ">
+    <div className="w-full px-6 py-10 max-w-7xl mx-auto rtl">
       <div className="relative w-full flex items-center justify-between gap-20">
         <button
           onClick={handlePrev}

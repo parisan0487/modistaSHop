@@ -99,7 +99,7 @@ const VISIBLE_COUNT = 5;
 
 
 const NewSets = () => {
-    const [centerIndex, setCenterIndex] = useState(2);
+    const [centerIndex, setCenterIndex] = useState(0);
 
     const handlePrev = () => {
         setCenterIndex((prev) => (prev > 0 ? prev - 1 : products.length - 1));
@@ -121,7 +121,7 @@ const NewSets = () => {
 
 
     return (
-        <div className='flex flex-col items-center justify-center text-[#2D2929] w-full my-12 bg-[#F7F7F7]'>
+        <div className='flex flex-col items-center justify-center text-[#2D2929] min-w-full my-12 bg-[#F7F7F7]'>
             <h2 className='text-2xl'>
                 <span className='font-[900]'>جدیدترین</span> ست‌ها
             </h2>
