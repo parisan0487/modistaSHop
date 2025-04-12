@@ -8,11 +8,6 @@ import localFont from "next/font/local";
 const kalameh = localFont({
   src: [
     {
-      path: "../../public/fonts/kalameh/Kalameh-Thin.ttf",
-      weight: "100",
-      style: "normal",
-    },
-    {
       path: "../../public/fonts/kalameh/Kalameh-ExtraLight.ttf",
       weight: "200",
       style: "normal",
