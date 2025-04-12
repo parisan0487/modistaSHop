@@ -108,8 +108,8 @@ const FooterComp = () => {
             </div>
           </div>
         </div>
-        <div dir="rtl" class="flex gap-10">
-          <ul class="list-none space-y-2">
+        <div dir="rtl" className="flex gap-10">
+          <ul className="list-none space-y-2">
             <li className="font-bold text-2xl">دسترسی سریع</li>
             <li className="!text-black/60 font-bold">دسته بندی</li>
             <li className="!text-black/60 font-bold">پرفروش ترین ها</li>
@@ -121,7 +121,7 @@ const FooterComp = () => {
             <li className="!text-black/60 font-bold">درباره ما</li>
           </ul>
 
-          <ul class="list-none space-y-2">
+          <ul className="list-none space-y-2">
             <li className="font-bold text-2xl">لینک های مفید</li>
             <li className="!text-black/60 font-bold">دسته بندی</li>
             <li className="!text-black/60 font-bold">پرفروش ترین ها</li>
