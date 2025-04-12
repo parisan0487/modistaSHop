@@ -3,59 +3,59 @@ import "./globals.css";
 import FooterComp from "@/components/layout/footer/footerComp";
 import Navbar from "@/components/layout/navbar/Navbar";
 import { Toaster } from "react-hot-toast";
+import localFont from "next/font/local";
 
 const kalameh = localFont({
   src: [
     {
-      path: '../../public/fonts/kalameh/Kalameh-Thin.ttf',
-      weight: '100',
-      style: 'normal',
+      path: "../../public/fonts/kalameh/Kalameh-Thin.ttf",
+      weight: "100",
+      style: "normal",
     },
     {
-      path: '../../public/fonts/kalameh/Kalameh-ExtraLight.ttf',
-      weight: '200',
-      style: 'normal',
+      path: "../../public/fonts/kalameh/Kalameh-ExtraLight.ttf",
+      weight: "200",
+      style: "normal",
     },
     {
-      path: '../../public/fonts/kalameh/Kalameh-Light.ttf',
-      weight: '300',
-      style: 'normal',
+      path: "../../public/fonts/kalameh/Kalameh-Light.ttf",
+      weight: "300",
+      style: "normal",
     },
     {
-      path: '../../public/fonts/kalameh/Kalameh-Regular.ttf',
-      weight: '400',
-      style: 'normal',
+      path: "../../public/fonts/kalameh/Kalameh-Regular.ttf",
+      weight: "400",
+      style: "normal",
     },
     {
-      path: '../../public/fonts/kalameh/Kalameh-Medium.ttf',
-      weight: '500',
-      style: 'normal',
+      path: "../../public/fonts/kalameh/Kalameh-Medium.ttf",
+      weight: "500",
+      style: "normal",
     },
     {
-      path: '../../public/fonts/kalameh/Kalameh-SemiBold.ttf',
-      weight: '600',
-      style: 'normal',
+      path: "../../public/fonts/kalameh/Kalameh-SemiBold.ttf",
+      weight: "600",
+      style: "normal",
     },
     {
-      path: '../../public/fonts/kalameh/Kalameh-Bold.ttf',
-      weight: '700',
-      style: 'normal',
+      path: "../../public/fonts/kalameh/Kalameh-Bold.ttf",
+      weight: "700",
+      style: "normal",
     },
     {
-      path: '../../public/fonts/kalameh/Kalameh-ExtraBold.ttf',
-      weight: '800',
-      style: 'normal',
+      path: "../../public/fonts/kalameh/Kalameh-ExtraBold.ttf",
+      weight: "800",
+      style: "normal",
     },
     {
-      path: '../../public/fonts/kalameh/Kalameh-Black.ttf',
-      weight: '900',
-      style: 'normal',
+      path: "../../public/fonts/kalameh/Kalameh-Black.ttf",
+      weight: "900",
+      style: "normal",
     },
   ],
-  variable: '--font-kalameh',
-  display: 'swap',
+  variable: "--font-kalameh",
+  display: "swap",
 });
-
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -69,10 +69,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fa">
-      <body
-        className={`antialiased `}
-      >
+    <html lang="fa" className={kalameh.variable}>
+      <body className={`antialiased `}>
         <Navbar />
         {children}
         <FooterComp />
