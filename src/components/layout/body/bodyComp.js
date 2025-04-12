@@ -1,3 +1,1 @@
-export default function BodyComp() {
-
-}
+export default function BodyComp() { }
