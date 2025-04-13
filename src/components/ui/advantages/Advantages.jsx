@@ -26,7 +26,7 @@ const advantages = [
 
 function Advantages() {
   return (
-    <div className="flex flex-col-reverse xl:flex-row items-center gap-8 p-8 my-12 w-full bg-orange-600 rounded-4xl">
+    <section className="flex flex-col-reverse xl:flex-row items-center gap-8 p-8 my-12 w-full bg-orange-600 rounded-4xl">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
         {advantages.map((advantage) => (
           <AdvantageCard key={advantage.id} {...advantage} />
@@ -38,7 +38,7 @@ function Advantages() {
           مشاهده همه
         </Link>
       </div>
-    </div>
+    </section>
   );
 }
 
