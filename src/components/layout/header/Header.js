@@ -29,7 +29,7 @@ const Header = () => {
               <g id="9">
                 <path
                   id="Union"
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   clip-rule="evenodd"
                   d="M20.5713 3.42859H6.857V3.42882L6.857 3.42881L3.50628 6.79171L8.42978 11.6974L3.69217 15.5605V20.5714H8.43942V11.707L17.1937 20.4295L20.5444 17.0666L11.6213 8.17584H20.5713V3.42859Z"
                   fill="white"
@@ -74,13 +74,13 @@ const Header = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                     stroke="currentColor"
                     className="!size-7"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
                     />
                   </svg>
@@ -94,13 +94,13 @@ const Header = () => {
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
-                      stroke-width="1.5"
+                      strokeWidth="1.5"
                       stroke="currentColor"
                       className="!size-7"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
                       />
                     </svg>

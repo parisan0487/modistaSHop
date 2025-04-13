@@ -23,7 +23,7 @@ const SideBar = ({ children, sideBarName, cls = "" }) => {
 
   return (
     <div className={`${cls}`}>
-      <div onClick={() => setSideFlag(p => !p)} className="size-14 flex items-center justify-center bg-orange-500 rounded-2xl">
+      <div onClick={() => setSideFlag(p => !p)} className="size-12.5 flex items-center justify-center bg-orange-500 rounded-2xl">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

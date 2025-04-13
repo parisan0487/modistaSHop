@@ -11,7 +11,7 @@ const NavbarMainBody = () => {
         width={30}
         height={30}
         alt="logo"
-        className="size-10 hidden max-[900px]:block"
+        className="size-10 hidden max-[1000px]:block"
       />
       <div className="w-96 h-13 rounded-2xl bg-[#F7F7F7] p-2 pr-4 flex items-center gap-4">
         <div className="size-10 rounded-2xl bg-white flex items-center justify-center shrink-0">
@@ -31,8 +31,8 @@ const NavbarMainBody = () => {
         />
       </div>
 
-      <div className="flex items-center gap-4">
-        <div className="p-3 rounded-2xl bg-[#ECECEC] flex items-center justify-center gap-2 max-[900px]:hidden cursor-pointer">
+      <div className="flex items-center gap-4 max-[1000px]:hidden">
+        <div className="p-3 rounded-2xl bg-[#ECECEC] flex items-center justify-center gap-2 cursor-pointer">
           <span className="font-extrabold !text-[#989898]">
             اینستاگرام مُدیستا
           </span>

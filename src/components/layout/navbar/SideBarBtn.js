@@ -191,7 +191,7 @@ const SideBarBtn = () => {
   };
 
   return (
-    <SideBar sideBarName="main-sidebar" cls="min-[900px]:hidden">
+    <SideBar sideBarName="main-sidebar" cls="min-[1000px]:hidden">
       <div className="w-full h-full bg-white flex flex-col justify-between">
         <div className="w-full h-full flex flex-col justify-between p-4">
           <ul className="flex flex-col gap-5 items-end">
