@@ -133,7 +133,7 @@ export default function TopSellingProducts() {
               </div>
 
               <div className="flex items-center gap-5 mt-5">
-                <div className="text-right">
+                <div className="text-right mb-12">
                   <h3 className="text-[32px] font-extrabold leading-[24px] text-[#514F4F] mb-0">+10</h3>
                   <p className="mt-3 text-[14px] text-[#979797] font-normal">تنوع محصولات</p>
                 </div>
