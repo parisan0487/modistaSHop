@@ -6,12 +6,8 @@ import LatestProduct from "@/components/ui/latest-product/LatestProduct";
 
 export default function BodyComp() {
     return (
-        <div className="container">
-            {/* <BestProducts /> */}
-            {/* <NewProducts />
-      <NewSets /> */}
-            {/* <Advantages /> */}
-            {/* <LatestProduct /> */}
+        <div>
+            <BestProducts />
         </div>
     );
 }

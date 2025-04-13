@@ -65,10 +65,10 @@ const MegaMenu = () => {
   const [category, setCategory] = useState("پوشاک مردانه");
 
   return (
-    <div className="absolute top-8 right-0 w-[47rem] overflow-hidden rounded-2xl shadow-2xl flex invisible opacity-0 delay-200 duration-300 group-hover:visible group-hover:opacity-100 group-hover:mt-4">
+    <div className="absolute top-8 bg-white right-0 w-[47rem] overflow-hidden shadow-lg rounded-2xl flex invisible opacity-0 delay-200 duration-300 group-hover:visible group-hover:opacity-100 group-hover:mt-4">
       <div
         dir="rtl"
-        className="w-full min-h-60 bg-white p-6 pb-16 flex flex-wrap gap-15 rounded-2xl"
+        className="w-full bg-white p-6 pb-16 flex flex-wrap gap-15"
       >
       {categories
               .filter((item) => item.title === category)[0]
@@ -81,7 +81,7 @@ const MegaMenu = () => {
                   {cate.items.map((item, index) => (
                     <li
                       key={index}
-                      className="text-[1rem] !text-zinc-500 font-bold text-right hover:!text-orange-500 cursor-pointer"
+                      className="text-[1rem] !text-zinc-500 text-right hover:!text-orange-500 cursor-pointer"
                     >
                       {item}
                     </li>
@@ -89,7 +89,7 @@ const MegaMenu = () => {
                 </ul>
               ))}
       </div>
-      <ul className="w-70 h-full border-l border-gray-500 bg-white p-4 flex flex-col gap-2 rounded-r-2xl">
+      <ul className="w-70 h-full border-l border-gray-500 p-4 flex flex-col gap-2">
         <li
           onMouseEnter={() => setCategory("پوشاک مردانه")}
           className="w-full h-10 p-2 rounded-2xl hover:bg-[#F7F7F7] flex items-center justify-between group/li duration-200 cursor-pointer"

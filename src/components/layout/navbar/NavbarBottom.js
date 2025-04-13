@@ -6,7 +6,7 @@ const NavbarBottom = () => {
   return (
     <div className="w-full flex items-center justify-between gap-4 py-4 pb-7 max-[900px]:hidden">
       <div className="size-10 flex gap-3">
-        <div className="size-13 p-3 bg-orange-500 rounded-2xl flex items-center justify-center shrink-0">
+        <div className="size-13 p-3 bg-orange-500 rounded-2xl flex items-center justify-center shrink-0 cursor-pointer">
           <Image
             src="https://mehdibagheridev.ir/modista/wp-content/uploads/2024/12/mini-cart-button.svg"
             width={50}
@@ -14,7 +14,7 @@ const NavbarBottom = () => {
             alt="buy-button"
           />
         </div>
-        <div className="p-3 h-13 border-2 border-orange-500 rounded-2xl flex items-center justify-center gap-2 shrink-0">
+        <div className="p-3 h-13 border-2 border-orange-500 rounded-2xl flex items-center justify-center gap-2 shrink-0 cursor-pointer">
           <span className="!text-orange-500 font-extrabold">
             ورود / ثبت نام{" "}
           </span>
@@ -83,7 +83,7 @@ const NavbarBottom = () => {
               ></path>
             </g>
           </svg>
-          <ul className="absolute top-8 right-0 w-37 p-4 bg-white overflow-hidden rounded-2xl shadow-2xl flex flex-col items-end gap-2 invisible opacity-0 delay-200 duration-300 group-hover:visible group-hover:opacity-100 group-hover:mt-4">
+          <ul className="absolute top-8 right-0 w-37 p-4 bg-white overflow-hidden rounded-2xl shadow-lg flex flex-col items-end gap-2 invisible opacity-0 delay-200 duration-300 group-hover:visible group-hover:opacity-100 group-hover:mt-4">
             <li className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
               فروشگاه
             </li>
@@ -104,7 +104,7 @@ const NavbarBottom = () => {
             </li>
           </ul>
         </li>
-        <li className="flex gap-1">
+        <li className="flex gap-1 cursor-pointer">
           <span className="!text-black/60 font-bold text-[1.1rem]">
             حراج استایل
           </span>
@@ -145,7 +145,7 @@ const NavbarBottom = () => {
             </g>
           </svg>
         </li>
-        <li className="flex gap-1">
+        <li className="flex gap-1 cursor-pointer">
           <span className="!text-black/60 font-bold text-[1.1rem]">
             تماس با ما
           </span>
@@ -172,7 +172,7 @@ const NavbarBottom = () => {
             </g>
           </svg>
         </li>
-        <li className="flex gap-1">
+        <li className="flex gap-1 cursor-pointer">
           <span className="!text-black/60 font-bold text-[1.1rem]">
             درباره ما
           </span>
