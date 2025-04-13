@@ -1,10 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-        remotePatterns: [{
-            hostname: 'mehdibagheridev.ir'
-        }]
-    }
+  images: {
+    domains: ["mehdibagheridev.ir"],
+  },
 };
 
 export default nextConfig;
