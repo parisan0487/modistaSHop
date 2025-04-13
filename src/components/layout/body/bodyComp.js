@@ -5,13 +5,9 @@ import Advantages from "@/components/ui/advantages/Advantages";
 import LatestProduct from "@/components/ui/latest-product/LatestProduct";
 
 export default function BodyComp() {
-  return (
-    <div className="container">
-      {/* <BestProducts /> */}
-      {/* <NewProducts />
-      <NewSets /> */}
-      {/* <Advantages /> */}
-      {/* <LatestProduct /> */}
-    </div>
-  );
+    return (
+        <div>
+            <BestProducts />
+        </div>
+    );
 }

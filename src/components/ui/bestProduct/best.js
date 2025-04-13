@@ -113,9 +113,7 @@ export default function TopSellingProducts() {
               </div>
             </SwiperSlide>
           ))}
-        </Swiper>
-
-        <button onClick={handleNext} className="absolute right-96 w-11 h-11 bg-[#f7f7f7] rounded-2xl mb-[41px]">
+        </Swiper><button onClick={handleNext} className="absolute right-96 w-11 h-11 bg-[#f7f7f7] rounded-2xl mb-[41px]">
           <Image src="/img/slide-arrow.svg" alt="slide-arrow" width={40} height={40} />
         </button>
 
