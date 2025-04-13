@@ -65,7 +65,7 @@ const MegaMenu = () => {
   const [category, setCategory] = useState("پوشاک مردانه");
 
   return (
-    <div className="absolute top-8 right-0 w-[47rem] overflow-hidden rounded-2xl shadow-2xl flex invisible opacity-0 delay-200 duration-300 group-hover:visible group-hover:opacity-100 group-hover:mt-4">
+    <div className="absolute top-8 right-0 w-[47rem] overflow-hidden rounded-2xl shadow-lg flex invisible opacity-0 delay-200 duration-300 group-hover:visible group-hover:opacity-100 group-hover:mt-4">
       <div
         dir="rtl"
         className="w-full min-h-60 bg-white p-6 pb-16 flex flex-wrap gap-15 rounded-2xl"
@@ -81,7 +81,7 @@ const MegaMenu = () => {
                   {cate.items.map((item, index) => (
                     <li
                       key={index}
-                      className="text-[1rem] !text-zinc-500 font-bold text-right hover:!text-orange-500 cursor-pointer"
+                      className="text-[1rem] !text-zinc-500 text-right hover:!text-orange-500 cursor-pointer"
                     >
                       {item}
                     </li>

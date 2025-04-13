@@ -74,6 +74,8 @@ const SideBarBtn = () => {
   }, [category]);
 
   const openTemplateModal = () => {
+    toast.dismiss();
+
     toast(
       (t) => (
         <ul className="w-37 flex flex-col items-center gap-2">
@@ -195,7 +197,7 @@ const SideBarBtn = () => {
           <ul className="flex flex-col gap-5 items-end">
             <li
               onClick={openTemplateModal}
-              className="relative flex items-center gap-1 group"
+              className="relative flex items-center gap-1"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -203,7 +205,7 @@ const SideBarBtn = () => {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="size-5 stroke-gray-700 group-active:rotate-180 delay-200 duration-300"
+                className="size-5 stroke-gray-700"
               >
                 <path
                   strokeLinecap="round"
@@ -351,6 +353,20 @@ const SideBarBtn = () => {
               onClick={() => setCategory("پوشاک مردانه")}
               className="flex gap-1"
             >
+                <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="size-5 stroke-gray-700"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                />
+              </svg>
               <span className="!text-black/60 font-bold text-[1.1rem]">
                 دسته بندی
               </span>

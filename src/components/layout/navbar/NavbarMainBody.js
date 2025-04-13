@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import SideBarBtn from "./SideBarBtn";
+import Link from "next/link";
 
 const NavbarMainBody = () => {
   return (
@@ -26,12 +27,12 @@ const NavbarMainBody = () => {
           dir="rtl"
           type="search"
           placeholder="دنبال چی میگردی؟"
-          className="w-full h-full text-[1rem] !text-black/60 input placeholder:!text-black/50"
+          className="w-full h-full text-[1rem] !text-black/60 outline-none focus:outline-none focus:border-0 placeholder:!text-black/50"
         />
       </div>
 
       <div className="flex items-center gap-4">
-        <div className="p-3 rounded-2xl bg-[#ECECEC] flex items-center justify-center gap-2 max-[900px]:hidden">
+        <div className="p-3 rounded-2xl bg-[#ECECEC] flex items-center justify-center gap-2 max-[900px]:hidden cursor-pointer">
           <span className="font-extrabold !text-[#989898]">
             اینستاگرام مُدیستا
           </span>
@@ -63,7 +64,7 @@ const NavbarMainBody = () => {
             </g>
           </svg>
         </div>
-        <div className="p-3 rounded-2xl border border-black/20 flex items-center justify-center gap-2 max-[900px]:hidden">
+        <div className="p-3 rounded-2xl border border-black/20 flex items-center justify-center gap-2 max-[900px]:hidden cursor-pointer">
           <span className="!text-black/60 font-extrabold">دانلود اپلیکیشن</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -95,15 +96,18 @@ const NavbarMainBody = () => {
             </g>
           </svg>
         </div>
-        <Image
-          src="https://mehdibagheridev.ir/modista/wp-content/uploads/2024/12/mi-logo.svg"
-          width={30}
-          height={30}
-          alt="logo"
-          className="w-30 max-[900px]:hidden"
-        />
+        <Link href="/">
+
+          <Image
+            src="https://mehdibagheridev.ir/modista/wp-content/uploads/2024/12/mi-logo.svg"
+            width={30}
+            height={30}
+            alt="logo"
+            className="w-30 max-[900px]:hidden"
+          />
+        </Link>
       </div>
-      <SideBarBtn/>
+      <SideBarBtn />
     </div>
   );
 };
