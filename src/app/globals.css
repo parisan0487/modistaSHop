@@ -84,3 +84,7 @@ body {
     }
   }
 }
+
+@utility container {
+  @apply m-auto px-4;
+}

@@ -1,6 +1,6 @@
 import BodyComp from "@/components/layout/body/bodyComp";
 import HeaderComp from "@/components/layout/header/headerComp";
-import "./globals.css"
+import "./globals.css";
 
 export default function Home() {
   return (
