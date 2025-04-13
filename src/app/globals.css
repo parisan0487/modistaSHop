@@ -1,12 +1,5 @@
 @import "tailwindcss";
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
-}
-
 @font-face {
   font-family: "Kalameh";
   src: url("/fonts/kalameh/Kalameh-Thin.ttf") format("truetype");
@@ -71,20 +64,15 @@ body {
 }
 
 body {
-  font-family: "Kalameh", sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Kalameh", Arial, sans-serif;
+  overflow-x: hidden;
 }
 
 @layer utilities {
   .scrollbar-none {
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
-
-    &::-webkit-scrollbar {
-      display: none; /* Chrome, Safari, Opera */
-    }
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
-}
-
-@utility container {
-  @apply m-auto px-4;
 }
