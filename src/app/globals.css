@@ -76,3 +76,12 @@ body {
     -ms-overflow-style: none;
   }
 }
+
+
+@utility container {
+  @apply m-auto px-4;
+}
+
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
