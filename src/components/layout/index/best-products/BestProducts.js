@@ -119,7 +119,7 @@ export default function BestProducts() {
                     ))}
                 </Swiper>
                 <button onClick={handleNext} className="absolute right-96 w-11 h-11 bg-[#f7f7f7] rounded-2xl mb-[41px]">
-                    <Image src="/images/slide-arrow.svg" alt="slide-arrow" width={40} height={40} />
+                    <Image src="/assets/images/slide-arrow.svg" alt="slide-arrow" width={40} height={40} />
                 </button>
 
                 <div className="flex justify-end items-center mb-6 w-72 ml-12">

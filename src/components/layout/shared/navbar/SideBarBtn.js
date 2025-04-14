@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import SideBar from './SideBar';
+import SideBar from './sideBar';
 import Image from 'next/image';
 import toast from 'react-hot-toast';
 
@@ -98,7 +98,7 @@ const SideBarBtn = () => {
             ),
             {
                 duration: Infinity,
-            },
+            }
         );
     };
 
@@ -166,7 +166,7 @@ const SideBarBtn = () => {
             ),
             {
                 duration: Infinity,
-            },
+            }
         );
         setCategory('');
     };
