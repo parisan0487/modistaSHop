@@ -1,71 +1,17 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-@font-face {
-  font-family: "Kalameh";
-  src: url("/fonts/Kalameh/Kalameh-Thin.ttf") format("truetype");
-  font-weight: 100;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Kalameh";
-  src: url("/fonts/Kalameh/Kalameh-ExtraLight.ttf") format("truetype");
-  font-weight: 200;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Kalameh";
-  src: url("/fonts/Kalameh/Kalameh-Light.ttf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Kalameh";
-  src: url("/fonts/Kalameh/Kalameh-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Kalameh";
-  src: url("/fonts/Kalameh/Kalameh-Medium.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Kalameh";
-  src: url("/fonts/Kalameh/Kalameh-SemiBold.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Kalameh";
-  src: url("/fonts/Kalameh/Kalameh-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Kalameh";
-  src: url("/fonts/Kalameh/Kalameh-ExtraBold.ttf") format("truetype");
-  font-weight: 800;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Kalameh";
-  src: url("/fonts/Kalameh/Kalameh-Black.ttf") format("truetype");
-  font-weight: 900;
-  font-style: normal;
+@theme {
+    --font-kalameh: var(--local-font-kalameh);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: "Kalameh", Arial, sans-serif;
-  overflow-x: hidden;
+    @apply font-kalameh overflow-x-hidden;
+}
+
+@utility container {
+    @apply m-auto px-4;
+}
+
+@utility flex-center {
+    @apply flex items-center justify-center;
 }
