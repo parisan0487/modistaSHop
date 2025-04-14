@@ -9,7 +9,7 @@ export default function Home() {
     return (
         <div className="container bg-white items-center justify-items-center min-h-screen font-kalameh font-normal">
             <Header />
-            {/* <BestProducts /> */}
+            <BestProducts />
             {/* <NewProducts /> */}
             {/* <LatestProduct /> */}
             {/* <NewSets /> */}

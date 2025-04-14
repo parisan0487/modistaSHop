@@ -9,7 +9,7 @@ body {
 }
 
 @utility container {
-    @apply m-auto px-4;
+    @apply m-auto px-4 lg:px-24;
 }
 
 @utility flex-center {

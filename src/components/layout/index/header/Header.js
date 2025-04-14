@@ -4,12 +4,12 @@ import React from 'react';
 
 const Header = () => {
     return (
-        <div className="w-full px-4 lg:px-24 flex flex-col max-[540]:items-center gap-10 mt-20">
-            <div className="w-full flex flex-col items-end max-[540]:items-center gap-5 z-10 max-[540px]:mb-70 max-[480px]:mb-50 max-[440px]:mb-35 max-[380px]:mb-15">
-                <p className="text-4xl font-extrabold text-right max-[540]:text-center">
+        <div className="w-full flex flex-col max-[540px]:items-center gap-10 mt-20">
+            <div className="w-full flex flex-col items-end max-[540px]:items-center gap-5 z-10 max-[540px]:mb-70 max-[480px]:mb-50 max-[440px]:mb-35 max-[380px]:mb-15">
+                <p className="text-4xl font-extrabold text-right max-[540px]:text-center">
                     جدیدترین کالکشن لباس‌هـــــای <span className="text-orange-500">برنــــــــــــد</span>
                 </p>
-                <p className="text-zinc-500 mb-2 text-right max-[540]:text-center">
+                <p className="text-zinc-500 mb-2 text-right max-[540px]:text-center">
                     .لورم ایپسوم متن ساختگی با تولید سـادگی نامفهوم از صنعـت چاپ، و بـا استفاده از طراحان گرافیک است
                 </p>
                 <div className="flex gap-3">
@@ -44,7 +44,7 @@ const Header = () => {
                     />
                 </div>
                 <div className="w-1/2 max-[540px]:w-full h-90 rounded-4xl bg-orange-500 rounded-bl-none flex flex-col">
-                    <div className="w-full h-30  bg-[url('/assets/images/hreo-off-bg.jpg')] bg-cover rounded-4xl border-8 border-white ring-1 ring-white">
+                    <div className="relative -top-1 w-full h-30  bg-[url('/assets/images/hreo-off-bg.jpg')] bg-cover rounded-4xl border-8 border-white ring-white">
                         <div className="w-full h-full p-5 flex items-center justify-end gap-2 ">
                             <span className="text-3xl font-extrabold text-right">حراج بزرگ در راه است</span>
                             <span className="flex items-center font-extrabold text-[3rem] text-orange-500">
