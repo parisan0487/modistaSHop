@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import ImageSlider from './ImageSlider';
-import slideToleftI from 'assets/slide-arrow-1.svg';
+import slideToleftI from 'assets/images/slide-arrow-1.svg';
 import slideToRithI from 'assets/images/slide-arrow.svg';
 import Image from 'next/image';
 

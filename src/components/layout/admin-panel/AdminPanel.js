@@ -1,4 +1,4 @@
-import AddProductsToDB from './AddProToDB';
+import AddProductsToDB from './addProToDB';
 
 export default function AdminPanel() {
     return (
