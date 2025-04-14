@@ -8,7 +8,7 @@ const products = [
     {
         id: 2,
         title: 'کاپشن دخترانه خزدار',
-        image: '/img/sample.png',
+        image: '/images/sample.png',
         price: 2300000,
         oldPrice: 2600000,
         discount: '۱۵٪',
@@ -16,13 +16,13 @@ const products = [
     {
         id: 1,
         title: 'پلیور زنانه یقه اسکی نارنجی',
-        image: '/img/sample-orange-shirt.png',
+        image: '/images/sample-orange-shirt.png',
         price: 1500000,
     },
     {
         id: 3,
         title: 'بلوز آستین بلند بچگانه',
-        image: '/img/carousel-slide.png',
+        image: '/images/carousel-slide.png',
         price: 900000,
         oldPrice: 1050000,
         discount: '۱۰٪',
@@ -30,7 +30,7 @@ const products = [
     {
         id: 4,
         title: 'بلوز آستین بلند بچگانه',
-        image: '/img/sample-orange-shirt.png',
+        image: '/images/sample-orange-shirt.png',
         price: 900000,
         oldPrice: 1050000,
         discount: '۱۰٪',
@@ -63,7 +63,7 @@ export default function BestProducts() {
         <div className="w-full max-w-7xl mx-auto px-6 py-10 ml-10">
             <div className="relative flex items-center justify-between gap-20">
                 <button onClick={handlePrev} className="absolute -left-20 w-11 h-11 bg-[#f7f7f7] rounded-2xl mb-[41px]">
-                    <Image src="/img/slide-arrow-1.svg" alt="slide-arrow" width={40} height={40} />
+                    <Image src="/images/slide-arrow-1.svg" alt="slide-arrow" width={40} height={40} />
                 </button>
 
                 <Swiper spaceBetween={1} slidesPerView={3} loop grabCursor ref={swiperRef} slidesPerGroup={1}>
@@ -71,7 +71,7 @@ export default function BestProducts() {
                         <SwiperSlide key={product.id}>
                             <div className="w-56 h-[280px] rounded-2xl p-4 bg-[#f7f7f7] flex flex-col justify-between">
                                 <div className="relative w-full h-[200px] flex justify-center items-center">
-                                    <div className="absolute inset-0 bg-[url('/img/hero-bg.svg')] bg-contain bg-no-repeat bg-center brightness-75" />
+                                    <div className="absolute inset-0 bg-[url('/images/hero-bg.svg')] bg-contain bg-no-repeat bg-center brightness-75" />
                                     <Image
                                         src={product.image}
                                         alt={product.title || 'محصول'}
@@ -84,7 +84,7 @@ export default function BestProducts() {
                                 <div className="flex justify-between items-center" dir="rtl">
                                     <button className="bg-white p-2 rounded-xl shadow hover:bg-gray-100 transition">
                                         <Image
-                                            src="/img/basket-48.png"
+                                            src="/images/basket-48.png"
                                             alt="افزودن به سبد"
                                             width={20}
                                             height={20}
@@ -119,7 +119,7 @@ export default function BestProducts() {
                     ))}
                 </Swiper>
                 <button onClick={handleNext} className="absolute right-96 w-11 h-11 bg-[#f7f7f7] rounded-2xl mb-[41px]">
-                    <Image src="/img/slide-arrow.svg" alt="slide-arrow" width={40} height={40} />
+                    <Image src="/assets/images/slide-arrow.svg" alt="slide-arrow" width={40} height={40} />
                 </button>
 
                 <div className="flex justify-end items-center mb-6 w-72 ml-12">
@@ -146,21 +146,21 @@ export default function BestProducts() {
 
                                 <div className="relative flex h-full gap-0 mb-16 mr-28">
                                     <Image
-                                        src="/img/Ellipse-11.png"
+                                        src="/images/Ellipse-11.png"
                                         className="w-[52px] z-10"
                                         width={49}
                                         height={49}
                                         alt="تصویر ۱"
                                     />
                                     <Image
-                                        src="/img/Ellipse-13.png"
+                                        src="/images/Ellipse-13.png"
                                         className="w-[52px] absolute left-[30px] z-20"
                                         width={49}
                                         height={49}
                                         alt="تصویر ۲"
                                     />
                                     <Image
-                                        src="/img/Ellipse-12.png"
+                                        src="/images/Ellipse-12.png"
                                         className="w-[52px] absolute left-[60px] z-30"
                                         width={49}
                                         height={49}
