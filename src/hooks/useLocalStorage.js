@@ -1,7 +1,6 @@
-"use client";
 import { useEffect, useState } from "react";
 
-const localStore = (key, initialValue) => {
+const useLocalStore = (key, initialValue) => {
   const [state, setState] = useState(null);
   const [isPending, setIsPending] = useState(true);
 
@@ -32,4 +31,4 @@ const localStore = (key, initialValue) => {
   return [state, handleSetState, isPending];
 };
 
-export default localStore;
+export default useLocalStore;

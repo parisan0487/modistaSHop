@@ -1,9 +1,9 @@
 "use client";
 import React, { useEffect } from "react";
-import localStore from "../../../../utils/localStore";
+import useLocalStore from "@/hooks/useLocalStorage";
 
 const SideBar = ({ children, sideBarName, cls = "" }) => {
-  const [sideFlag, setSideFlag] = localStore(sideBarName, false);
+  const [sideFlag, setSideFlag] = useLocalStore(sideBarName, false);
 
   useEffect(() => {
     const closeSideBarHandler = (e) => {

@@ -1,5 +1,4 @@
 import BodyComp from "@/components/layout/body/bodyComp";
-import "./globals.css";
 import Header from "@/components/layout/header/Header";
 
 export default function Home() {
