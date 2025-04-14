@@ -131,9 +131,23 @@ export default function BestProducts() {
 
                         <div className="flex flex-col items-end leading-tight">
                             <div className="flex items-center w-[305px] mx-auto">
-                                <div className="flex-grow border-t border-[#F7F7F7]" />
-                                <span className="text-orange-500 text-3xl mx-2">★</span>
-                                <div className="flex-grow border-t border-[#F7F7F7]" />
+                                <div className="flex-grow border-t border-gray-200" />
+                                <span className="text-orange-500 text-3xl mx-2">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="23"
+                                        height="23"
+                                        viewBox="0 0 23 23"
+                                        fill="none"
+                                    >
+                                        <path
+                                            id="Star 1"
+                                            d="M11.5 0C11.5 0 12.1345 5.92243 14.606 8.39396C17.0776 10.8655 23 11.5 23 11.5C23 11.5 17.0776 12.1345 14.606 14.606C12.1345 17.0776 11.5 23 11.5 23C11.5 23 10.8655 17.0776 8.39396 14.606C5.92243 12.1345 0 11.5 0 11.5C0 11.5 5.92243 10.8655 8.39396 8.39396C10.8655 5.92243 11.5 0 11.5 0Z"
+                                            fill="#FD5504"
+                                        ></path>
+                                    </svg>
+                                </span>
+                                <div className="flex-grow border-t border-gray-200" />
                             </div>
 
                             <div className="flex items-center gap-5 mt-5">
