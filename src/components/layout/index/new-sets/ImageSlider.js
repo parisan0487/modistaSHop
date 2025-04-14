@@ -11,12 +11,10 @@ export default function ImageSlider({ items }) {
     return (
         <Link href={`http://localhost:3000/product/${id}`}>
             <div className="relative w-[20rem] md:w-[25rem] h-[34rem] rounded-3xl overflow-hidden shadow-[0_0_32px_#ffffff]">
-                {/* تصویر اصلی */}
                 <Image src={images[selectedIndex]} alt={name} className="object-cover" fill />
 
                 <div className="absolute bottom-0 left-0 right-0 h-60 bg-gradient-to-t from-black/80 to-transparent z-10" />
 
-                {/* تصاویر کوچک پایین */}
                 <div className="absolute bottom-4 left-0 right-0 px-4 flex justify-center z-20">
                     {images.map((img, idx) => (
                         <div
@@ -33,8 +31,8 @@ export default function ImageSlider({ items }) {
                                 height={48}
                                 className="object-cover w-full h-full"
                                 onClick={(e) => {
-                                    e.stopPropagation(); // جلوی انتشار رویداد رو می‌گیری
-                                    e.preventDefault(); // جلوی عملکرد لینک رو می‌گیری (برای اطمینان)
+                                    e.stopPropagation();
+                                    e.preventDefault();
                                     setSelectedIndex(idx);
                                 }}
                             />
