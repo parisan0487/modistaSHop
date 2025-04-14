@@ -38,7 +38,7 @@ const NavbarBottom = () => {
                     >
                         <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                     </svg>
-                    <span className="!text-black/60 font-bold text-[1.1rem]">صفحات قالب</span>
+                    <span className="!text-black/60 text-[1.1rem]">صفحات قالب</span>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="Broken / Money / Tag">
                             <path
@@ -89,7 +89,7 @@ const NavbarBottom = () => {
                     </ul>
                 </li>
                 <li className="flex gap-1 cursor-pointer">
-                    <span className="!text-black/60 font-bold text-[1.1rem]">حراج استایل</span>
+                    <span className="!text-black/60 text-[1.1rem]">حراج استایل</span>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="Broken / Money / Tag">
                             <path
@@ -122,7 +122,7 @@ const NavbarBottom = () => {
                     </svg>
                 </li>
                 <li className="flex gap-1 cursor-pointer">
-                    <span className="!text-black/60 font-bold text-[1.1rem]">تماس با ما</span>
+                    <span className="!text-black/60 text-[1.1rem]">تماس با ما</span>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="Broken / Nature, Travel / Fire Minimalistic">
                             <path
@@ -141,7 +141,7 @@ const NavbarBottom = () => {
                     </svg>
                 </li>
                 <li className="flex gap-1 cursor-pointer">
-                    <span className="!text-black/60 font-bold text-[1.1rem]">درباره ما</span>
+                    <span className="!text-black/60 text-[1.1rem]">درباره ما</span>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="Broken / Nature, Travel / Fire Minimalistic">
                             <path
@@ -170,7 +170,7 @@ const NavbarBottom = () => {
                     >
                         <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                     </svg>
-                    <span className="!text-black/60 font-bold text-[1.1rem]">دسته بندی</span>
+                    <span className="!text-black/60 text-[1.1rem]">دسته بندی</span>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="Broken / Settings, Fine Tuning / Widget 5">
                             <path
