@@ -1,24 +1,18 @@
-"use client"
+'use client';
 
-import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function ImageSlider({ items }) {
     const { id, name, images } = items;
     const [selectedIndex, setSelectedIndex] = useState(0);
 
     return (
-        <Link href={`http://localhost:3000/product/${id}`} >
+        <Link href={`http://localhost:3000/product/${id}`}>
             <div className="relative w-[20rem] md:w-[25rem] h-[34rem] rounded-3xl overflow-hidden shadow-[0_0_32px_#ffffff]">
-
                 {/* تصویر اصلی */}
-                <Image
-                    src={images[selectedIndex]}
-                    alt={name}
-                    className="object-cover"
-                    fill
-                />
+                <Image src={images[selectedIndex]} alt={name} className="object-cover" fill />
 
                 <div className="absolute bottom-0 left-0 right-0 h-60 bg-gradient-to-t from-black/80 to-transparent z-10" />
 
@@ -28,8 +22,9 @@ export default function ImageSlider({ items }) {
                         <div
                             key={idx}
                             onClick={() => setSelectedIndex(idx)}
-                            className={`w-24 h-22 rounded-xl mx-1 overflow-hidden cursor-pointer ${idx === selectedIndex ? "opacity-100" : "opacity-80"
-                                }`}
+                            className={`w-24 h-22 rounded-xl mx-1 overflow-hidden cursor-pointer ${
+                                idx === selectedIndex ? 'opacity-100' : 'opacity-80'
+                            }`}
                         >
                             <Image
                                 src={img}

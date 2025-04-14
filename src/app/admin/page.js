@@ -1,9 +1,9 @@
-import AdminPanel from "@/components/layout/admin-panel/AdminPanel";
+import AdminPanel from '@/components/layout/admin-panel/AdminPanel';
 
 export default function AdminPage() {
-  return (
-    <div>
-      <AdminPanel />
-    </div>
-  );
+    return (
+        <div>
+            <AdminPanel />
+        </div>
+    );
 }

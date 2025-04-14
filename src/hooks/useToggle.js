@@ -1,35 +1,35 @@
-"use client";
-import { useCallback, useEffect, useState } from "react";
+'use client';
+import { useCallback, useEffect, useState } from 'react';
 
 const useToggle = () => {
-  const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
-  const toggleOpen = (event) => {
-    event?.stopPropagation();
-    setIsOpen((prevIsOpen) => !(prevIsOpen ?? false));
-  };
-
-  const close = useCallback(() => {
-    setIsOpen(false);
-  }, [setIsOpen]);
-
-  useEffect(() => {
-    const handleClickOutside = () => {
-      close();
+    const toggleOpen = (event) => {
+        event?.stopPropagation();
+        setIsOpen((prevIsOpen) => !(prevIsOpen ?? false));
     };
 
-    if (isOpen) {
-      window.addEventListener("click", handleClickOutside);
-    } else {
-      window.removeEventListener("click", handleClickOutside);
-    }
+    const close = useCallback(() => {
+        setIsOpen(false);
+    }, [setIsOpen]);
 
-    return () => {
-      window.removeEventListener("click", handleClickOutside);
-    };
-  }, [isOpen, close]);
+    useEffect(() => {
+        const handleClickOutside = () => {
+            close();
+        };
 
-  return [isOpen ?? false, toggleOpen];
+        if (isOpen) {
+            window.addEventListener('click', handleClickOutside);
+        } else {
+            window.removeEventListener('click', handleClickOutside);
+        }
+
+        return () => {
+            window.removeEventListener('click', handleClickOutside);
+        };
+    }, [isOpen, close]);
+
+    return [isOpen ?? false, toggleOpen];
 };
 
 export default useToggle;

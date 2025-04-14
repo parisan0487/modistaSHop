@@ -1,34 +1,34 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const useLocalStore = (key, initialValue) => {
-  const [state, setState] = useState(null);
-  const [isPending, setIsPending] = useState(true);
+    const [state, setState] = useState(null);
+    const [isPending, setIsPending] = useState(true);
 
-  const handleSetState = (value) => {
-    localStorage.setItem(key, JSON.stringify(value));
-    setState(value);
-  };
+    const handleSetState = (value) => {
+        localStorage.setItem(key, JSON.stringify(value));
+        setState(value);
+    };
 
-  useEffect(() => {
-    const storedValue = localStorage.getItem(key);
-    let value;
+    useEffect(() => {
+        const storedValue = localStorage.getItem(key);
+        let value;
 
-    try {
-      value = storedValue ? JSON.parse(storedValue) : initialValue;
-    } catch (e) {
-      value = initialValue;
-    }
+        try {
+            value = storedValue ? JSON.parse(storedValue) : initialValue;
+        } catch (e) {
+            value = initialValue;
+        }
 
-    if (value === null || value === undefined) {
-      localStorage.setItem(key, JSON.stringify(initialValue));
-      value = initialValue;
-    }
+        if (value === null || value === undefined) {
+            localStorage.setItem(key, JSON.stringify(initialValue));
+            value = initialValue;
+        }
 
-    setState(value);
-    setIsPending(false);
-  }, [key, initialValue]);
+        setState(value);
+        setIsPending(false);
+    }, [key, initialValue]);
 
-  return [state, handleSetState, isPending];
+    return [state, handleSetState, isPending];
 };
 
 export default useLocalStore;
