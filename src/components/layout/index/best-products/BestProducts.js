@@ -44,7 +44,7 @@ const toPersianDigits = (num) => {
     .replace(/\B(?=(\d{3})+(?!\d))/g, "٬");
 };
 
-export default function TopSellingProducts() {
+export default function BestProducts() {
   const swiperRef = useRef(null);
 
   const handleNext = () => {

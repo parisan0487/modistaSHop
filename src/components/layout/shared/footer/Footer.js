@@ -6,7 +6,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-const FooterComp = () => {
+const Footer = () => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
@@ -133,10 +133,7 @@ const FooterComp = () => {
             <li className="!text-black/60 font-bold">درباره ما</li>
           </ul>
         </div>
-        <div
-          dir="rtl"
-          className="w-2/5 flex flex-col gap-4 max-[1280px]:w-full max-[1280px]:items-center"
-        >
+        <div dir="rtl" className="w-2/5 flex flex-col gap-4 max-[1280px]:w-full max-[1280px]:items-center">
           <Image
             src="https://mehdibagheridev.ir/modista/wp-content/uploads/2024/12/mi-favicon.svg"
             width={10}
@@ -145,12 +142,10 @@ const FooterComp = () => {
             className="size-14"
           />
           <span className="text-[1rem] !text-black/50 font-bold mb-4">
-            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
-            استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در
-            ستون و سطرآنچنان که لازم است، و برای شرایط فعلی شصت و سه درصد گذشته
-            حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم
-            افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان
-            خلاقی.
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون
+            بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی شصت و سه درصد گذشته حال و آینده،
+            شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص
+            طراحان خلاقی.
           </span>
 
           <div dir="rtl" className="relative w-full max-w-5xl mx-auto px-14">
@@ -166,11 +161,7 @@ const FooterComp = () => {
                 stroke="#fff"
                 strokeWidth={2}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 5l7 7-7 7"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>
             </button>
 
@@ -186,11 +177,7 @@ const FooterComp = () => {
                 stroke="#fff"
                 strokeWidth={2}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15 19l-7-7 7-7"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
               </svg>
             </button>
 
@@ -233,9 +220,7 @@ const FooterComp = () => {
         <div className="flex flex-col md:flex-row justify-center items-center text-center md:text-right gap-6 md:gap-0 max-w-6xl mx-auto">
           <div className="px-6 md:px-10 md:border-l md:border-white/30">
             <p className="font-bold mb-2 !text-white/70"> آدرس فروشگاه:</p>
-            <p className="!text-white">
-              تهران، خیابان کارگر جنوبی، کوچه نیکوکار، پلاک ۱۲
-            </p>
+            <p className="!text-white">تهران، خیابان کارگر جنوبی، کوچه نیکوکار، پلاک ۱۲</p>
           </div>
 
           <div className="px-6 md:px-10 md:border-l md:border-white/30">
@@ -256,12 +241,10 @@ const FooterComp = () => {
       </div>
 
       <div dir="rtl" className="w-full text-center">
-        <p className="!text-black/50 font-bold">
-          این فروشگاه متعلق به تیم فروشگاهی میباشد و حقوق آن محفوظ است.
-        </p>
+        <p className="!text-black/50 font-bold">این فروشگاه متعلق به تیم فروشگاهی میباشد و حقوق آن محفوظ است.</p>
       </div>
     </div>
   );
 };
 
-export default FooterComp;
+export default Footer;

@@ -1,9 +1,9 @@
-import RegisterComp from "@/components/layout/register/registerComp";
+import Register from "@/components/layout/register/Register";
 
 export default async function Register() {
   return (
     <div>
-      <RegisterComp />
+      <Register />
     </div>
   );
 }

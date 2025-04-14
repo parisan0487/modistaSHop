@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import SideBar from "./sideBar";
+import SideBar from "./SideBar";
 import Image from "next/image";
 import toast from "react-hot-toast";
 

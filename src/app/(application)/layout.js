@@ -1,4 +1,4 @@
-import FooterComp from "@/components/layout/shared/footer/footerComp";
+import Footer from "@/components/layout/shared/footer/Footer";
 import Navbar from "@/components/layout/shared/navbar/Navbar";
 
 function ApplicationLayout({ children }) {
@@ -6,7 +6,7 @@ function ApplicationLayout({ children }) {
     <>
       <Navbar />
       {children}
-      <FooterComp />
+      <Footer />
     </>
   );
 }
