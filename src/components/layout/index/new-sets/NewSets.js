@@ -10,37 +10,72 @@ const products = [
     {
         id: '1',
         name: 'کفش پیاده‌روی نایک',
-        images: ['/images/pic5.jpg', '/images/pic2.jpg', '/images/pic3.jpg', '/images/pic4.jpg'],
+        images: [
+            '/assets/images/pic5.jpg',
+            '/assets/images/pic2.jpg',
+            '/assets/images/pic3.jpg',
+            '/assets/images/pic4.jpg',
+        ],
     },
     {
         id: '7',
         name: ' پیاده‌روی نایک',
-        images: ['/images/pic5.jpg', '/images/pic2.jpg', '/images/pic3.jpg', '/images/pic4.jpg'],
+        images: [
+            '/assets/images/pic5.jpg',
+            '/assets/images/pic2.jpg',
+            '/assets/images/pic3.jpg',
+            '/assets/images/pic4.jpg',
+        ],
     },
     {
         id: '2',
         name: 'هدفون بی‌سیم سونی',
-        images: ['/images/pic2.jpg', '/images/pic1.jpg', '/images/pic3.jpg', '/images/pic4.jpg'],
+        images: [
+            '/assets/images/pic2.jpg',
+            '/assets/images/pic1.jpg',
+            '/assets/images/pic3.jpg',
+            '/assets/images/pic4.jpg',
+        ],
     },
     {
         id: '3',
         name: 'ژاکت',
-        images: ['/images/pic3.jpg', '/images/pic2.jpg', '/images/pic1.jpg', '/images/pic4.jpg'],
+        images: [
+            '/assets/images/pic3.jpg',
+            '/assets/images/pic2.jpg',
+            '/assets/images/pic1.jpg',
+            '/assets/images/pic4.jpg',
+        ],
     },
     {
         id: '4',
         name: 'کاپشن زمستانی مردانه',
-        images: ['/images/pic4.jpg', '/images/pic2.jpg', '/images/pic3.jpg', '/images/pic1.jpg'],
+        images: [
+            '/assets/images/pic4.jpg',
+            '/assets/images/pic2.jpg',
+            '/assets/images/pic3.jpg',
+            '/assets/images/pic1.jpg',
+        ],
     },
     {
         id: '5',
         name: 'کیف چرمی دست‌دوز',
-        images: ['/images/pic1.jpg', '/images/pic2.jpg', '/images/pic3.jpg', '/images/pic4.jpg'],
+        images: [
+            '/assets/images/pic1.jpg',
+            '/assets/images/pic2.jpg',
+            '/assets/images/pic3.jpg',
+            '/assets/images/pic4.jpg',
+        ],
     },
     {
         id: '6',
         name: 'کیف  دست‌دوز',
-        images: ['/images/pic2.jpg', '/images/pic1.jpg', '/images/pic3.jpg', '/images/pic4.jpg'],
+        images: [
+            '/assets/images/pic2.jpg',
+            '/assets/images/pic1.jpg',
+            '/assets/images/pic3.jpg',
+            '/assets/images/pic4.jpg',
+        ],
     },
 ];
 
