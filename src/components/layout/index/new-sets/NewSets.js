@@ -70,7 +70,7 @@ const NewSets = () => {
   return (
     <div className="flex flex-col items-center justify-center text-[#2D2929] min-w-full my-12 bg-[#F7F7F7]">
       <h2 className="text-2xl">
-        <span className="font-[900]">جدیدترین</span> ست‌ها
+        <span className="font-black">جدیدترین</span> ست‌ها
       </h2>
 
       <div className="flex items-center justify-center w-1/3 my-6">

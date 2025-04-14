@@ -7,7 +7,7 @@ import LatestProduct from "@/components/layout/index/latest-products/LatestProdu
 
 export default function Home() {
   return (
-    <div className="container bg-[#ffffff] font-[400]  items-center justify-items-center min-h-screen  font-[family-name:var(--font-kalameh)]">
+    <div className="container bg-white items-center justify-items-center min-h-screen font-kalameh font-normal">
       <Header />
       <BestProducts />
       <NewProducts />

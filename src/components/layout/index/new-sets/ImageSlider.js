@@ -49,7 +49,7 @@ export default function ImageSlider({ items }) {
 
                 {/* عنوان محصول */}
                 <div className="absolute bottom-32 right-4 text-white text-sm py-1 rounded-lg z-20">
-                    <h3 className="font-[600] text-xl mx-2">{name}</h3>
+                    <h3 className="font-semibold text-xl mx-2">{name}</h3>
                 </div>
             </div>
         </Link>

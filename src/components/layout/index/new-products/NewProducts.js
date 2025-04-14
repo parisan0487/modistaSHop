@@ -84,7 +84,7 @@ const NewProducts = () => {
     return (
         <div className='flex flex-col items-center justify-center text-[#2D2929] w-full my-2'>
             <h2 className='text-2xl'>
-                <span className='font-[900]'>جدیدترین</span> محصولات </h2>
+                <span className='font-black'>جدیدترین</span> محصولات </h2>
 
             <div className="flex items-center justify-center w-1/3 my-6">
                 <span className="h-px flex-grow bg-gray-200"></span>

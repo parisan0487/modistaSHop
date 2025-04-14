@@ -21,7 +21,7 @@ function ProductCard({ data }) {
                 </div>
             </div>
             {/* decription */}
-            <h2 className="mt-2 mb-3 font-[600] text-center text-[#595959]">{name}</h2>
+            <h2 className="mt-2 mb-3 font-semibold text-center text-[#595959]">{name}</h2>
             <div className="flex flex-row w-full">
                 <Link href={`http://localhost:3000/product/${id}`} className="w-full flex items-center mx-4">
                     <div className="bg-[#ffff] hover:bg-[#FD5504] p-3 rounded-2xl group">
@@ -43,12 +43,12 @@ function ProductCard({ data }) {
                     </div>
                 </Link>
                 <div className="flex flex-col">
-                    <div className="flex flex-row mx-4 font-[300] items-center gap-1">
+                    <div className="flex flex-row mx-4 font-light items-center gap-1">
                         <p className="text-[#AAAAAA] line-through">{price.toLocaleString('fa-IR')}</p>
                         <span className="text-slate-50 text-sm bg-[#FD5504] rounded-md text-center p-[2px]">{discountPercent}%</span>
                     </div>
 
-                    <div className="font-[700] flex flex-row mt-3 text-center items-center">
+                    <div className="font-bold flex flex-row mt-3 text-center items-center">
                         <h3 className="font-bold text-xl">
                             {finalPrice.toLocaleString('fa-IR')}
                         </h3>
