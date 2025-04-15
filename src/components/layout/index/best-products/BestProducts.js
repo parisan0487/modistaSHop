@@ -30,7 +30,7 @@ const products = [
     {
         id: 4,
         title: 'بلوز آستین بلند بچگانه',
-        image: '/assets/images/sample-orange-shirt.png',
+        image: '/assets/images/carousel-slide.png',
         price: 900000,
         oldPrice: 1050000,
         discount: '۱۰٪',
