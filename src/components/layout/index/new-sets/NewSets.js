@@ -1,114 +1,111 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 import ImageSlider from './ImageSlider';
 import slideToleftI from 'assets/images/slide-arrow-1.svg';
 import slideToRithI from 'assets/images/slide-arrow.svg';
-import Image from 'next/image';
 
 const products = [
     {
         id: '1',
-        name: 'کفش پیاده‌روی نایک',
+        name: 'کیف وزشی مدل مارتن',
         images: [
-            '/assets/images/pic5.jpg',
-            '/assets/images/pic2.jpg',
-            '/assets/images/pic3.jpg',
-            '/assets/images/pic4.jpg',
-        ],
-    },
-    {
-        id: '7',
-        name: ' پیاده‌روی نایک',
-        images: [
-            '/assets/images/pic5.jpg',
-            '/assets/images/pic2.jpg',
-            '/assets/images/pic3.jpg',
-            '/assets/images/pic4.jpg',
+            '/assets/images/bag-1.jpg',
+            '/assets/images/bag-2.jpg',
+            '/assets/images/bag-3.jpg',
+            '/assets/images/bag-2.jpg',
+
         ],
     },
     {
         id: '2',
-        name: 'هدفون بی‌سیم سونی',
+        name: 'ست بلوز و شلوار زنانه',
         images: [
-            '/assets/images/pic2.jpg',
-            '/assets/images/pic1.jpg',
-            '/assets/images/pic3.jpg',
-            '/assets/images/pic4.jpg',
+            '/assets/images/bloz-1.jpg',
+            '/assets/images/bloz-2.jpg',
+            '/assets/images/bloz-3.jpg',
+            '/assets/images/bloz-4.jpg',
+
         ],
     },
     {
         id: '3',
-        name: 'ژاکت',
+        name: 'کاپشن زنانه مدل کاد',
         images: [
-            '/assets/images/pic3.jpg',
-            '/assets/images/pic2.jpg',
-            '/assets/images/pic1.jpg',
-            '/assets/images/pic4.jpg',
+            '/assets/images/capshan-1.jpg',
+            '/assets/images/capshan-2.jpg',
+            '/assets/images/capshan-3.jpg',
+            '/assets/images/capshan-4.jpg',
+
         ],
     },
     {
         id: '4',
-        name: 'کاپشن زمستانی مردانه',
+        name: 'کاپشن زمستانی مدل تالای',
         images: [
-            '/assets/images/pic4.jpg',
-            '/assets/images/pic2.jpg',
-            '/assets/images/pic3.jpg',
-            '/assets/images/pic1.jpg',
+            '/assets/images/talay-3.jpg',
+            '/assets/images/talay-2.jpg',
+            '/assets/images/talay-1.jpg',
+            '/assets/images/talay-4.jpg',
+
         ],
     },
     {
         id: '5',
-        name: 'کیف چرمی دست‌دوز',
+        name: ' کفش ورزشی',
         images: [
-            '/assets/images/pic1.jpg',
-            '/assets/images/pic2.jpg',
-            '/assets/images/pic3.jpg',
-            '/assets/images/pic4.jpg',
+            '/assets/images/shoe-4.webp',
+            '/assets/images/shoe-2.jpg',
+            '/assets/images/shoe-1.jpg',
+            '/assets/images/shoe-3.jpg',
+
         ],
     },
-    {
-        id: '6',
-        name: 'کیف  دست‌دوز',
-        images: [
-            '/assets/images/pic2.jpg',
-            '/assets/images/pic1.jpg',
-            '/assets/images/pic3.jpg',
-            '/assets/images/pic4.jpg',
-        ],
-    },
+
 ];
-
-const VISIBLE_COUNT = 5;
-
 const NewSets = () => {
     const [centerIndex, setCenterIndex] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
 
-    const handlePrev = () => {
-        setCenterIndex((prev) => (prev > 0 ? prev - 1 : products.length - 1));
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 968);
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const goPrev = () => {
+        setCenterIndex((prev) => (prev === 0 ? products.length - 1 : prev - 1));
     };
 
-    const handleNext = () => {
-        setCenterIndex((prev) => (prev < products.length - 1 ? prev + 1 : 0));
+    const goNext = () => {
+        setCenterIndex((prev) => (prev === products.length - 1 ? 0 : prev + 1));
     };
 
     const getVisibleItems = () => {
-        const half = Math.floor(VISIBLE_COUNT / 2);
+        const range = isMobile ? 1 : 2;
         const result = [];
-        for (let i = -half; i <= half; i++) {
+        for (let i = -range; i <= range; i++) {
             const index = (centerIndex + i + products.length) % products.length;
-            result.push({ ...products[index], position: i, realIndex: index });
+            result.push({ ...products[index], isCenter: i === 0 });
         }
         return result;
     };
 
+    const visibleItems = getVisibleItems();
+
     return (
-        <div className="flex flex-col items-center justify-center text-[#2D2929] min-w-full my-12 bg-[#F7F7F7]">
-            <h2 className="text-2xl">
+        <div className="flex flex-col items-center py-10 bg-[#F7F7F7] text-[#2D2929] w-full">
+            <h2 className="text-2xl mt-8">
                 <span className="font-black">جدیدترین</span> ست‌ها
             </h2>
-
-            <div className="flex items-center justify-center w-1/3 my-6">
+            <div className="flex items-center justify-center w-1/3 my-2">
                 <span className="h-px flex-grow bg-gray-200"></span>
                 <span className="mx-4">
                     <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
@@ -121,48 +118,42 @@ const NewSets = () => {
                 <span className="h-px flex-grow bg-gray-200"></span>
             </div>
 
-            <div className="relative w-full max-w-[1100px] flex items-center justify-center my-8">
-                {/* دکمه قبلی */}
-                <button onClick={handlePrev} className="absolute left-4 z-50 p-3 bg-white rounded-xl shadow-md">
+            <div className="relative w-full max-w-[1300px] flex items-center justify-center mt-12">
+                <button
+                    onClick={goPrev}
+                    className="absolute left-2 z-10 bg-white p-2 rounded-xl shadow cursor-pointer"
+                >
                     <Image src={slideToleftI} alt="prev" width={24} height={24} />
                 </button>
 
-                {/* دکمه بعدی */}
-                <button onClick={handleNext} className="absolute right-4 z-50 p-3 bg-white rounded-xl shadow-md">
+                <div className="flex gap-6 items-center overflow-hidden">
+                    {visibleItems.map((item) => (
+                        <div
+                            key={item.id}
+                            className={`transition-all duration-400 ${item.isCenter ? 'md:w-[400px]' : 'w-[20rem]'
+                                }`}
+                        >
+                            {item.isCenter ? (
+                                <ImageSlider items={item} />
+                            ) : (
+                                <Image
+                                    src={item.images[0]}
+                                    alt={item.name}
+                                    width={100}
+                                    height={140}
+                                    className="object-cover rounded-xl w-[20rem] h-[27rem] md:h-[34rem]"
+                                />
+                            )}
+                        </div>
+                    ))}
+                </div>
+
+                <button
+                    onClick={goNext}
+                    className="absolute right-2 z-10 bg-white p-2 rounded-xl shadow cursor-pointer"
+                >
                     <Image src={slideToRithI} alt="next" width={24} height={24} />
                 </button>
-
-                {/* نمایش عکس‌ها */}
-                <div className="relative flex flex-row items-center justify-center h-[34rem] w-full overflow-hidden ">
-                    {getVisibleItems().map(({ id, images, name, position, realIndex }) => {
-                        const zIndex = position === 0 ? 30 : 10;
-                        const translateX = position * 13;
-
-                        return (
-                            <div
-                                key={id}
-                                onClick={() => setCenterIndex(realIndex)}
-                                className="absolute transition-all duration-500 ease-in-out cursor-pointer "
-                                style={{
-                                    transform: `translateX(${translateX}rem)`,
-                                    zIndex,
-                                }}
-                            >
-                                {position === 0 ? (
-                                    <ImageSlider items={{ id, images, name }} />
-                                ) : (
-                                    <Image
-                                        src={images[0]}
-                                        alt={name}
-                                        width={240}
-                                        height={544}
-                                        className="object-cover rounded-3xl w-[12rem] h-[34rem]"
-                                    />
-                                )}
-                            </div>
-                        );
-                    })}
-                </div>
             </div>
         </div>
     );

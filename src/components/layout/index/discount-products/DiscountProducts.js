@@ -100,9 +100,7 @@ const DiscountProducts = () => {
                 />
                 <div className="z-10 flex flex-col items-center justify-center">
                     <h3 className='text-[#FD5504] text-3xl font-[800] mt-10 mx-5'>تخفیف های شگفت انگیز</h3>
-                    <Link href={""} className="text-md text-nowrap  border rounded-2xl text-center px-6  py-3 mt-3 text-[#BABABA] font-[500] cursor-pointer">
-                        مشاهدهٔ همه
-                    </Link>
+
                 </div>
             </ div>
             <section className="rounded-3xl py-6 mb-[12rem] mt-8 xl:w-[95rem] lg:w-[78rem] w-[48rem] md:w-[60rem] flex flex-col-reverse md:flex-row px-22 ">
@@ -194,6 +192,9 @@ const DiscountProducts = () => {
                     </div>
                 </div>
             </section >
+            <Link href={""} className="text-md block md:hidden text-nowrap  border rounded-2xl text-center px-6  py-3 mt-3 mb-12 text-[#BABABA] font-[500] cursor-pointer">
+                مشاهدهٔ همه
+            </Link>
         </>
     )
 }
