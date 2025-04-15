@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import ProductCard from './ProductCard';
+import PCard from './PCard';
 
 const products = [
     {
@@ -78,7 +78,7 @@ const products = [
 
 const NewProducts = () => {
     return (
-        <div className="flex flex-col items-center justify-center text-[#2D2929] w-full my-2">
+        <div className="flex flex-col items-center justify-center text-[#2D2929] w-full my-2 ">
             <h2 className="text-2xl">
                 <span className="font-black">جدیدترین</span> محصولات{' '}
             </h2>
@@ -98,7 +98,7 @@ const NewProducts = () => {
             </div>
             <div className="flex flex-row items-center justify-center  gap-3 w-full overflow-x-scroll scrollbar-none">
                 {products.map((item) => (
-                    <ProductCard key={item.id} data={item} />
+                    <PCard key={item.id} data={item} />
                 ))}
             </div>
         </div>

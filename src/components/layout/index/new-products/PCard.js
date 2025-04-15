@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
-function ProductCard({ data }) {
+function PCard({ data }) {
     const { id, name, images, price, discountPercent, finalPrice } = data;
     const [mainImage, setMainImage] = useState(images[0]);
 
@@ -78,4 +78,4 @@ function ProductCard({ data }) {
     );
 }
 
-export default ProductCard;
+export default PCard;
