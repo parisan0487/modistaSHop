@@ -55,8 +55,8 @@ const Header = () => {
                                 </span>
                             </span>
                         </div>
-                        <div className="w-full p-6 flex max-[700px]:flex-col items-center justify-end">
-                            <div className="text-[5rem] max-[700px]:text-[3rem] text-white font-semibold flex items-center gap-3 z-10">
+                        <div className="w-full p-6 flex max-[1024px]:flex-col items-center justify-end">
+                            <div className="text-[5rem] max-[1024px]:text-[3rem] text-white font-semibold flex items-center gap-3 z-10">
                                 <span>2.5K</span>
                                 <div className="size-12 rounded-full ring-2 ring-white flex items-center justify-center bg-zinc-700">
                                     <svg
@@ -75,8 +75,38 @@ const Header = () => {
                                     </svg>
                                 </div>
                             </div>
-                            <div className="flex flex-col items-end z-10">
-                                <div className="text-[5rem] max-[700px]:text-[3rem] text-white font-semibold flex items-center gap-3">
+                            <div className="relative hidden max-[1024px]:flex h-full gap-12">
+                                <Image
+                                    src="/assets/images/Ellipse-32.png"
+                                    className="w-[52px] absolute left-[30px] z-20"
+                                    width={49}
+                                    height={49}
+                                    alt="تصویر ۲"
+                                />
+                                <Image
+                                    src="/assets/images/Ellipse-34.png"
+                                    className="w-[52px] z-10"
+                                    width={49}
+                                    height={49}
+                                    alt="تصویر ۱"
+                                />
+                                <Image
+                                    src="/assets/images/Ellipse-35.png"
+                                    className="w-[52px] absolute left-[60px] z-30"
+                                    width={49}
+                                    height={49}
+                                    alt="تصویر ۳"
+                                />
+                                <Image
+                                    src="/assets/images/Ellipse-36.png"
+                                    className="w-[52px] z-10"
+                                    width={49}
+                                    height={49}
+                                    alt="تصویر ۱"
+                                />
+                            </div>
+                            <div className="flex flex-col items-center z-10">
+                                <div className="text-[5rem] max-[1024px]:text-[3rem] text-white font-semibold flex items-center gap-3 ">
                                     <span>5.8K</span>
                                     <div className="size-12 rounded-full ring-2 ring-white flex items-center justify-center bg-zinc-700">
                                         <svg
@@ -95,8 +125,8 @@ const Header = () => {
                                         </svg>
                                     </div>
                                 </div>
-                                <span className="text-white text-xl text-right w-96 max-[700px]:hidden">
-                                    تنــــوع محصـــولات فروشگــــــاه لباس زنانه و مردانه
+                                <span className="text-white text-xl text-center w-96">
+                                    تنــــوع محصـــولات فروشگــــــاه
                                 </span>
                             </div>
                         </div>
