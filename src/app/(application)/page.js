@@ -10,12 +10,12 @@ export default function Home() {
     return (
         <div className="container bg-white items-center justify-items-center min-h-screen font-kalameh font-normal">
             <Header />
-            {/* <BestProducts /> */}
-            {/* <NewProducts /> */}
-            {/* <Baner /> */}
-            {/* <LatestProduct /> */}
-            {/* <NewSets /> */}
-            {/* <Advantages /> */}
+            <BestProducts />
+            <NewProducts />
+            <Baner />
+            <LatestProduct />
+            <NewSets />
+            <Advantages />
         </div>
     );
 }
