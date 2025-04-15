@@ -21,7 +21,7 @@ const Footer = () => {
 
     return (
         <div className="w-full bg-white min-[10000px]:px-24 px-8 pt-12 pb-2 flex flex-col gap-8">
-            <div class="bg-[#F4F4F4] bg-[url('/assets/images/pre-footer.svg')] bg-contain bg-no-repeat bg-center h-24"></div>
+            <div class="bg-[#F4F4F4] bg-[url('/assets/images/pre-footer.svg')] bg-contain bg-no-repeat bg-center h-10"></div>
             <div className="w-full flex flex-row max-[1280px]:flex-wrap min-[1280px]:justify-between justify-center max-[1280px]:gap-32 max-[860px]:gap-8">
                 <div className="flex flex-col gap-4">
                     <div className="grid grid-cols-2 gap-4">
