@@ -3,7 +3,7 @@ import LatestProductSlider from './LatestProductSlider';
 
 function LatestProduct() {
     return (
-        <section className="flex flex-col-reverse xl:flex-row items-center gap-8 p-8 my-12 w-full bg-orange-600 rounded-4xl">
+        <section className="flex flex-col-reverse xl:flex-row items-center gap-8 p-8 my-12 w-full bg-orange-600 rounded-4xl mt-20">
             <div className="w-full xl:w-[calc(100%-232px)]">
                 <LatestProductSlider />
             </div>
