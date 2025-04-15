@@ -4,6 +4,8 @@ import NewProducts from '@/components/layout/index/new-products/NewProducts';
 import NewSets from '@/components/layout/index/new-sets/NewSets';
 import Advantages from '@/components/layout/index/advantages/Advantages';
 import LatestProduct from '@/components/layout/index/latest-products/LatestProduct';
+import RecentBests from '@/components/layout/index/recent-bests/RecentBests';
+import DiscountProducts from '@/components/layout/index/discount-products/DiscountProducts';
 
 export default function Home() {
     return (
@@ -14,6 +16,8 @@ export default function Home() {
             {/* <LatestProduct /> */}
             {/* <NewSets /> */}
             {/* <Advantages /> */}
+            {/* <RecentBests /> */}
+            {/* <DiscountProducts /> */}
         </div>
     );
 }

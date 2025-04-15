@@ -1,0 +1,201 @@
+"use client"
+
+import ProductCard from '@/components/ui/ProductCard'
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { useEffect, useRef, useState } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+
+const products = [
+    {
+        id: '1',
+        name: 'کفش پیاده‌روی نایک',
+        images: [
+            '/assets/images/pic2.jpg',
+
+        ],
+        price: 820000,
+        discount: 350000,
+
+    },
+    {
+        id: '8',
+        name: 'lll پیاده‌روی نایک',
+        images: [
+            '/assets/images/pic3.jpg',
+        ],
+        price: 820000,
+        discount: 20000,
+
+    },
+    {
+        id: '9',
+        name: 'ttttt پیاده‌روی نایک',
+        images: [
+            '/assets/images/pic4.jpg',
+        ],
+        price: 820000,
+
+    },
+    {
+        id: '5',
+        name: 'کیف چرمی دست‌دوز',
+        images: [
+            '/assets/images/pic1.jpg',
+        ],
+        price: 1240000,
+
+    },
+];
+
+const timer = [
+    { label: 'ثانیه', value: 23 },
+    { label: 'دقیقه', value: 28 },
+    { label: 'ساعت', value: 13 },
+    { label: 'روز', value: 15 },
+]
+const DiscountProducts = () => {
+    const [timeLeft, setTimeLeft] = useState(() => {
+        const totalSeconds = (15 * 24 * 60 * 60) + (13 * 60 * 60) + (28 * 60) + 23;
+        return totalSeconds;
+    });
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTimeLeft(prev => prev > 0 ? prev - 1 : 0);
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, []);
+    const swiperRef = useRef(null);
+
+    const formatTime = (seconds) => {
+        const days = Math.floor(seconds / (24 * 60 * 60));
+        const hours = Math.floor((seconds % (24 * 60 * 60)) / 3600);
+        const minutes = Math.floor((seconds % 3600) / 60);
+        const secs = seconds % 60;
+
+        return [
+            { label: 'ثانیه', value: secs },
+            { label: 'دقیقه', value: minutes },
+            { label: 'ساعت', value: hours },
+            { label: 'روز', value: days },
+        ];
+    };
+    const timer = formatTime(timeLeft);
+
+    return (
+        <>
+            {/* //////////////// */}
+            < div className="relative flex-col items-center justify-center flex md:hidden" >
+                <Image
+                    src="/assets/images/hero-bg.svg"
+                    alt="Hero background"
+                    objectFit="cover"
+                    quality={100}
+                    width={38}
+                    height={38}
+                    className="z-0 w-[15rem] h-[15rem] absolute  top-0"
+
+                />
+                <div className="z-10 flex flex-col items-center justify-center">
+                    <h3 className='text-[#FD5504] text-3xl font-[800] mt-10 mx-5'>تخفیف های شگفت انگیز</h3>
+                    <Link href={""} className="text-md text-nowrap  border rounded-2xl text-center px-6  py-3 mt-3 text-[#BABABA] font-[500] cursor-pointer">
+                        مشاهدهٔ همه
+                    </Link>
+                </div>
+            </ div>
+            <section className="rounded-3xl py-6 mb-[12rem] mt-8 xl:w-[95rem] lg:w-[78rem] w-[48rem] md:w-[60rem] flex flex-col-reverse md:flex-row px-22 ">
+                <div className='w-full md:w-9/12 bg-[#FD5504] h-[18rem] rounded-[0_0_2rem_2rem] md:rounded-[2rem_0_2rem_2rem] '>
+
+                    <div className="relative w-full p-4 ">
+                        <Swiper
+                            loop={true}
+                            grabCursor={true}
+                            ref={swiperRef}
+                            slidesPerGroup={1}
+                            // centeredSlides={true}
+                            breakpoints={{
+                                0: {
+                                    slidesPerView: 2.2,
+                                    spaceBetween: 10
+                                },
+                                768: {
+                                    slidesPerView: 2,
+                                    spaceBetween: 10
+                                },
+                                930: {
+                                    slidesPerView: 2.5,
+                                    spaceBetween: 10
+                                },
+                                1024: {
+                                    slidesPerView: 3,
+                                    spaceBetween: 10
+                                },
+                                1224: {
+                                    slidesPerView: 3.3,
+                                    spaceBetween: 10
+                                },
+                                1300: {
+                                    slidesPerView: 4,
+                                    spaceBetween: 10
+                                },
+
+                            }}
+                        >
+                            {products.map((product) => (
+                                <SwiperSlide key={product.id}>
+                                    <ProductCard data={product} key={product.id} />
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </div>
+                </div>
+                <div className='w-full md:w-3/12 '>
+                    <div className='h-[9rem] bg-[#FD5504] rounded-[2rem_2rem_0_0] md:rounded-[0_2rem_2rem_0]'>
+                        <div className="flex justify-center items-center gap-2  p-4 rounded-xl w-full">
+                            {timer.map((item, index) => (
+                                <div
+                                    key={index}
+                                    className="flex flex-col justify-center items-center bg-[#FF6A1F] text-white rounded-[1rem] w-[60px] h-[5rem] text-center py-4"
+                                >
+                                    <div className="text-xl font-bold border-b border-[#FD5504] pb-1 w-full">
+                                        {item.value}
+                                    </div>
+                                    <div className="text-sm p-2 text-[#FFD6BA]">{item.label}</div>
+                                </div>
+                            ))}
+                        </div>
+
+                    </div>
+                    {/* ////////// */}
+                    <div className='hidden md:block absolute rotate-90 translate-x-[-1px]'>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="38" viewBox="0 0 40 38" fill="#FD5504"><g clipPath="url(#clip0_263_127)"><path d="M-648 -51C-648 -73.0914 -630.091 -91 -608 -91H-40C-17.9086 -91 0 -73.0914 0 -51V-2C0 20.0914 17.9086 38 40 38H608C630.091 38 648 55.9086 648 78V206C648 228.091 630.091 246 608 246H-608C-630.091 246 -648 228.091 -648 206V-51Z" fill="var(--mi-color-secondary)"></path></g><defs><clipPath id="clip0_263_127"><rect x="-648" y="-91" width="1296" height="337" rx="32" fill="none"></rect></clipPath></defs></svg>
+
+                    </div>
+                    {/* //////////////// */}
+                    <div className="relative  flex-col items-center justify-center hidden md:flex">
+                        <Image
+                            src="/assets/images/hero-bg.svg"
+                            alt="Hero background"
+                            objectFit="cover"
+                            quality={100}
+                            width={38}
+                            height={38}
+                            className="z-0 w-[14rem] h-[14rem] absolute  top-0"
+
+                        />
+                        <div className="z-10 flex flex-col items-center justify-center">
+                            <h3 className='text-[#FD5504] text-2xl font-[800] mt-10 mx-5'>تخفیف های شگفت انگیز</h3>
+                            <Link href={""} className="text-md text-nowrap  border rounded-2xl text-center px-6  py-3 mt-3 text-[#BABABA] font-[500] cursor-pointer">
+                                مشاهدهٔ همه
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section >
+        </>
+    )
+}
+
+export default DiscountProducts
