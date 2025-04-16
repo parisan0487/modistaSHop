@@ -4,17 +4,32 @@ import MegaMenu from './MegaMenu';
 
 const NavbarBottom = () => {
     return (
-        <div className="w-full flex items-center justify-between gap-4 py-4 pb-7 max-[900px]:hidden">
-            <div className="size-10 flex gap-3">
-                <div className="size-13 p-3 bg-orange-500 rounded-2xl flex items-center justify-center shrink-0 cursor-pointer">
+        <div className="w-full flex items-center justify-between gap-4 py-4 pb-7 max-[1000px]:hidden">
+            <div className="size-10 flex gap-2">
+                <div className="size-12.5 p-3 bg-orange-500 rounded-2xl flex items-center justify-center shrink-0 cursor-pointer">
                     <Image
                         src="https://mehdibagheridev.ir/modista/wp-content/uploads/2024/12/mini-cart-button.svg"
                         width={50}
                         height={50}
                         alt="buy-button"
                     />
+                </div> <div className="size-12.5 rounded-2xl bg-orange-500 flex items-center justify-center shrink-0 max-[1000px]:hidden cursor-pointer">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="size-8 stroke-white"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+                        />
+                    </svg>
                 </div>
-                <div className="p-3 h-13 border-2 border-orange-500 rounded-2xl flex items-center justify-center gap-2 shrink-0 cursor-pointer">
+                <div className="p-3 h-12.5 border-2 border-orange-500 rounded-2xl flex items-center justify-center gap-2 shrink-0 cursor-pointer">
                     <span className="!text-orange-500 font-extrabold">ورود / ثبت نام </span>
                     <Image
                         src="https://mehdibagheridev.ir/modista/wp-content/uploads/2024/12/login-user.svg"
@@ -24,9 +39,10 @@ const NavbarBottom = () => {
                         className="size-6"
                     />
                 </div>
+               
             </div>
 
-            <ul className="flex gap-5 items-center">
+            <ul className="flex gap-4 items-center">
                 <li className="relative flex items-center gap-1 group">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
