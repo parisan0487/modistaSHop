@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import MegaMenu from './MegaMenu';
+import Link from 'next/link';
 
 const NavbarBottom = () => {
     return (
@@ -13,7 +14,8 @@ const NavbarBottom = () => {
                         height={50}
                         alt="buy-button"
                     />
-                </div> <div className="size-12.5 rounded-2xl bg-orange-500 flex items-center justify-center shrink-0 max-[1000px]:hidden cursor-pointer">
+                </div>{' '}
+                <div className="size-12.5 rounded-2xl bg-orange-500 flex items-center justify-center shrink-0 max-[1000px]:hidden cursor-pointer">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -30,16 +32,17 @@ const NavbarBottom = () => {
                     </svg>
                 </div>
                 <div className="p-3 h-12.5 border-2 border-orange-500 rounded-2xl flex items-center justify-center gap-2 shrink-0 cursor-pointer">
-                    <span className="!text-orange-500 font-extrabold">ورود / ثبت نام </span>
-                    <Image
-                        src="https://mehdibagheridev.ir/modista/wp-content/uploads/2024/12/login-user.svg"
-                        width={50}
-                        height={50}
-                        alt="buy-button"
-                        className="size-6"
-                    />
+                    <Link href="/register" className="flex items-center gap-2 w-full h-full">
+                        <span className="!text-orange-500 font-extrabold">ورود / ثبت نام </span>
+                        <Image
+                            src="https://mehdibagheridev.ir/modista/wp-content/uploads/2024/12/login-user.svg"
+                            width={50}
+                            height={50}
+                            alt="buy-button"
+                            className="size-6"
+                        />
+                    </Link>
                 </div>
-               
             </div>
 
             <ul className="flex gap-4 items-center">
