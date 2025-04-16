@@ -1,18 +1,19 @@
 'use client';
 
-import React from 'react';
+import React, { useRef } from 'react';
 import PCard from './PCard';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 const products = [
     {
         id: '1',
-        name: 'کفش پیاده‌روی نایک',
+        name: ' کیف وزشی مدل مارتن',
         images: [
-            '/assets/images/pic5.jpg',
-            '/assets/images/pic2.jpg',
+            '/assets/images/bag-1.jpg',
+            '/assets/images/bag-2.jpg',
+            '/assets/images/bag-3.jpg',
+            '/assets/images/bag-2.jpg',
             '/assets/images/pic3.jpg',
-            '/assets/images/pic4.jpg',
-            '/assets/images/pic1.jpg',
         ],
         price: 820000,
         discountPercent: 15,
@@ -20,13 +21,13 @@ const products = [
     },
     {
         id: '2',
-        name: 'هدفون بی‌سیم سونی',
+        name: ' ست بلوز و شلوار زنانه',
         images: [
-            '/assets/images/pic2.jpg',
-            '/assets/images/pic1.jpg',
-            '/assets/images/pic3.jpg',
-            '/assets/images/pic4.jpg',
-            '/assets/images/pic5.jpg',
+            '/assets/images/bloz-1.jpg',
+            '/assets/images/bloz-2.jpg',
+            '/assets/images/bloz-3.jpg',
+            '/assets/images/bloz-4.jpg',
+            '/assets/images/bloz-1.jpg',
         ],
         price: 2150000,
         discountPercent: 10,
@@ -34,13 +35,13 @@ const products = [
     },
     {
         id: '3',
-        name: 'ژاکت',
+        name: 'کاپشن زنانه مدل کاد',
         images: [
-            '/assets/images/pic3.jpg',
-            '/assets/images/pic2.jpg',
-            '/assets/images/pic1.jpg',
-            '/assets/images/pic4.jpg',
-            '/assets/images/pic5.jpg',
+            '/assets/images/capshan-1.jpg',
+            '/assets/images/capshan-2.jpg',
+            '/assets/images/capshan-3.jpg',
+            '/assets/images/capshan-4.jpg',
+            '/assets/images/capshan-5.jpg',
         ],
         price: 1790000,
         discountPercent: 20,
@@ -48,13 +49,13 @@ const products = [
     },
     {
         id: '4',
-        name: 'کاپشن زمستانی مردانه',
+        name: 'کاپشن زمستانی مدل تالای',
         images: [
-            '/assets/images/pic4.jpg',
-            '/assets/images/pic2.jpg',
-            '/assets/images/pic3.jpg',
-            '/assets/images/pic1.jpg',
-            '/assets/images/pic5.jpg',
+            '/assets/images/talay-3.jpg',
+            '/assets/images/talay-2.jpg',
+            '/assets/images/talay-1.jpg',
+            '/assets/images/talay-4.jpg',
+            '/assets/images/talay-1.jpg',
         ],
         price: 950000,
         discountPercent: 25,
@@ -62,13 +63,13 @@ const products = [
     },
     {
         id: '5',
-        name: 'کیف چرمی دست‌دوز',
+        name: 'کفش ورزشی  ',
         images: [
-            '/assets/images/pic1.jpg',
-            '/assets/images/pic2.jpg',
-            '/assets/images/pic3.jpg',
-            '/assets/images/pic4.jpg',
-            '/assets/images/pic5.jpg',
+            '/assets/images/shoe-4.webp',
+            '/assets/images/shoe-2.jpg',
+            '/assets/images/shoe-1.jpg',
+            '/assets/images/shoe-3.jpg',
+            '/assets/images/shoe-5.jpg',
         ],
         price: 1240000,
         discountPercent: 5,
@@ -77,6 +78,7 @@ const products = [
 ];
 
 const NewProducts = () => {
+    const swiperRef = useRef(null);
     return (
         <div className="flex flex-col items-center justify-center text-[#2D2929] w-full my-2 ">
             <h2 className="text-2xl">
@@ -96,10 +98,31 @@ const NewProducts = () => {
                 </span>
                 <span className="h-px flex-grow bg-gray-200"></span>
             </div>
-            <div className="flex flex-row items-center justify-center  gap-3 w-full overflow-x-scroll scrollbar-none">
-                {products.map((item) => (
-                    <PCard key={item.id} data={item} />
-                ))}
+            <div className="flex flex-row items-center justify-center  gap-3 w-full">
+
+                <Swiper
+                    spaceBetween={12}
+                    loop
+                    grabCursor
+                    ref={swiperRef}
+                    slidesPerGroup={1}
+                    className="w-full"
+                    breakpoints={{
+                        0: { slidesPerView: 1.5 },
+                        600: { slidesPerView: 2.3 },
+                        900: { slidesPerView: 3.2 },
+                        1200: { slidesPerView: 3.8 },
+                        1400: { slidesPerView: 5 },
+                    }}
+                >
+                    {products.map((product) => (
+                        <SwiperSlide key={product.id}>
+                            <PCard key={product.id} data={product} />
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+
+
             </div>
         </div>
     );
