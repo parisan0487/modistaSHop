@@ -5,14 +5,15 @@ import Link from 'next/link';
 
 const NavbarMainBody = () => {
     return (
-        <div className="w-full flex items-center justify-between gap-4 max-[900px]:gap-2 py-4 max-[900px]:py-2 border-b border-b-[#EFEFEF]">
-            <Image
-                src="https://mehdibagheridev.ir/modista/wp-content/uploads/2024/12/mi-favicon.svg"
-                width={30}
-                height={30}
-                alt="logo"
-                className="size-10 hidden max-[1000px]:block"
-            />
+        <div className="w-full flex items-center justify-between gap-4 max-[1000px]:gap-2 py-4 max-[1000px]:py-2 border-b border-b-[#EFEFEF]">
+            <div className="size-12.5 p-3 bg-orange-500 rounded-2xl items-center justify-center shrink-0 cursor-pointer max-[1000px]:flex hidden">
+                <Image
+                    src="https://mehdibagheridev.ir/modista/wp-content/uploads/2024/12/mini-cart-button.svg"
+                    width={50}
+                    height={50}
+                    alt="buy-button"
+                />
+            </div>
             <div className="w-96 h-13 rounded-2xl bg-[#F7F7F7] p-2 pr-4 flex items-center gap-4">
                 <div className="size-10 rounded-2xl bg-white flex items-center justify-center shrink-0">
                     <Image
@@ -25,7 +26,6 @@ const NavbarMainBody = () => {
                 </div>
                 <input
                     dir="rtl"
-                    type="search"
                     placeholder="دنبال چی میگردی؟"
                     className="w-full h-full text-[1rem] !text-black/60 outline-none focus:outline-none focus:border-0 placeholder:!text-black/50"
                 />

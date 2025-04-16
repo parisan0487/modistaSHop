@@ -73,7 +73,7 @@ const SideBarBtn = () => {
 
         toast(
             (t) => (
-                <ul className="w-37 flex flex-col items-center gap-2">
+                <ul className="w-72 flex flex-col items-center gap-2">
                     <li className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">فروشگاه</li>
                     <li className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
                         تکی مقاله
@@ -107,7 +107,7 @@ const SideBarBtn = () => {
 
         toast(
             (t) => (
-                <div className="w-[18rem] flex flex-col items-center justify-between gap-4 pt-6">
+                <div className="w-72 flex flex-col items-center justify-between gap-4 pt-6">
                     <div className="w-full flex flex-wrap justify-center gap-8 mb-6">
                         {categories
                             .filter((item) => item.title === category)[0]
@@ -120,7 +120,7 @@ const SideBarBtn = () => {
                                     {cate.items.map((item, index) => (
                                         <li
                                             key={index}
-                                            className="text-[1rem] !text-zinc-500 font-bold text-right hover:!text-orange-500 cursor-pointer"
+                                            className="text-[1rem] !text-zinc-500 text-right hover:!text-orange-500 cursor-pointer"
                                         >
                                             {item}
                                         </li>
@@ -363,6 +363,31 @@ const SideBarBtn = () => {
                                 </g>
                             </svg>
                         </li>
+                        <li className="flex gap-1">
+                            <span className="!text-black/60 text-[1.1rem]">علاقه مندی ها</span>
+                            <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <g id="Broken / Nature, Travel / Fire Minimalistic">
+                                    <path
+                                        id="Vector 131"
+                                        d="M16.5 20L4.5 10H4L3.5 13.5L5 17L8 20L12.5 21L16 20H16.5Z"
+                                        fill="#F4694C"
+                                    ></path>
+                                    <path
+                                        id="Vector"
+                                        d="M16 19.9972C14.8233 20.635 13.4571 21 12 21C7.58172 21 4 17.6439 4 13.504C4 12.3727 4.14916 11.3124 4.40527 10.3284M19.1761 16.8211C19.7036 15.8211 20 14.695 20 13.504C20 9.76257 17.9654 6.83811 16.562 5.44436C16.3017 5.18584 15.8683 5.30006 15.7212 5.63288C14.9742 7.3229 13.4178 9.75607 11.4286 9.75607C10.1975 9.92086 8.31688 8.86844 9.83483 3.64868C9.97151 3.17868 9.46972 2.80113 9.08645 3.11539C8.09335 3.92966 6.95052 5.1206 6 6.64741"
+                                        stroke="#3B3B3B"
+                                        strokeWidth="1.5"
+                                        strokeLinecap="round"
+                                    ></path>
+                                </g>
+                            </svg>
+                        </li>
                     </ul>
 
                     <div className="w-full flex flex-col gap-2">
@@ -370,17 +395,6 @@ const SideBarBtn = () => {
                             <span className="!text-orange-500 font-extrabold">ورود / ثبت نام </span>
                             <Image
                                 src="https://mehdibagheridev.ir/modista/wp-content/uploads/2024/12/login-user.svg"
-                                width={50}
-                                height={50}
-                                alt="buy-button"
-                                className="size-6"
-                            />
-                        </div>
-                        <div className="w-full h-13 p-3 bg-orange-500 rounded-2xl flex items-center justify-center gap-2 shrink-0">
-                            <span className="!text-white font-bold">سبد خرید</span>
-
-                            <Image
-                                src="https://mehdibagheridev.ir/modista/wp-content/uploads/2024/12/mini-cart-button.svg"
                                 width={50}
                                 height={50}
                                 alt="buy-button"

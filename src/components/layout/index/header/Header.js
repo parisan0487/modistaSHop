@@ -43,9 +43,9 @@ const Header = () => {
                         className="absolute w-[30rem] bottom-0"
                     />
                 </div>
-                <div className="w-1/2 max-[540px]:w-full h-90 rounded-4xl bg-orange-500 rounded-bl-none flex flex-col">
+                <div className="w-1/2 max-[540px]:w-full h-90 rounded-4xl bg-orange-500 rounded-bl-none flex flex-col  max-[540px]:mt-2">
                     <div className="relative -top-1 w-full h-30  bg-[url('/assets/images/hreo-off-bg.jpg')] bg-cover rounded-4xl border-8 border-white ring-white">
-                        <div className="w-full h-full p-5 flex items-center justify-end gap-2 ">
+                        <div className="w-full h-full p-5 flex items-center justify-end gap-2 max-[575px]:p-1 max-[540px]:p-4">
                             <span className="text-3xl font-extrabold text-right">حراج بزرگ در راه است</span>
                             <span className="flex items-center font-extrabold text-[3rem] text-orange-500">
                                 50
