@@ -9,44 +9,48 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 const products = [
     {
+        id: '3',
+        name: 'هودی ',
+        images: [
+            '/assets/images/hoodie-2.jpg',
+
+        ],
+        price: 1790000,
+        discount: 45000
+    },
+    {
         id: '1',
-        name: 'کفش پیاده‌روی نایک',
+        name: '  ست رنانه ',
         images: [
-            '/assets/images/pic2.jpg',
+            '/assets/images/bag-1.jpg',
 
         ],
         price: 820000,
-        discount: 350000,
-
+        discount: 45000
     },
     {
-        id: '8',
-        name: 'lll پیاده‌روی نایک',
+        id: '2',
+        name: ' ست بلوز و شلوار زنانه',
         images: [
-            '/assets/images/pic3.jpg',
+            '/assets/images/bloz-1.jpg',
+
         ],
-        price: 820000,
-        discount: 20000,
+        price: 2150000,
 
     },
+
     {
-        id: '9',
-        name: 'ttttt پیاده‌روی نایک',
+        id: '4',
+        name: 'هودی سفید',
         images: [
-            '/assets/images/pic4.jpg',
-        ],
-        price: 820000,
+            '/assets/images/hoodie-1.jpg',
 
-    },
-    {
-        id: '5',
-        name: 'کیف چرمی دست‌دوز',
-        images: [
-            '/assets/images/pic1.jpg',
         ],
-        price: 1240000,
-
+        price: 950000,
+        discount: 45000
     },
+
+
 ];
 
 const timer = [
@@ -87,7 +91,7 @@ const DiscountProducts = () => {
     return (
         <>
             {/* //////////////// */}
-            < div className="relative flex-col items-center justify-center flex md:hidden" >
+            < div className="relative flex-col items-center justify-center flex md:hidden w-full mx-2" >
                 <Image
                     src="/assets/images/hero-bg.svg"
                     alt="Hero background"
@@ -99,11 +103,10 @@ const DiscountProducts = () => {
 
                 />
                 <div className="z-10 flex flex-col items-center justify-center">
-                    <h3 className='text-[#FD5504] text-3xl font-[800] mt-10 mx-5'>تخفیف های شگفت انگیز</h3>
-
+                    <h3 className='text-[#FD5504] text-2xl md:text-3xl font-[800] mt-10 mx-5'>تخفیف های شگفت انگیز</h3>
                 </div>
             </ div>
-            <section className="rounded-3xl py-6 mb-[12rem] mt-8 xl:w-[95rem] lg:w-[78rem] w-[48rem] md:w-[60rem] flex flex-col-reverse md:flex-row px-22 ">
+            <div className="rounded-3xl py-6 mb-[12rem] mt-8 w-full flex flex-col-reverse md:flex-row ">
                 <div className='w-full md:w-9/12 bg-[#FD5504] h-[18rem] rounded-[0_0_2rem_2rem] md:rounded-[2rem_0_2rem_2rem] '>
 
                     <div className="relative w-full p-4 ">
@@ -115,7 +118,11 @@ const DiscountProducts = () => {
                             // centeredSlides={true}
                             breakpoints={{
                                 0: {
-                                    slidesPerView: 2.2,
+                                    slidesPerView: 1.1,
+                                    spaceBetween: 10
+                                },
+                                360: {
+                                    slidesPerView: 1.3,
                                     spaceBetween: 10
                                 },
                                 768: {
@@ -127,7 +134,7 @@ const DiscountProducts = () => {
                                     spaceBetween: 10
                                 },
                                 1024: {
-                                    slidesPerView: 3,
+                                    slidesPerView: 2.2,
                                     spaceBetween: 10
                                 },
                                 1224: {
@@ -191,7 +198,7 @@ const DiscountProducts = () => {
                         </div>
                     </div>
                 </div>
-            </section >
+            </ div>
             <Link href={""} className="text-md block md:hidden text-nowrap  border rounded-2xl text-center px-6  py-3 mt-3 mb-12 text-[#BABABA] font-[500] cursor-pointer">
                 مشاهدهٔ همه
             </Link>

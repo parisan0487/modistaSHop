@@ -15,12 +15,12 @@ export default function Home() {
             <Header />
             <BestProducts />
             <NewProducts />
+            <DiscountProducts />
             <Baner />
             <LatestProduct />
             <NewSets />
-            <Advantages />
             <RecentBests />
-            <DiscountProducts />
+            <Advantages />
         </div>
     );
 }
