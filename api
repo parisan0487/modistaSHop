@@ -3,8 +3,40 @@ for product:
 https://back-production-22f1.up.railway.app/api/products/ => getAllProducts
 https://back-production-22f1.up.railway.app/api/products/:id => getProductById
 https://back-production-22f1.up.railway.app/api/products/category/:category => getProductsByCategory
+https://back-production-22f1.up.railway.app/api/products/search => searchProducts
+https://back-production-22f1.up.railway.app/api/products/:slug => getProductBySlug
+https://back-production-22f1.up.railway.app/api/products/add => addProduct
+https://back-production-22f1.up.railway.app/api/products/add-multiple => addMultipleProducts
+https://back-production-22f1.up.railway.app/api/products/delete-all => deleteAllProducts
 
-لطفااز طریق پوشه ادمین پنل به فایل اد پروداکت برین.
+for user:
+
+https://back-production-22f1.up.railway.app/api/users/login => loginUser
+https://back-production-22f1.up.railway.app/api/users/register => singUpUser
+https://back-production-22f1.up.railway.app/api/users/ => getUserProfile
+https://back-production-22f1.up.railway.app/api/users/update => updateUserProfile
+https://back-production-22f1.up.railway.app/api/users/admin => admin
+
+for basket:
+
+https://back-production-22f1.up.railway.app/api/cart/ => getProducts in basket
+https://back-production-22f1.up.railway.app/api/cart/add => addingProducts in basket
+https://back-production-22f1.up.railway.app/api/cart/remove/:productId => deleteProducts in basket
+
+for wishlist:
+
+https://back-production-22f1.up.railway.app/api/wishlist/ => getProducts in wishlist
+https://back-production-22f1.up.railway.app/api/wishlist/add => addingProducts in wishlist
+https://back-production-22f1.up.railway.app/api/wishlist/remove/:productId => deleteProducts in wishlist
+
+
+
+
+
+
+
+
+
 ساختاری که باید رعایت بشه برای ارسال پروداکت به دیتابیس =>
 
 {
@@ -32,12 +64,6 @@ New Arrivals برای جدید ترین محصولات که توی باکس نا
 New Outfits برای جدیدترین ست ها
 Most Popular برای پرفروش های اخیر
 محصولات میتونن بیشتراز دو کتگوری داشته باشن
-
-
-
-
-
-
 
 
 
