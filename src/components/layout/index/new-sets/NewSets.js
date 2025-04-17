@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import ImageSlider from './ImageSlider';
 import slideToleftI from 'assets/images/slide-arrow-1.svg';
@@ -36,33 +35,30 @@ const products = [
         name: 'کاپشن زنانه مدل کاد',
         images: [
             '/assets/images/capshan-1.jpg',
-            '/assets/images/capshan-2.jpg',
-            '/assets/images/capshan-3.jpg',
-            '/assets/images/capshan-4.jpg',
 
         ],
     },
     {
         id: '4',
-        name: 'کاپشن زمستانی مدل تالای',
+        name: 'هودی',
         images: [
-            '/assets/images/talay-3.jpg',
-            '/assets/images/talay-2.jpg',
-            '/assets/images/talay-1.jpg',
-            '/assets/images/talay-4.jpg',
+            '/assets/images/hoodie-1.jpg',
+            '/assets/images/hoodie-2.jpg',
+            '/assets/images/hoodie-3.jpg',
 
         ],
     },
     {
         id: '5',
-        name: ' کفش ورزشی',
+        name: 'ژاکت ',
         images: [
-            '/assets/images/shoe-4.webp',
-            '/assets/images/shoe-2.jpg',
-            '/assets/images/shoe-1.jpg',
-            '/assets/images/shoe-3.jpg',
+            '/assets/images/jackets-1.jpg',
+            '/assets/images/jackets-2.jpg',
+            '/assets/images/jackets-3.jpg',
+            '/assets/images/jackets-4.jpg',
 
         ],
+
     },
 
 ];

@@ -6,6 +6,18 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 const products = [
     {
+        id: '3',
+        name: 'هودی ',
+        images: [
+            '/assets/images/hoodie-2.jpg',
+            '/assets/images/hoodie-1.jpg',
+            '/assets/images/hoodie-3.jpg',
+        ],
+        price: 1790000,
+        discountPercent: 20,
+        finalPrice: 1432000,
+    },
+    {
         id: '1',
         name: ' کیف وزشی مدل مارتن',
         images: [
@@ -33,29 +45,14 @@ const products = [
         discountPercent: 10,
         finalPrice: 1935000,
     },
-    {
-        id: '3',
-        name: 'کاپشن زنانه مدل کاد',
-        images: [
-            '/assets/images/capshan-1.jpg',
-            '/assets/images/capshan-2.jpg',
-            '/assets/images/capshan-3.jpg',
-            '/assets/images/capshan-4.jpg',
-            '/assets/images/capshan-5.jpg',
-        ],
-        price: 1790000,
-        discountPercent: 20,
-        finalPrice: 1432000,
-    },
+
     {
         id: '4',
-        name: 'کاپشن زمستانی مدل تالای',
+        name: 'هودی ',
         images: [
-            '/assets/images/talay-3.jpg',
-            '/assets/images/talay-2.jpg',
-            '/assets/images/talay-1.jpg',
-            '/assets/images/talay-4.jpg',
-            '/assets/images/talay-1.jpg',
+            '/assets/images/hoodie-1.jpg',
+            '/assets/images/hoodie-2.jpg',
+            '/assets/images/hoodie-3.jpg',
         ],
         price: 950000,
         discountPercent: 25,
@@ -63,24 +60,25 @@ const products = [
     },
     {
         id: '5',
-        name: 'کفش ورزشی  ',
+        name: 'ژاکت ',
         images: [
-            '/assets/images/shoe-4.webp',
-            '/assets/images/shoe-2.jpg',
-            '/assets/images/shoe-1.jpg',
-            '/assets/images/shoe-3.jpg',
-            '/assets/images/shoe-5.jpg',
+            '/assets/images/jackets-1.jpg',
+            '/assets/images/jackets-2.jpg',
+            '/assets/images/jackets-3.jpg',
+            '/assets/images/jackets-4.jpg',
+            '/assets/images/jackets-2.jpg',
         ],
-        price: 1240000,
-        discountPercent: 5,
-        finalPrice: 1178000,
+        price: 2450000,
+        discountPercent: 10,
+        finalPrice: 1935000,
     },
+
 ];
 
 const NewProducts = () => {
     const swiperRef = useRef(null);
     return (
-        <div className="flex flex-col items-center justify-center text-[#2D2929] w-full my-2 ">
+        <div className="flex flex-col items-center justify-center text-[#2D2929] w-full mt-2 mb-24">
             <h2 className="text-2xl">
                 <span className="font-black">جدیدترین</span> محصولات{' '}
             </h2>

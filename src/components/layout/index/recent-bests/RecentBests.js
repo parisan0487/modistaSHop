@@ -13,7 +13,6 @@ import ProductCard from '@/components/ui/ProductCard';
 
 
 const categories = [
-    'بچگانه',
     'زنانه',
     'مردانه',
 ]
@@ -32,7 +31,7 @@ const products = [
     },
     {
         id: '8',
-        name: 'lll پیاده‌روی نایک',
+        name: ' نایک',
         images: [
             '/assets/images/pic5.jpg',
             '/assets/images/pic2.jpg',
@@ -44,18 +43,16 @@ const products = [
     },
     {
         id: '9',
-        name: 'ttttt پیاده‌روی نایک',
+        name: 'هودی',
         images: [
-            '/assets/images/pic5.jpg',
-            '/assets/images/pic2.jpg',
-
+            '/assets/images/hoodie-1.jpg',
+            '/assets/images/hoodie-2.jpg',
         ],
         price: 820000,
-
     },
     {
         id: '2',
-        name: 'هدفون بی‌سیم سونی',
+        name: ' ست زنانه',
         images: [
             '/assets/images/pic2.jpg',
             '/assets/images/pic1.jpg',
@@ -80,21 +77,18 @@ const products = [
         name: 'کاپشن زمستانی مردانه',
         images: [
             '/assets/images/pic4.jpg',
-
         ],
         price: 950000,
 
     },
     {
         id: '5',
-        name: 'کیف چرمی دست‌دوز',
+        name: 'ژاکت ',
         images: [
-            '/assets/images/pic1.jpg',
-            '/assets/images/pic2.jpg',
-
+            '/assets/images/jackets-1.jpg',
+            '/assets/images/jackets-3.jpg',
         ],
-        price: 1240000,
-        discount: 2400
+        price: 900000,
     },
 ];
 const toPersianDigits = (num) => {
