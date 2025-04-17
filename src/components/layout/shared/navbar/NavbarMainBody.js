@@ -2,18 +2,12 @@ import Image from 'next/image';
 import React from 'react';
 import SideBarBtn from './SideBarBtn';
 import Link from 'next/link';
+import BasketBtn from './BasketBtn';
 
 const NavbarMainBody = () => {
     return (
         <div className="w-full flex items-center justify-between gap-4 max-[1000px]:gap-2 py-4 max-[1000px]:py-2 border-b border-b-[#EFEFEF]">
-            <div className="size-12.5 p-3 bg-orange-500 rounded-2xl items-center justify-center shrink-0 cursor-pointer max-[1000px]:flex hidden">
-                <Image
-                    src="https://mehdibagheridev.ir/modista/wp-content/uploads/2024/12/mini-cart-button.svg"
-                    width={50}
-                    height={50}
-                    alt="buy-button"
-                />
-            </div>
+            <BasketBtn cls={' max-[1000px]:flex hidden'} />
             <div className="w-96 h-13 rounded-2xl bg-[#F7F7F7] p-2 pr-4 flex items-center gap-4">
                 <div className="size-10 rounded-2xl bg-white flex items-center justify-center shrink-0">
                     <Image
