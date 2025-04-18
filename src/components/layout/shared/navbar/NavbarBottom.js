@@ -7,7 +7,6 @@ import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
 import BasketBtn from './BasketBtn';
 
-
 const NavbarBottom = () => {
     const { isLoggedIn } = useAuth();
 

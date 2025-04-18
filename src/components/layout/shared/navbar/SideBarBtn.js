@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import SideBar from './sideBar';
 import Image from 'next/image';
 import toast from 'react-hot-toast';
+import { useAuth } from '@/context/AuthContext';
+import Link from 'next/link';
 
 const categories = [
     {
@@ -61,6 +63,7 @@ const categories = [
 
 const SideBarBtn = () => {
     const [category, setCategory] = useState('');
+    const { isLoggedIn } = useAuth();
 
     useEffect(() => {
         if (category) {
@@ -391,15 +394,22 @@ const SideBarBtn = () => {
                     </ul>
 
                     <div className="w-full flex flex-col gap-2">
-                        <div className="p-3 h-13 border-2 border-orange-500 rounded-2xl flex items-center justify-center gap-2 shrink-0">
-                            <span className="!text-orange-500 font-extrabold">ورود / ثبت نام </span>
-                            <Image
-                                src="https://mehdibagheridev.ir/modista/wp-content/uploads/2024/12/login-user.svg"
-                                width={50}
-                                height={50}
-                                alt="buy-button"
-                                className="size-6"
-                            />
+                        <div className="p-3 h-13 border-2 border-orange-500 rounded-2xl flex items-center  gap-2 shrink-0">
+                            <Link
+                                href={isLoggedIn ? '/account' : '/register'}
+                                className="flex items-center gap-2 w-full h-full justify-center"
+                            >
+                                <span className="!text-orange-500 font-extrabold">
+                                    {isLoggedIn ? 'حساب کاربری' : 'ورود / ثبت نام'}
+                                </span>
+                                <Image
+                                    src="https://mehdibagheridev.ir/modista/wp-content/uploads/2024/12/login-user.svg"
+                                    width={50}
+                                    height={50}
+                                    alt="buy-button"
+                                    className="size-6"
+                                />
+                            </Link>
                         </div>
 
                         <div className="p-3 rounded-2xl border border-black/20 flex items-center justify-center gap-2">
