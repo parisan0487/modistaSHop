@@ -1,9 +1,14 @@
+'use client';
+
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import MegaMenu from './MegaMenu';
 import Link from 'next/link';
+import { useAuth } from '@/context/AuthContext';
 
 const NavbarBottom = () => {
+    const { isLoggedIn } = useAuth();
+
     return (
         <div className="w-full flex items-center justify-between gap-4 py-4 pb-7 max-[1000px]:hidden">
             <div className="size-10 flex gap-2">
@@ -32,13 +37,18 @@ const NavbarBottom = () => {
                     </svg>
                 </div>
                 <div className="p-3 h-12.5 border-2 border-orange-500 rounded-2xl flex items-center justify-center gap-2 shrink-0 cursor-pointer">
-                    <Link href="/register" className="flex items-center gap-2 w-full h-full">
-                        <span className="!text-orange-500 font-extrabold">ورود / ثبت نام </span>
+                    <Link
+                        href={isLoggedIn ? '/account' : '/register'}
+                        className="flex items-center gap-2 w-full h-full"
+                    >
+                        <span className="!text-orange-500 font-extrabold">
+                            {isLoggedIn ? 'حساب کاربری' : 'ورود / ثبت نام'}
+                        </span>
                         <Image
                             src="https://mehdibagheridev.ir/modista/wp-content/uploads/2024/12/login-user.svg"
                             width={50}
                             height={50}
-                            alt="buy-button"
+                            alt="user-icon"
                             className="size-6"
                         />
                     </Link>

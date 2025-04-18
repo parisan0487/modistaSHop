@@ -2,6 +2,7 @@ import localFont from 'next/font/local';
 import { Toaster } from 'react-hot-toast';
 
 import './globals.css';
+import { AuthProvider } from '@/context/AuthContext';
 
 const kalameh = localFont({
     src: [
@@ -58,7 +59,7 @@ export default function RootLayout({ children }) {
     return (
         <html lang="fa" className={`${kalameh.variable}`}>
             <body className={`antialiased`} suppressHydrationWarning>
-                {children}
+                <AuthProvider>{children}</AuthProvider>
                 <Toaster position="bottom-center" />
             </body>
         </html>

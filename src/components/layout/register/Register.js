@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-hot-toast';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import { useAuth } from '@/context/AuthContext';
 
 export default function Register() {
     const router = useRouter();
@@ -12,6 +12,8 @@ export default function Register() {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
+
+    const { login } = useAuth();
 
     const validateName = (name) => /^[\u0600-\u06FF\sA-Za-z]{3,}$/.test(name);
     const validatePhone = (phone) => /^09\d{9}$/.test(phone);
@@ -21,20 +23,18 @@ export default function Register() {
 
         if (!isLogin) {
             if (!validateName(name)) {
-                toast.info('نام کامل باید حداقل ۳ کاراکتر و فقط شامل حروف باشد', {
-                    theme: 'colored',
-                });
+                toast('❗نام باید حداقل ۳ کاراکتروفقط شامل حروف باشد ');
                 return;
             }
+
             if (!validatePhone(phone)) {
-                toast.info('شماره تلفن باید ۱۱ رقم و با ۰۹ شروع شود.', {
-                    theme: 'colored',
-                });
+                toast('❗شماره تلفن باید ۱۱ رقم و با ۰۹ شروع شود');
                 return;
             }
         }
 
         const userData = isLogin ? { phone, password } : { name, phone, password };
+        console.log('userData:', userData);
 
         try {
             const endpoint = isLogin
@@ -46,19 +46,17 @@ export default function Register() {
             });
 
             localStorage.setItem('token', res.data.token);
-            toast.success(isLogin ? 'ورود موفقیت‌آمیز بود!' : 'ثبت‌نام موفقیت‌آمیز بود!', {
-                theme: 'colored',
-            });
+
+            toast.success(isLogin ? 'ورود موفقیت‌آمیز بود' : 'ثبت‌نام موفقیت‌آمیز بود');
 
             setName('');
             setPhone('');
             setPassword('');
 
+            login(res.data.token);
             router.push('/');
         } catch (err) {
-            toast.error('خطایی رخ داده است', {
-                theme: 'colored',
-            });
+            toast.error('خطایی رخ داده است ');
         }
     };
 
