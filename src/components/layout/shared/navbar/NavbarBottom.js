@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import MegaMenu from './MegaMenu';
 import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
+import BasketBtn from './BasketBtn';
 
 const NavbarBottom = () => {
     const { isLoggedIn } = useAuth();
@@ -12,14 +13,7 @@ const NavbarBottom = () => {
     return (
         <div className="w-full flex items-center justify-between gap-4 py-4 pb-7 max-[1000px]:hidden">
             <div className="size-10 flex gap-2">
-                <div className="size-12.5 p-3 bg-orange-500 rounded-2xl flex items-center justify-center shrink-0 cursor-pointer">
-                    <Image
-                        src="https://mehdibagheridev.ir/modista/wp-content/uploads/2024/12/mini-cart-button.svg"
-                        width={50}
-                        height={50}
-                        alt="buy-button"
-                    />
-                </div>{' '}
+                <BasketBtn />
                 <div className="size-12.5 rounded-2xl bg-orange-500 flex items-center justify-center shrink-0 max-[1000px]:hidden cursor-pointer">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
