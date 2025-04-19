@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import toast from 'react-hot-toast';
 
@@ -74,7 +75,7 @@ const BasketBtn = ({ cls }) => {
                             </svg>
                         </div>
                     </div>
-                    <div className="w-full h-13 p-3 bg-orange-500 rounded-2xl flex items-center justify-center gap-4 cursor-pointer">
+                    <Link href={'/basket'} className="w-full h-13 p-3 bg-orange-500 rounded-2xl flex items-center justify-center gap-4 cursor-pointer">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -90,7 +91,7 @@ const BasketBtn = ({ cls }) => {
                             />
                         </svg>
                         <span className="text-xl text-white">تسویه حساب</span>
-                    </div>
+                    </Link>
                     <div
                         onClick={() => toast.dismiss(toast.id)}
                         className="w-full h-13 p-3 bg-rose-600 rounded-2xl flex items-center justify-center cursor-pointer"

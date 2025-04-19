@@ -366,7 +366,7 @@ const SideBarBtn = () => {
                                 </g>
                             </svg>
                         </li>
-                        <li className="flex gap-1">
+                        <Link href={'/favorite'} className="flex gap-1">
                             <span className="!text-black/60 text-[1.1rem]">علاقه مندی ها</span>
                             <svg
                                 width="24"
@@ -390,7 +390,7 @@ const SideBarBtn = () => {
                                     ></path>
                                 </g>
                             </svg>
-                        </li>
+                        </Link>
                     </ul>
 
                     <div className="w-full flex flex-col gap-2">
