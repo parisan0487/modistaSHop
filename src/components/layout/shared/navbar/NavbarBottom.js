@@ -14,7 +14,10 @@ const NavbarBottom = () => {
         <div className="w-full flex items-center justify-between gap-4 py-4 pb-7 max-[1000px]:hidden">
             <div className="size-10 flex gap-2">
                 <BasketBtn />
-                <div className="size-12.5 rounded-2xl bg-orange-500 flex items-center justify-center shrink-0 max-[1000px]:hidden cursor-pointer">
+                <Link
+                    href={'/favorite'}
+                    className="size-12.5 rounded-2xl bg-orange-500 flex items-center justify-center shrink-0 max-[1000px]:hidden cursor-pointer"
+                >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -29,7 +32,7 @@ const NavbarBottom = () => {
                             d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
                         />
                     </svg>
-                </div>
+                </Link>
                 <div className="p-3 h-12.5 border-2 border-orange-500 rounded-2xl flex items-center justify-center gap-2 shrink-0 cursor-pointer">
                     <Link
                         href={isLoggedIn ? '/account' : '/register'}
@@ -144,7 +147,7 @@ const NavbarBottom = () => {
                         </g>
                     </svg>
                 </li>
-                <li className="flex gap-1 cursor-pointer">
+                <Link href={'/contact-us'} className="flex gap-1 cursor-pointer">
                     <span className="!text-black/60 text-[1.1rem]">تماس با ما</span>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="Broken / Nature, Travel / Fire Minimalistic">
@@ -162,8 +165,8 @@ const NavbarBottom = () => {
                             ></path>
                         </g>
                     </svg>
-                </li>
-                <li className="flex gap-1 cursor-pointer">
+                </Link>
+                <Link href={'/about-us'} className="flex gap-1 cursor-pointer">
                     <span className="!text-black/60 text-[1.1rem]">درباره ما</span>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="Broken / Nature, Travel / Fire Minimalistic">
@@ -181,7 +184,7 @@ const NavbarBottom = () => {
                             ></path>
                         </g>
                     </svg>
-                </li>
+                </Link>
                 <li className="relative flex items-center gap-1 group">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"

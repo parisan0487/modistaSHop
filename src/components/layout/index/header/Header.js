@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const Header = () => {
@@ -13,9 +14,9 @@ const Header = () => {
                     .لورم ایپسوم متن ساختگی با تولید سـادگی نامفهوم از صنعـت چاپ، و بـا استفاده از طراحان گرافیک است
                 </p>
                 <div className="flex gap-3">
-                    <div className="p-3 h-13 w-36 border-2 border-orange-500 rounded-2xl flex items-center justify-center text-orange-500 font-bold cursor-pointer">
+                    <Link href={'/about-us'} className="p-3 h-13 w-36 border-2 border-orange-500 rounded-2xl flex items-center justify-center text-orange-500 font-bold cursor-pointer">
                         درباره ما
-                    </div>
+                    </Link>
                     <div className="p-3 h-13 bg-orange-500 rounded-2xl flex items-center justify-center gap-2 shrink-0 text-white font-bold cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <g id="9">
@@ -26,7 +27,7 @@ const Header = () => {
                                     d="M20.5713 3.42859H6.857V3.42882L6.857 3.42881L3.50628 6.79171L8.42978 11.6974L3.69217 15.5605V20.5714H8.43942V11.707L17.1937 20.4295L20.5444 17.0666L11.6213 8.17584H20.5713V3.42859Z"
                                     fill="white"
                                 ></path>
-                            </g>
+                            </g>p-3 h-13 w-36 border-2 border-orange-500 rounded-2xl flex items-center justify-center text-orange-500 font-bold cursor-pointer
                         </svg>
                         <span>کالکشن جدید</span>
                     </div>
@@ -55,7 +56,7 @@ const Header = () => {
                                 </span>
                             </span>
                         </div>
-                        <div className="w-full p-6 flex max-[1024px]:flex-col items-center justify-end">
+                        <div className="w-full h-64 p-6 flex max-[1024px]:flex-col items-center justify-end">
                             <div className="text-[5rem] max-[1024px]:text-[3rem] text-white font-semibold flex items-center gap-3 z-10">
                                 <span>2.5K</span>
                                 <div className="size-12 rounded-full ring-2 ring-white flex items-center justify-center bg-zinc-700">
