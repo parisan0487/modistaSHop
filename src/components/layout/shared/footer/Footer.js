@@ -20,12 +20,12 @@ const Footer = () => {
     ];
 
     return (
-        <div className="w-full bg-white min-[10000px]:px-24 px-8 pt-12 pb-2 flex flex-col gap-8">
+        <div className="w-full bg-white px-8 max-[500px]:px-4 pt-12 pb-2 flex flex-col gap-8">
             <div class="bg-[#F4F4F4] bg-[url('/assets/images/pre-footer.svg')] bg-contain bg-no-repeat bg-center h-10"></div>
             <div className="w-full flex flex-row max-[1280px]:flex-wrap min-[1280px]:justify-between justify-center max-[1280px]:gap-32 max-[860px]:gap-8">
-                <div className="flex flex-col gap-4">
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="w-44 h-20 rounded-2xl bg-[#F7F7F7] p-6 flex flex-col items-center justify-center gap-2">
+                <div className="flex flex-col gap-4 max-[450px]:items-center">
+                    <div className="grid grid-cols-2 gap-4 max-[400px]:gap-2">
+                        <div className="w-44 max-[400px]:w-40 h-20 rounded-2xl bg-[#F7F7F7] p-6 flex flex-col items-center justify-center gap-2">
                             <Image
                                 src="https://mehdibagheridev.ir/modista/wp-content/uploads/2025/01/footer-iconsfacebook-8.svg"
                                 width={10}
@@ -33,9 +33,9 @@ const Footer = () => {
                                 alt="footer-icon"
                                 className="size-6 shrink-0"
                             />
-                            <span className="text-black/60">مشاوره و پشتیبانی</span>
+                            <span className="text-black/60 max-[400px]:text-[0.8rem]">مشاوره و پشتیبانی</span>
                         </div>
-                        <div className="w-44 h-20 rounded-2xl bg-[#F7F7F7] p-6 flex flex-col items-center justify-center gap-2">
+                        <div className="w-44 max-[400px]:w-40 h-20 rounded-2xl bg-[#F7F7F7] p-6 flex flex-col items-center justify-center gap-2">
                             <Image
                                 src="https://mehdibagheridev.ir/modista/wp-content/uploads/2025/01/footer-iconsfacebook-7.svg"
                                 width={10}
@@ -43,9 +43,9 @@ const Footer = () => {
                                 alt="footer-icon"
                                 className="size-6 shrink-0"
                             />
-                            <span className="text-black/60">تحویل اکسپرس</span>
+                            <span className="text-black/60 max-[400px]:text-[0.8rem]">تحویل اکسپرس</span>
                         </div>
-                        <div className="w-44 h-20 rounded-2xl bg-[#F7F7F7] p-6 flex flex-col items-center justify-center gap-2">
+                        <div className="w-44 max-[400px]:w-40 h-20 rounded-2xl bg-[#F7F7F7] p-6 flex flex-col items-center justify-center gap-2">
                             <Image
                                 src="https://mehdibagheridev.ir/modista/wp-content/uploads/2025/01/footer-iconsfacebook-5.svg"
                                 width={10}
@@ -53,9 +53,9 @@ const Footer = () => {
                                 alt="footer-icon"
                                 className="size-6 shrink-0"
                             />
-                            <span className="text-black/60">گارانتی بازگشت وجه</span>
+                            <span className="text-black/60 max-[400px]:text-[0.8rem]">گارانتی بازگشت وجه</span>
                         </div>
-                        <div className="w-44 h-20 rounded-2xl bg-[#F7F7F7] p-6 flex flex-col items-center justify-center gap-2">
+                        <div className="w-44 max-[400px]:w-40 h-20 rounded-2xl bg-[#F7F7F7] p-6 flex flex-col items-center justify-center gap-2">
                             <Image
                                 src="https://mehdibagheridev.ir/modista/wp-content/uploads/2025/01/footer-iconsfacebook-6.svg"
                                 width={10}
@@ -63,75 +63,71 @@ const Footer = () => {
                                 alt="footer-icon"
                                 className="size-6 shrink-0"
                             />
-                            <span className="text-black/60">ارسال رایگان</span>
+                            <span className="text-black/60 max-[400px]:text-[0.8rem]">ارسال رایگان</span>
                         </div>
                     </div>
                     <div className="w-full flex justify-between gap-2">
-                        <div className="w-20 h-32 rounded-2xl bg-[#F7F7F7] p-2 flex flex-col items-center justify-center gap-5">
+                        <div className="size-20 max-[450px]:size-17 rounded-2xl bg-[#F7F7F7] p-2 flex flex-col items-center justify-center gap-5 cursor-pointer">
                             <Image
                                 src="https://mehdibagheridev.ir/modista/wp-content/uploads/2025/01/footer-iconsfacebook-1.svg"
                                 width={10}
                                 height={10}
                                 alt="phone-icon"
-                                className="size-6"
+                                className="size-8"
                             />
-                            <span className="text-black/60 -rotate-90">فیسبوک</span>
                         </div>
-                        <div className="w-20 h-32 rounded-2xl bg-[#F7F7F7] p-2 flex flex-col items-center justify-center gap-5">
+                        <div className="size-20 max-[450px]:size-17 rounded-2xl bg-[#F7F7F7] p-2 flex flex-col items-center justify-center gap-5 cursor-pointer">
                             <Image
                                 src="https://mehdibagheridev.ir/modista/wp-content/uploads/2025/01/footer-iconsfacebook-2.svg"
                                 width={10}
                                 height={10}
                                 alt="phone-icon"
-                                className="size-6"
+                                className="size-8"
                             />
-                            <span className="text-black/60 -rotate-90">اینستاگرام</span>
                         </div>
-                        <div className="w-20 h-32 rounded-2xl bg-[#F7F7F7] p-2 flex flex-col items-center justify-center gap-5">
+                        <div className="size-20 max-[450px]:size-17 rounded-2xl bg-[#F7F7F7] p-2 flex flex-col items-center justify-center gap-5 cursor-pointer">
                             <Image
                                 src="https://mehdibagheridev.ir/modista/wp-content/uploads/2025/01/footer-iconsfacebook-3.svg"
                                 width={10}
                                 height={10}
                                 alt="phone-icon"
-                                className="size-6"
+                                className="size-8"
                             />
-                            <span className="text-black/60 -rotate-90">واتساپ</span>
                         </div>
-                        <div className="w-20 h-32 rounded-2xl bg-[#F7F7F7] p-2 flex flex-col items-center justify-center gap-5">
+                        <div className="size-20 max-[450px]:size-17 rounded-2xl bg-[#F7F7F7] p-2 flex flex-col items-center justify-center gap-5 cursor-pointer">
                             <Image
                                 src="https://mehdibagheridev.ir/modista/wp-content/uploads/2025/01/footer-iconsfacebook-4.svg"
                                 width={10}
                                 height={10}
                                 alt="phone-icon"
-                                className="size-6"
+                                className="size-8"
                             />
-                            <span className="text-black/60 -rotate-90">تلگرام</span>
                         </div>
                     </div>
                 </div>
                 <div dir="rtl" className="flex gap-10">
                     <ul className="list-none space-y-2">
                         <li className="font-bold text-2xl">دسترسی سریع</li>
-                        <li className="!text-black/60 font-bold">دسته بندی</li>
-                        <li className="!text-black/60 font-bold">پرفروش ترین ها</li>
-                        <li className="!text-black/60 font-bold">محصولات تخفیف دار</li>
-                        <li className="!text-black/60 font-bold">پشتیبانی</li>
-                        <li className="!text-black/60 font-bold">محبوب ترین ها</li>
-                        <li className="!text-black/60 font-bold">سوالی دارید</li>
-                        <li className="!text-black/60 font-bold">تماس با ما</li>
-                        <li className="!text-black/60 font-bold">درباره ما</li>
+                        <li className="text-black/60 cursor-pointer hover:text-orange-500">دسته بندی</li>
+                        <li className="text-black/60 cursor-pointer hover:text-orange-500">پرفروش ترین ها</li>
+                        <li className="text-black/60 cursor-pointer hover:text-orange-500">محصولات تخفیف دار</li>
+                        <li className="text-black/60 cursor-pointer hover:text-orange-500">پشتیبانی</li>
+                        <li className="text-black/60 cursor-pointer hover:text-orange-500">محبوب ترین ها</li>
+                        <li className="text-black/60 cursor-pointer hover:text-orange-500">سوالی دارید</li>
+                        <li className="text-black/60 cursor-pointer hover:text-orange-500">تماس با ما</li>
+                        <li className="text-black/60 cursor-pointer hover:text-orange-500">درباره ما</li>
                     </ul>
 
                     <ul className="list-none space-y-2">
                         <li className="font-bold text-2xl">لینک های مفید</li>
-                        <li className="!text-black/60 font-bold">دسته بندی</li>
-                        <li className="!text-black/60 font-bold">پرفروش ترین ها</li>
-                        <li className="!text-black/60 font-bold">محصولات تخفیف دار</li>
-                        <li className="!text-black/60 font-bold">پشتیبانی</li>
-                        <li className="!text-black/60 font-bold">محبوب ترین ها</li>
-                        <li className="!text-black/60 font-bold">سوالی دارید</li>
-                        <li className="!text-black/60 font-bold">تماس با ما</li>
-                        <li className="!text-black/60 font-bold">درباره ما</li>
+                        <li className="text-black/60 cursor-pointer hover:text-orange-500">دسته بندی</li>
+                        <li className="text-black/60 cursor-pointer hover:text-orange-500">پرفروش ترین ها</li>
+                        <li className="text-black/60 cursor-pointer hover:text-orange-500">محصولات تخفیف دار</li>
+                        <li className="text-black/60 cursor-pointer hover:text-orange-500">پشتیبانی</li>
+                        <li className="text-black/60 cursor-pointer hover:text-orange-500">محبوب ترین ها</li>
+                        <li className="text-black/60 cursor-pointer hover:text-orange-500">سوالی دارید</li>
+                        <li className="text-black/60 cursor-pointer hover:text-orange-500">تماس با ما</li>
+                        <li className="text-black/60 cursor-pointer hover:text-orange-500">درباره ما</li>
                     </ul>
                 </div>
                 <div dir="rtl" className="w-2/5 flex flex-col gap-4 max-[1280px]:w-full max-[1280px]:items-center">
@@ -142,7 +138,7 @@ const Footer = () => {
                         alt="logo"
                         className="size-14"
                     />
-                    <span className="text-[1rem] !text-black/50 font-bold mb-4">
+                    <span className="text-[1rem] !text-black/50 font-bold mb-4 max-[1280px]:text-center">
                         لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
                         چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی شصت و سه
                         درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری
@@ -152,7 +148,7 @@ const Footer = () => {
                     <div dir="rtl" className="relative w-full max-w-5xl mx-auto px-14">
                         <button
                             ref={prevRef}
-                            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-orange-300 hover:bg-orange-400 transition p-3 shadow-lg rounded-full backdrop-blur-sm"
+                            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-orange-300 hover:bg-orange-400 transition p-3 shadow-lg rounded-full backdrop-blur-sm cursor-pointer"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -168,7 +164,7 @@ const Footer = () => {
 
                         <button
                             ref={nextRef}
-                            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-orange-300 hover:bg-orange-400 transition p-3 shadow-lg rounded-full backdrop-blur-sm"
+                            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-orange-300 hover:bg-orange-400 transition p-3 shadow-lg rounded-full backdrop-blur-sm cursor-pointer"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -203,7 +199,7 @@ const Footer = () => {
                         >
                             {logos.map((src, i) => (
                                 <SwiperSlide key={i}>
-                                    <div className="bg-white rounded-2xl shadow-sm p-4 flex justify-center items-center transition hover:shadow-lg">
+                                    <div className="bg-white rounded-2xl shadow-sm p-4 flex justify-center items-center transition hover:shadow-lg cursor-pointer">
                                         <img
                                             src={src}
                                             alt={`logo-${i}`}
