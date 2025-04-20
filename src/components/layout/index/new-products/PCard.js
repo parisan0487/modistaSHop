@@ -11,7 +11,7 @@ function PCard({ data }) {
         <div className="bg-[#F6F6F6] w-[16rem] min-w-[14rem] h-[30rem] rounded-3xl overflow-hidden border-1 border-transparent transition hover:border-[#FD5504] cursor-pointer">
             {/* images */}
             <div className="flex flex-col max-h-[24rem] rounded-xl border-2 border-gray-200 m-4 mb-0 overflow-hidden">
-                <Link href={`http://localhost:3000/product/${id}`}>
+                <Link href={`products/${id}`}>
                     <Image src={mainImage} alt="image" className="w-full h-[18.5rem]" width={80} height={80} />
                 </Link>
                 <div className="flex flex-row items-center justify-between w-full mx-auto">

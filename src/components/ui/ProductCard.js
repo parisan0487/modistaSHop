@@ -21,7 +21,7 @@ function ProductCard({ data }) {
         <div className={`bg-[#F6F6F6] w-[14rem] min-w-[12rem] h-[27rem] rounded-3xl overflow-hidden border border-transparent transition hover:border-[#FD5504] cursor-pointer`}>
             {/* image */}
             <div className="flex flex-col max-h-[24rem] rounded-xl border-2 border-gray-200 m-4 mb-0 overflow-hidden">
-                <Link href={`/product/${id}`}>
+                <Link href={`/products/${id}`}>
                     <Image
                         src={mainImage}
                         alt={name}

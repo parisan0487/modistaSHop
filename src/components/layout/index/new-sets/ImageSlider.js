@@ -9,7 +9,7 @@ export default function ImageSlider({ items }) {
     const [selectedIndex, setSelectedIndex] = useState(0);
 
     return (
-        <Link href={`http://localhost:3000/product/${id}`}>
+        <Link href={`/products/${id}`}>
             <div className="relative w-[15rem] md:w-[25rem] h-[27rem] md:h-[34rem] rounded-3xl overflow-hidden shadow-[0_0_32px_#ffffff]">
                 <Image src={images[selectedIndex]} alt={name} className="object-cover" fill />
 
