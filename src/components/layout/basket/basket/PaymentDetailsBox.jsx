@@ -8,7 +8,7 @@ const PaymentDetailsBox = ({ totalPrice }) => {
     return (
         <div
             dir="rtl"
-            className="p-6 rounded-2xl bg-white shadow-md shrink-0"
+            className="max-[640px]:w-full p-6 rounded-2xl bg-white shadow-md shrink-0"
         >
             <h3 className="text-lg font-semibold mb-4">جزئیات پرداخت</h3>
 
