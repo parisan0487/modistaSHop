@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 function Breadcrumb({ items }) {
     return (
-        <div className="border-t border-gray-100 pt-8 flex flex-row-reverse items-center gap-x-1 text-gray-500">
+        <div className="border-t border-gray-100 py-8 flex flex-row-reverse items-center gap-x-1 text-gray-500">
             {items.map((item, i) => (
                 <div key={item.href} className="flex flex-row-reverse items-center gap-x-1">
                     <Link href={item.href} className={`${i + 1 === items.length ? 'text-gray-800' : ''}`}>

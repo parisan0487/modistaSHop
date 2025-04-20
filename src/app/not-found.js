@@ -16,7 +16,7 @@ function Notfound() {
                         { text: 'صفحه پیدا نشد', href: '#' },
                     ]}
                 />
-                <div className="mt-8 flex flex-col gap-y-16 justify-center items-center">
+                <div className="flex flex-col gap-y-16 justify-center items-center">
                     <h2 className="text-5xl font-medium text-gray-800">صفحه مورد نظر پیدا نشد</h2>
                     <Image src={'assets/images/not-found.svg'} alt="not found" width={400} height={400} />
                     <div className="flex gap-4">
