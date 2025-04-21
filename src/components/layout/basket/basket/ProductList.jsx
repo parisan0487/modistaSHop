@@ -1,18 +1,9 @@
+"use client"
+import { useContext } from 'react';
 import ProductBox from './ProductBox';
-
+import { BasketContext } from '@/context/BasketContext';
 const ProductList = ({ className = '' }) => {
-    const products = [
-        {
-            title: 'تی شرت یقه گرد آستین کوتاه',
-            price: 1_700_000,
-            image: 'https://mehdibagheridev.ir/modista/wp-content/uploads/2025/03/product-man-sample-7-300x300.jpg',
-        },
-        {
-            title: 'تی شرت یقه گرد آستین کوتاه',
-            price: 1_700_000,
-            image: 'https://mehdibagheridev.ir/modista/wp-content/uploads/2025/03/product-man-sample-7-300x300.jpg',
-        },
-    ];
+    const { products } = useContext(BasketContext);
 
     return (
         <div className={`flex flex-col gap-4 ${className}`}>

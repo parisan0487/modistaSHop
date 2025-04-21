@@ -1,20 +1,17 @@
 'use client';
 
-import { useState } from 'react';
+import { BasketContext } from '@/context/BasketContext';
+import { useContext, useState } from 'react';
 
-const PaymentDetailsBox = ({ totalPrice }) => {
+const PaymentDetailsBox = () => {
     const [discountCode, setDiscountCode] = useState('');
+    const { totalPrice } = useContext(BasketContext);
 
     return (
-        <div
-            dir="rtl"
-            className="max-[640px]:w-full p-6 rounded-2xl bg-white shadow-md shrink-0"
-        >
+        <div dir="rtl" className="max-[640px]:w-full p-6 rounded-2xl bg-white shadow-md shrink-0">
             <h3 className="text-lg font-semibold mb-4">جزئیات پرداخت</h3>
 
-            <p className="mb-4">
-                مبلغ کل: {totalPrice.toLocaleString()} تومان
-            </p>
+            <p className="mb-4">مبلغ کل: {totalPrice.toLocaleString()} تومان</p>
 
             <div className="mb-4">
                 <label className="block mb-2">کد تخفیف:</label>
@@ -31,9 +28,7 @@ const PaymentDetailsBox = ({ totalPrice }) => {
                 </div>
             </div>
 
-            <p className="font-bold mb-4">
-                مبلغ قابل پرداخت: {totalPrice.toLocaleString()} تومان
-            </p>
+            <p className="font-bold mb-4">مبلغ قابل پرداخت: {totalPrice.toLocaleString()} تومان</p>
 
             <button className="text-white w-full py-3 rounded-2xl font-semibold bg-orange-500 hover:bg-orange-600 transition cursor-pointer">
                 ادامه مراحل خرید

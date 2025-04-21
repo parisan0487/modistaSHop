@@ -1,19 +1,17 @@
 'use client';
+import { BasketContext } from '@/context/BasketContext';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
-const ProductBox = ({ title = '', price = 1500, image = '' }) => {
-    const [quantity, setQuantity] = useState(1);
-
-    const changeQuantity = (delta) => {
-        const next = quantity + delta;
-        if (next > 0) setQuantity(next);
-    };
+const ProductBox = ({ id, title, price, image, quantity }) => {
+    const { updateQuantity } = useContext(BasketContext);
 
     return (
         <div
             dir="rtl"
-            className="w-full p-4 rounded-2xl flex flex-col sm:flex-row items-center justify-between shadow-md bg-white gap-4"
+            className={`w-full p-4 rounded-2xl flex flex-col sm:flex-row items-center justify-between shadow-md bg-white gap-4 ${
+                !quantity && 'hidden'
+            }`}
         >
             <div className="w-full flex max-[640px]:flex-row-reverse items-center max-[640px]:justify-between gap-4 max-[450px]:flex-col">
                 <Image
@@ -32,7 +30,8 @@ const ProductBox = ({ title = '', price = 1500, image = '' }) => {
 
             <div className="flex items-center gap-2">
                 <button
-                    onClick={() => changeQuantity(-1)}
+                    onClick={() => updateQuantity(id, -1)}
+                    disabled={quantity < 1}
                     className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center cursor-pointer"
                 >
                     -
@@ -41,7 +40,8 @@ const ProductBox = ({ title = '', price = 1500, image = '' }) => {
                     {quantity}
                 </div>
                 <button
-                    onClick={() => changeQuantity(1)}
+                    onClick={() => updateQuantity(id, 1)}
+                    disabled={quantity < 1}
                     className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center cursor-pointer"
                 >
                     +
