@@ -1,6 +1,6 @@
 import localFont from 'next/font/local';
 import { Toaster } from 'react-hot-toast';
-
+import ProductShop from './(application)/shop/ProductShop';
 import './globals.css';
 import { AuthProvider } from '@/context/AuthContext';
 
@@ -61,6 +61,7 @@ export default function RootLayout({ children }) {
             <body className={`antialiased`} suppressHydrationWarning>
                 <AuthProvider>{children}</AuthProvider>
                 <Toaster position="bottom-center" />
+                
             </body>
         </html>
     );
