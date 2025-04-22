@@ -20,7 +20,6 @@ const BasketProvider = ({ children }) => {
             quantity: 1,
         },
     ]);
-
     const [totalPrice, setTotalPrice] = useState(0);
 
     useEffect(() => {
