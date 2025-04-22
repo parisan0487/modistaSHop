@@ -7,7 +7,7 @@ const AddProductsToDB = () => {
 
     const products = [
         {
-            id: '1',
+            id: '123',
             name: 'کیف وزشی مدل مارتن',
             price: 697000,
             description: 'کیف وزشی با طراحی زیبا',
@@ -23,7 +23,7 @@ const AddProductsToDB = () => {
             variants: [{ color: 'مشکی', size: 'xl', stock: 10 }],
         },
         {
-            id: '2',
+            id: '124',
             name: 'ست بلوز و شلوار زنانه',
             price: 2150000,
             description: 'ست بلوز و شلوار زنانه با تخفیف ویژه',
@@ -39,7 +39,7 @@ const AddProductsToDB = () => {
             variants: [{ color: 'مشکی', size: 'xl', stock: 15 }],
         },
         {
-            id: '3',
+            id: '125',
             name: 'کاپشن زنانه مدل کاد',
             price: 1790000,
             description: 'کاپشن زنانه مدل کاد با تخفیف 20%',
@@ -55,7 +55,7 @@ const AddProductsToDB = () => {
             variants: [{ color: 'قرمز', size: '2xl', stock: 10 }],
         },
         {
-            id: '4',
+            id: '126',
             name: 'کاپشن زمستانی مدل تالای',
             price: 950000,
             description: 'کاپشن زمستانی مدل تالای با تخفیف 25%',
@@ -71,7 +71,7 @@ const AddProductsToDB = () => {
             variants: [{ color: 'ابی', size: 'md', stock: 5 }],
         },
         {
-            id: '5',
+            id: '127',
             name: 'کفش ورزشی',
             price: 1240000,
             description: 'کفش ورزشی برای فعالیت‌های روزمره',
@@ -87,7 +87,7 @@ const AddProductsToDB = () => {
             variants: [{ color: 'سفید', size: 'sm', stock: 20 }],
         },
         {
-            id: '6',
+            id: '128',
             name: 'کش باف زنانه',
             price: 1100000,
             description: 'کش باف زنانه با طرح زیبا',
@@ -97,7 +97,7 @@ const AddProductsToDB = () => {
             variants: [{ color: 'زرد', size: 'md', stock: 15 }],
         },
         {
-            id: '7',
+            id: '129',
             name: 'شلوار راحتی',
             price: 1100000,
             description: 'شلوار راحتی با کیفیت بالا',
@@ -107,7 +107,7 @@ const AddProductsToDB = () => {
             variants: [{ color: 'ابی', size: 'lg', stock: 10 }],
         },
         {
-            id: '8',
+            id: '130',
             name: 'پیراهن مردانه',
             price: 904000,
             description: 'پیراهن مردانه با تخفیف ویژه',
@@ -117,7 +117,7 @@ const AddProductsToDB = () => {
             variants: [{ color: 'آبی', size: 'xl', stock: 8 }],
         },
         {
-            id: '9',
+            id: '131',
             name: 'شلوار راحتی بچه گانه',
             price: 730000,
             description: 'شلوار راحتی بچه گانه با طرح خاص',
@@ -127,7 +127,7 @@ const AddProductsToDB = () => {
             variants: [{ color: 'سبز', size: 's', stock: 12 }],
         },
         {
-            id: '10',
+            id: '132',
             name: 'لباس',
             price: 100000,
             description: 'لباس با تخفیف ویژه 1%',
@@ -137,7 +137,7 @@ const AddProductsToDB = () => {
             variants: [{ color: 'قرمز', size: 'm', stock: 5 }],
         },
         {
-            id: '11',
+            id: '133',
             name: 'لباس مردانه',
             price: 560000,
             description: 'لباس مردانه با تخفیف 7%',
@@ -147,7 +147,7 @@ const AddProductsToDB = () => {
             variants: [{ color: 'خاکستری', size: 'xl', stock: 10 }],
         },
         {
-            id: '12',
+            id: '134',
             name: 'کش باف زنانه',
             price: 750000,
             description: 'کش باف زنانه با تخفیف 25%',
@@ -157,7 +157,7 @@ const AddProductsToDB = () => {
             variants: [{ color: 'مشکی', size: 'lg', stock: 15 }],
         },
         {
-            id: '13',
+            id: '135',
             name: 'لباس',
             price: 750000,
             description: 'لباس با تخفیف 25%',
@@ -167,7 +167,7 @@ const AddProductsToDB = () => {
             variants: [{ color: 'سبز', size: 'm', stock: 7 }],
         },
         {
-            id: '14',
+            id: '136',
             name: 'ژاکت زنانه',
             price: 320000,
             description: 'ژاکت زنانه با تخفیف 19%',
@@ -177,7 +177,7 @@ const AddProductsToDB = () => {
             variants: [{ color: 'زرد', size: 'md', stock: 10 }],
         },
         {
-            id: '15',
+            id: '137',
             name: 'کاپشن بادی',
             price: 440000,
             description: 'کاپشن بادی با تخفیف 17%',
@@ -187,7 +187,7 @@ const AddProductsToDB = () => {
             variants: [{ color: 'سفید', size: 'lg', stock: 5 }],
         },
         {
-            id: '16',
+            id: '138',
             name: 'پیراهن مردانه',
             price: 1100000,
             description: 'پیراهن مردانه با تخفیف 5%',
@@ -197,7 +197,7 @@ const AddProductsToDB = () => {
             variants: [{ color: 'سبز', size: 'xl', stock: 10 }],
         },
         {
-            id: '17',
+            id: '139',
             name: 'کش باف زنانه',
             price: 1100000,
             description: 'کش باف زنانه با تخفیف 5%',
@@ -207,7 +207,7 @@ const AddProductsToDB = () => {
             variants: [{ color: 'قرمز', size: 'md', stock: 15 }],
         },
         {
-            id: '18',
+            id: '140',
             name: 'لباس پشمی',
             price: 1100000,
             description: 'لباس پشمی با تخفیف 11%',
@@ -217,7 +217,7 @@ const AddProductsToDB = () => {
             variants: [{ color: 'ابی', size: '2xl', stock: 10 }],
         },
         {
-            id: '19',
+            id: '141',
             name: 'مانتور زنانه',
             price: 770000,
             description: 'مانتور زنانه با تخفیف 14%',
@@ -227,7 +227,7 @@ const AddProductsToDB = () => {
             variants: [{ color: 'ابی', size: 'lg', stock: 12 }],
         },
         {
-            id: '20',
+            id: '142',
             name: 'هودی زنانه و مردانه',
             price: 970000,
             description: 'هودی زنانه و مردانه با تخفیف 33%',
@@ -237,7 +237,7 @@ const AddProductsToDB = () => {
             variants: [{ color: 'سفید', size: 'xl', stock: 15 }],
         },
         {
-            id: '21',
+            id: '143',
             name: 'سر همی بچگانه',
             price: 330000,
             description: 'سر همی بچگانه با تخفیف 14%',
@@ -247,7 +247,7 @@ const AddProductsToDB = () => {
             variants: [{ color: 'سفید', size: 'xs', stock: 8 }],
         },
         {
-            id: '22',
+            id: '144',
             name: 'هودی بچه گانه',
             price: 42000,
             description: 'هودی بچه گانه با تخفیف 4%',
@@ -257,7 +257,7 @@ const AddProductsToDB = () => {
             variants: [{ color: 'سبز', size: 's', stock: 12 }],
         },
         {
-            id: '23',
+            id: '145',
             name: 'لباس بچه گانه',
             price: 30000,
             description: 'لباس بچه گانه با تخفیف ویژه',
@@ -267,7 +267,7 @@ const AddProductsToDB = () => {
             variants: [{ color: 'سفید', size: 'xs', stock: 10 }],
         },
         {
-            id: '24',
+            id: '146',
             name: 'ژاکت یقه گرد',
             price: 600000,
             description: 'ژاکت یقه گرد با تخفیف ویژه',
