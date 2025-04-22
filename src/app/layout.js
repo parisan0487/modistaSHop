@@ -1,6 +1,6 @@
 import localFont from 'next/font/local';
 import { Toaster } from 'react-hot-toast';
-import ProductShop from './(application)/shop/ProductShop';
+import ProductShop from './(application)/shop/page';
 import './globals.css';
 import { AuthProvider } from '@/context/AuthContext';
 

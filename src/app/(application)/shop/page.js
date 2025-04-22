@@ -1,274 +1,6 @@
 'use client'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import React from 'react';
-
-
-const products = [
-  {
-    id: 1,
-    title: ' کیف وزشی مدل مارتن',
-    images: [
-      '/assets/images/bag-1.jpg',
-      '/assets/images/bag-2.jpg',
-      '/assets/images/bag-3.jpg',
-      '/assets/images/bag-2.jpg',
-      '/assets/images/pic3.jpg',
-    ],
-    finalPrice: 697000,
-    size: 'xl',
-    color: 'مشکی',
-  },
-  {
-    id: 2,
-    title: ' ست بلوز و شلوار زنانه',
-    images: [
-      '/assets/images/bloz-1.jpg',
-      '/assets/images/bloz-2.jpg',
-      '/assets/images/bloz-3.jpg',
-      '/assets/images/bloz-4.jpg',
-      '/assets/images/bloz-1.jpg',
-    ],
-    price: 2150000,
-    discount: '10%',
-    finalPrice: 1935000,
-    size: 'xl',
-    color: 'مشکی',
-  },
-  {
-    id: 3,
-    title: 'کاپشن زنانه مدل کاد',
-    images: [
-      '/assets/images/capshan-1.jpg',
-      '/assets/images/capshan-2.jpg',
-      '/assets/images/capshan-3.jpg',
-      '/assets/images/capshan-4.jpg',
-      '/assets/images/capshan-5.jpg',
-    ],
-    price: 1790000,
-    discount: '20%',
-    finalPrice: 1432000,
-    size: '2xl',
-    color: 'قرمز',
-  },
-  {
-    id: 4,
-    title: 'کاپشن زمستانی مدل تالای',
-    images: [
-      '/assets/images/talay-3.jpg',
-      '/assets/images/talay-2.jpg',
-      '/assets/images/talay-1.jpg',
-      '/assets/images/talay-4.jpg',
-      '/assets/images/talay-1.jpg',
-    ],
-    price: 950000,
-    discount: '25%',
-    finalPrice: 712000,
-    size: 'md',
-    color: 'ابی',
-  },
-  {
-    id: 5,
-    title: 'کفش ورزشی  ',
-    images: [
-      '/assets/images/shoe-4.webp',
-      '/assets/images/shoe-2.jpg',
-      '/assets/images/shoe-1.jpg',
-      '/assets/images/shoe-3.jpg',
-      '/assets/images/shoe-5.jpg',
-    ],
-    price: 1240000,
-    discount: '5%',
-    finalPrice: 1178000,
-    size: 'sm',
-    color: 'سفید',
-  },
-  {
-    id: 6,
-    title: ' کش باف زنانه ',
-    images: '/assets/images/s.jpg',
-    price: 1100000,
-    discount: '5%',
-    finalPrice: 1178000,
-    size: 'md',
-    color: 'زرد',
-  },
-  {
-    id: 7,
-    title: ' شلوار راحتی ',
-    images: '/assets/images/s1.jpg',
-    price: 1100000,
-    discount: '5%',
-    finalPrice: 1178000,
-    size: 'lg',
-    color: 'ابی',
-  },
-  {
-    id: 8,
-    title: ' پیراهن مردانه',
-    images: '/assets/images/s2.jpg',
-    price: 904000,
-    discount: '12%',
-    finalPrice: 812000,
-    size: 'xl',
-    color: 'آبی',
-  },
-  {
-    id: 9,
-    title: ' شلوار راتی بچه گانه',
-    images: '/assets/images/s3.jpg',
-    price: 730000,
-    discount: '18%',
-    finalPrice: 530000,
-    size: 's',
-    color: 'سبز',
-  },
-  {
-    id: 10,
-    title: ' لباس',
-    images: '/assets/images/s4.png',
-    price: 100000,
-    discount: '1%',
-    finalPrice: 99000,
-    size: 'm',
-    color: 'قرمز',
-  },
-  {
-    id: 11,
-    title: ' لباس مردانه ',
-    images: '/assets/images/s5.png',
-    price: 560000,
-    discount: '7%',
-    finalPrice: 500000,
-    size: 'xl',
-    color: 'خاکستری',
-  },
-  {
-    id: 12,
-    title: ' کش باف زنانه ',
-    images: '/assets/images/s6.jpg',
-    price: 750000,
-    discount: '25%',
-    finalPrice: 490000,
-    size: 'lg',
-    color: 'مشکی',
-  },
-  {
-    id: 13,
-    title: ' لباس',
-    images: '/assets/images/s7.png',
-    price: 750000,
-    discount: '25%',
-    finalPrice: 750000,
-    size: 'm',
-    color: ' سبز',
-  },
-  {
-    id: 14,
-    title: ' ژاکت زنانه ',
-    images: '/assets/images/s8.jpg',
-    price: 320000,
-    discount: '19%',
-    finalPrice: 270000,
-    size: 'md',
-    color: ' زرد',
-  },
-  {
-    id: 15,
-    title: ' کاپشن بادی',
-    images: '/assets/images/s9.png',
-    price: 440000,
-    discount: '17%',
-    finalPrice: 310000,
-    size: 'lg',
-    color: 'سفید',
-  },
-  {
-    id: 16,
-    title: ' پیراهن مردانه',
-    images: '/assets/images/s10.jpg',
-    price: 1100000,
-    discount: '5%',
-    finalPrice: 1178000,
-    size: 'xl',
-    color: 'سبز ',
-  },
-  {
-    id: 17,
-    title: ' کش باف زنانه ',
-    images: '/assets/images/s.jpg',
-    price: 1100000,
-    discount: '5%',
-    finalPrice: 1178000,
-    size: 'md',
-    color: ' قرمز',
-  },
-  {
-    id: 18,
-    title: ' لباس پشمی',
-    images: '/assets/images/s11.jpg',
-    price: 1100000,
-    discount: '11%',
-    finalPrice: 1000000,
-    size: '2xl',
-    color: 'ابی',
-  },
-  {
-    id: 19,
-    title: ' مانتور زنانه',
-    images: '/assets/images/s12.jpg',
-    price: 770000,
-    discount: '14%',
-    finalPrice: 600000,
-    size: 'lg',
-    color: ' ابی',
-  },
-  {
-    id: 20,
-    title: ' هودی زنانه و مردانه',
-    images: '/assets/images/s13.png',
-    price: 970000,
-    discount: '33%',
-    finalPrice: 600000,
-    size: 'xl',
-    color: 'سفید',
-  },
-  {
-    id: 21,
-    title: '  سر همی بچگانه ',
-    images: '/assets/images/s14.jpg',
-    price: 330000,
-    discount: '14%',
-    finalPrice: 279000,
-    size: 'xs',
-    color: 'سفید',
-  },
-  {
-    id: 22,
-    title: 'هودی بچه گانه ',
-    images: '/assets/images/s16.jpg',
-    price: 42000,
-    discount: '4%',
-    finalPrice: 395000,
-    size: 's',
-    color: 'سبز',
-  },
-  {
-    id: 23,
-    title: ' لباس بچه گانه',
-    images: '/assets/images/s17.jpg',
-    finalPrice: 30000,
-    size: 'xs',
-    color: ' سفید',
-  },
-  {
-    id: 24,
-    title: '  ژاکت یقه گرد',
-    images: '/assets/images/s18.jpg',
-    finalPrice: 600000,
-    size: 'm',
-    color: 'مشکی',
-  },
-];
 
 function ProductShop() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -276,7 +8,27 @@ function ProductShop() {
   const [selectedSizes, setSelectedSizes] = useState([]);
   const [activeImages, setActiveImages] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
-  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false); 
+  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('https://back-production-22f1.up.railway.app/api/products');
+        if (!response.ok) throw new Error('خطا در دریافت داده‌ها');
+        const data = await response.json();
+        setProducts(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   const availableColors = ['سبز', 'سفید', 'مشکی', 'ابی', 'قرمز', 'زرد'];
   const availableSizes = ['xs', 's', 'm', 'md', 'lg', 'xl', '2xl'];
@@ -294,16 +46,16 @@ function ProductShop() {
 
   const filteredProducts = products.filter((product) => {
     const matchesSearch = searchQuery
-      ? product.title.toLowerCase().includes(searchQuery.toLowerCase())
+      ? product.name.toLowerCase().includes(searchQuery.toLowerCase())
       : true;
 
     const matchesColor =
       selectedColors.length > 0
-        ? selectedColors.includes(normalizeColor(product.color))
+        ? selectedColors.includes(normalizeColor(product.variants.color))
         : true;
 
     const matchesSize =
-      selectedSizes.length > 0 ? selectedSizes.includes(product.size) : true;
+      selectedSizes.length > 0 ? selectedSizes.includes(product.variants.size) : true;
 
     return matchesSearch && matchesColor && matchesSize;
   });
@@ -412,7 +164,7 @@ function ProductShop() {
                 <div className="w-full h-52 overflow-hidden rounded-lg bg-gray-100">
                   <img
                     src={mainImage}
-                    alt={product.title}
+                    alt={product.name}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -433,7 +185,7 @@ function ProductShop() {
                 </div>
 
                 <h2 className="text-center font-medium text-gray-800">
-                  {product.title}
+                  {product.name}
                 </h2>
 
                 <div className="flex items-center gap-1 text-sm text-gray-600">
