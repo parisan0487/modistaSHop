@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { useState, useEffect } from 'react';
 import React from 'react';
 
@@ -16,7 +16,7 @@ function ProductShop() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('https://back-production-22f1.up.railway.app/api/products');
+        const response = await fetch('https://back-production-22f1.up.railway.app/api/products/');
         if (!response.ok) throw new Error('خطا در دریافت داده‌ها');
         const data = await response.json();
         setProducts(data);
@@ -44,6 +44,15 @@ function ProductShop() {
 
   const normalizeColor = (color) => color?.replace(/\s/g, '');
 
+  const extractDiscount = (desc) => {
+    const match = desc?.match(/(\d+)%/);
+    return match ? parseInt(match[1]) : 0;
+  };
+
+  const getFinalPrice = (price, discount) => {
+    return Math.round(price - (price * discount) / 100);
+  };
+
   const filteredProducts = products.filter((product) => {
     const matchesSearch = searchQuery
       ? product.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -51,11 +60,17 @@ function ProductShop() {
 
     const matchesColor =
       selectedColors.length > 0
-        ? selectedColors.includes(normalizeColor(product.variants.color))
+        ? product.variants?.some((variant) =>
+            selectedColors.includes(normalizeColor(variant.color))
+          )
         : true;
 
     const matchesSize =
-      selectedSizes.length > 0 ? selectedSizes.includes(product.variants.size) : true;
+      selectedSizes.length > 0
+        ? product.variants?.some((variant) =>
+            selectedSizes.includes(variant.size)
+          )
+        : true;
 
     return matchesSearch && matchesColor && matchesSize;
   });
@@ -66,6 +81,16 @@ function ProductShop() {
     (currentPage - 1) * productsPerPage,
     currentPage * productsPerPage
   );
+
+  const enhancedProducts = paginatedProducts.map((product) => {
+    const discount = extractDiscount(product.description);
+    const finalPrice = getFinalPrice(product.price, discount);
+    return {
+      ...product,
+      discount: discount ? `${discount}%` : null,
+      finalPrice,
+    };
+  });
 
   const handleThumbnailClick = (productId, imgSrc) => {
     setActiveImages((prev) => ({
@@ -83,9 +108,11 @@ function ProductShop() {
     'زرد': '#fde047',
   };
 
+  if (loading) return <div className="text-center py-10">در حال بارگذاری...</div>;
+  if (error) return <div className="text-center text-red-500 py-10">{error}</div>;
+
   return (
     <div className="flex flex-col md:flex-row px-4 py-6 gap-6 min-w-screen">
-
       <div className="block md:hidden px-2 mb-4">
         <input
           type="text"
@@ -150,7 +177,7 @@ function ProductShop() {
 
       <div className="w-full md:w-4/5">
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
-          {paginatedProducts.map((product) => {
+          {enhancedProducts.map((product) => {
             const imagesArray = Array.isArray(product.images)
               ? product.images
               : [product.images];
