@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import Link from 'next/link';
 
 const Footer = () => {
     const prevRef = useRef(null);
@@ -106,7 +107,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div dir="rtl" className="flex gap-10">
-                    <ul className="list-none space-y-2">
+                    <ul className="flex flex-col gap-1.5">
                         <li className="font-bold text-2xl">دسترسی سریع</li>
                         <li className="text-black/60 cursor-pointer hover:text-orange-500">دسته بندی</li>
                         <li className="text-black/60 cursor-pointer hover:text-orange-500">پرفروش ترین ها</li>
@@ -114,11 +115,15 @@ const Footer = () => {
                         <li className="text-black/60 cursor-pointer hover:text-orange-500">پشتیبانی</li>
                         <li className="text-black/60 cursor-pointer hover:text-orange-500">محبوب ترین ها</li>
                         <li className="text-black/60 cursor-pointer hover:text-orange-500">سوالی دارید</li>
-                        <li className="text-black/60 cursor-pointer hover:text-orange-500">تماس با ما</li>
-                        <li className="text-black/60 cursor-pointer hover:text-orange-500">درباره ما</li>
+                        <Link href={'/contact-us'}>
+                            <li className="text-black/60 cursor-pointer hover:text-orange-500">تماس با ما</li>
+                        </Link>
+                        <Link href={'/about-us'}>
+                            <li className="text-black/60 cursor-pointer hover:text-orange-500">درباره ما</li>
+                        </Link>
                     </ul>
 
-                    <ul className="list-none space-y-2">
+                    <ul className="flex flex-col gap-1.5">
                         <li className="font-bold text-2xl">لینک های مفید</li>
                         <li className="text-black/60 cursor-pointer hover:text-orange-500">دسته بندی</li>
                         <li className="text-black/60 cursor-pointer hover:text-orange-500">پرفروش ترین ها</li>
@@ -126,8 +131,12 @@ const Footer = () => {
                         <li className="text-black/60 cursor-pointer hover:text-orange-500">پشتیبانی</li>
                         <li className="text-black/60 cursor-pointer hover:text-orange-500">محبوب ترین ها</li>
                         <li className="text-black/60 cursor-pointer hover:text-orange-500">سوالی دارید</li>
-                        <li className="text-black/60 cursor-pointer hover:text-orange-500">تماس با ما</li>
-                        <li className="text-black/60 cursor-pointer hover:text-orange-500">درباره ما</li>
+                        <Link href={'/contact-us'}>
+                            <li className="text-black/60 cursor-pointer hover:text-orange-500">تماس با ما</li>
+                        </Link>
+                        <Link href={'/about-us'}>
+                            <li className="text-black/60 cursor-pointer hover:text-orange-500">درباره ما</li>
+                        </Link>
                     </ul>
                 </div>
                 <div dir="rtl" className="w-2/5 flex flex-col gap-4 max-[1280px]:w-full max-[1280px]:items-center">

@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import React, { useState } from 'react';
 
 const categories = [
@@ -71,12 +72,13 @@ const MegaMenu = () => {
                                 {cate.title}
                             </li>
                             {cate.items.map((item, index) => (
-                                <li
+                                <Link
+                                    href={'/shop'}
                                     key={index}
                                     className="text-[1rem] !text-zinc-500 text-right hover:!text-orange-500 cursor-pointer"
                                 >
                                     {item}
-                                </li>
+                                </Link>
                             ))}
                         </ul>
                     ))}

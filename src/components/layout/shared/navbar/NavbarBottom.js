@@ -96,11 +96,12 @@ const NavbarBottom = () => {
                         </g>
                     </svg>
                     <ul className="absolute top-8 right-0 w-37 p-4 bg-white overflow-hidden rounded-2xl shadow-lg flex flex-col items-end gap-2 invisible opacity-0 delay-200 duration-300 group-hover:visible group-hover:opacity-100 group-hover:mt-4">
-                        <li className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
-                            <a href='/shop'>
+                        <Link
+                            href="/shop"
+                            className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black"
+                        >
                             فروشگاه
-                            </a>
-                        </li>
+                        </Link>
                         <li className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
                             تکی مقاله
                         </li>
@@ -113,10 +114,10 @@ const NavbarBottom = () => {
                         <li className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
                             سبد خرید
                         </li>
-                        <li className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">404</li>
+                        <Link href={'/404'} className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">404</Link>
                     </ul>
                 </li>
-                <li className="flex gap-1 cursor-pointer">
+                <Link href={'/shop'} className="flex gap-1 cursor-pointer">
                     <span className="!text-black/60 text-[1.1rem]">حراج استایل</span>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="Broken / Money / Tag">
@@ -148,7 +149,7 @@ const NavbarBottom = () => {
                             ></path>
                         </g>
                     </svg>
-                </li>
+                </Link>
                 <Link href={'/contact-us'} className="flex gap-1 cursor-pointer">
                     <span className="!text-black/60 text-[1.1rem]">تماس با ما</span>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

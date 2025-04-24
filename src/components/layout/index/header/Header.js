@@ -17,7 +17,7 @@ const Header = () => {
                     <Link href={'/about-us'} className="p-3 h-13 w-36 border-2 border-orange-500 rounded-2xl flex items-center justify-center text-orange-500 font-bold cursor-pointer">
                         درباره ما
                     </Link>
-                    <div className="p-3 h-13 bg-orange-500 rounded-2xl flex items-center justify-center gap-2 shrink-0 text-white font-bold cursor-pointer">
+                    <Link href={'/shop'} className="p-3 h-13 bg-orange-500 rounded-2xl flex items-center justify-center gap-2 shrink-0 text-white font-bold cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <g id="9">
                                 <path
@@ -30,7 +30,7 @@ const Header = () => {
                             </g>p-3 h-13 w-36 border-2 border-orange-500 rounded-2xl flex items-center justify-center text-orange-500 font-bold cursor-pointer
                         </svg>
                         <span>کالکشن جدید</span>
-                    </div>
+                    </Link>
                 </div>
             </div>
 
