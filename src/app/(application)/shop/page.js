@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import React from 'react';
-
+import Breadcrumb from '@/components/ui/Breadcrumb';
 function ProductShop() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedColors, setSelectedColors] = useState([]);
@@ -112,6 +112,13 @@ function ProductShop() {
   if (error) return <div className="text-center text-red-500 py-10">{error}</div>;
 
   return (
+    <>
+                    <Breadcrumb
+    items={[
+        { text: 'صفحه اصلی', href: '/' },
+        { text: 'فروشگاه', href: '/shop' },
+    ]}
+/>
     <div className="flex flex-col md:flex-row px-4 py-6 gap-6 min-w-screen">
       <div className="block md:hidden px-2 mb-4">
         <input
@@ -319,7 +326,7 @@ function ProductShop() {
         </div>
       </div>
     </div>
-  );
+    </>);
 }
 
 export default ProductShop;

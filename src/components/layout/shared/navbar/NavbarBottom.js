@@ -97,7 +97,9 @@ const NavbarBottom = () => {
                     </svg>
                     <ul className="absolute top-8 right-0 w-37 p-4 bg-white overflow-hidden rounded-2xl shadow-lg flex flex-col items-end gap-2 invisible opacity-0 delay-200 duration-300 group-hover:visible group-hover:opacity-100 group-hover:mt-4">
                         <li className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
+                            <a href='/shop'>
                             فروشگاه
+                            </a>
                         </li>
                         <li className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
                             تکی مقاله
