@@ -4,17 +4,26 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 function PCard({ data, deleteBtn = false }) {
-    const { id, name, images, price, discountPercent, finalPrice } = data;
+    const { id, name, images, price, discount = 0 } = data;
     const [mainImage, setMainImage] = useState(images[0]);
 
+    const finalPrice = price - discount;
+
+    const calculateDiscountPercent = () => {
+        if (!price || !discount || discount <= 0) return 0;
+        return Math.round((discount / price) * 100);
+    };
+
+    const discountPercent = calculateDiscountPercent();
+
     return (
-        <div className="bg-[#F6F6F6] w-[16rem] min-w-[14rem] h-[30rem] rounded-3xl overflow-hidden border-1 border-transparent transition hover:border-[#FD5504] cursor-pointer">
+        <div dir='rtl' className="bg-[#F6F6F6] w-[16rem] min-w-[14rem] h-[30rem] rounded-3xl overflow-hidden border-1 border-transparent transition hover:border-[#FD5504] cursor-pointer">
             {/* images */}
             <div className="flex flex-col max-h-[24rem] rounded-xl border-2 border-gray-200 m-4 mb-0 overflow-hidden">
                 <Link href={`products/${id}`}>
                     <Image src={mainImage} alt="image" className="w-full h-[18.5rem]" width={80} height={80} />
                 </Link>
-                <div className="flex flex-row items-center justify-between w-full mx-auto">
+                {images.length > 1 ? <div className="flex flex-row items-center justify-around w-full mx-auto">
                     {images.map((image, index) => (
                         <Image
                             key={index}
@@ -26,7 +35,7 @@ function PCard({ data, deleteBtn = false }) {
                             onClick={() => setMainImage(image)}
                         />
                     ))}
-                </div>
+                </div> : <div className="w-[2.5rem] h-[2.5rem] object-fit-cover "></div>}
             </div>
             {/* decription */}
             <h2 className="mt-2 mb-3 font-semibold text-center text-[#595959]">{name}</h2>
@@ -51,7 +60,7 @@ function PCard({ data, deleteBtn = false }) {
                         </div>
                     ) : null}
                     <Link
-                        href={`http://localhost:3000/product/${id}`}
+                        href={`/products/${id}`}
                         className={`bg-[#ffff] hover:bg-[#FD5504] ${deleteBtn ? 'p-2' : 'p-3'} rounded-2xl group`}
                     >
                         <svg
@@ -82,11 +91,16 @@ function PCard({ data, deleteBtn = false }) {
                     </Link>
                 </div>
                 <div className="flex flex-col">
+
                     <div className="flex flex-row mx-4 font-light items-center gap-1">
-                        <p className="text-[#AAAAAA] line-through">{price.toLocaleString('fa-IR')}</p>
-                        <span className="text-slate-50 text-sm bg-[#FD5504] rounded-md text-center p-[2px]">
-                            {discountPercent}%
-                        </span>
+                        {discountPercent > 1 &&
+                            <>
+                                <p className="text-[#AAAAAA] line-through">{price.toLocaleString('fa-IR')}</p>
+                                <span className="text-slate-50 text-sm bg-[#FD5504] rounded-md text-center p-[2px]">
+                                    {discountPercent}%
+                                </span>
+                            </>
+                        }
                     </div>
 
                     <div className="font-bold flex flex-row mt-3 text-center items-center">

@@ -5,37 +5,46 @@ import CommentForm from '@/components/ui/ComponentForm';
 import FullProductCard from '@/components/ui/FullProductCard';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { use, useEffect, useState } from 'react';
 
 
 const productTestData = {
-    name: "کاپشن زنانه آستانا مدل تالای",
-    productId: "849389",
-    category: "لباس زنانه، لباس ست",
     brand: " نایک",
     fullBrandList: "آدیداس، اسپیکس، پوما، ریبوک، نایک",
-    images: [
-        '/assets/images/bloz-1.jpg',
-        '/assets/images/bloz-2.jpg',
-        '/assets/images/bloz-3.jpg',
-        '/assets/images/bloz-4.jpg',
-    ],
-    colors: [
-        { name: 'سفید', value: '#ffffff' },
-        { name: 'قرمز', value: '#ff0000' },
-        { name: 'مشکی', value: '#000000' },
-    ],
-    price: 3240000,
-    discount: 320000,
-    description: "«کاپشن مردانه فاکس مدلBionic » بهترین انتخاب برای آقایانی بوده که به ظاهری زیبا و باکیفیت اهمیت می‌دهند. این کاپشن مردانه از یقه‌ای گرد و آستین‌های بلند تهیه‌ شده که در فصل زمستان اجازه نمی‌دهد سوز سرما وارد کاپشن شده و حس سرمای زیاد را به شما منتقل نخواهد کرد. این کاپشن را می‌توانید برای مسابقات موتورسواری و دوچرخه‌سواری نیز پوشیده و نهایت لذت را تجربه کنید. این کاپشن مردانه از پلی‌استر و اسپندکس تهیه‌ شده که پلی‌استر دوام و مقاومت آن را در برابر پارگی یا ساییده شدن افزایش خواهد داد. همچنین اجازه نمی‌دهد رطوبت ناشی از تعریق و بوی نامطبوع نیز وارد الیاف آن شود. یکی از بارزترین نشانه‌های این کاپشن وجود الیاف کوردورا بوده که دوام آن از الیاف پلی‌استر معمولی بالاتر است به همین جهت در مقاومت آن نقش بسزایی دارد. این را باید متذکر شد که وجود فناوری‌های روز به نام‌هایTrudri و DWRدر کامل کردن کیفیت این کاپشن نقش زیادی داشته است.",
+
+    description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.",
     title: [
-        { title: "عنوان اول", content: "«کاپشن مردانه فاکس مدلBionic » بهترین انتخاب برای آقایانی بوده که به ظاهری زیبا و باکیفیت اهمیت می‌دهند.این کاپشن مردانه از یقه‌ای گرد و آستین‌های بلند تهیه‌ شده که در فصل زمستان اجازه نمی‌دهد سوز سرما وارد کاپشن شده و حس سرمای زیاد را به شما منتقل نخواهد کرد.این کاپشن را می‌توانید برای مسابقات موتورسواری و دوچرخه‌سواری نیز پوشیده و نهایت لذت را تجربه کنید.این کاپشن مردانه از پلی‌استر و اسپندکس تهیه‌ شده که پلی‌استر دوام و مقاومت آن را در برابر پارگی یا ساییده شدن افزایش خواهد داد.همچنین اجازه نمی‌دهد رطوبت ناشی از تعریق و بوی نامطبوع نیز وارد الیاف آن شود.یکی از بارزترین نشانه‌های این کاپشن وجود الیاف کوردورا بوده که دوام آن از الیاف پلی‌استر معمولی بالاتر است به همین جهت در مقاومت آن نقش بسزایی دارد.این را باید متذکر شد که وجود فناوری‌های روز به نام‌هایTrudri و DWRدر کامل کردن کیفیت این کاپشن نقش زیادی داشته است." },
+        { title: "عنوان اول", content: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد کتابهای زیادی در شصت و سه درصد گذشته حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد" },
     ],
-    quantity: 88,
+
 };
 
 
-const Page = () => {
+const Page = ({ params }) => {
+    const { id } = use(params);
+    const [product, setProduct] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const res = await fetch(`https://back-production-22f1.up.railway.app/api/products/${id}`)
+                const data = await res.json();
+                setProduct(data);
+                setLoading(false);
+
+            } catch (error) {
+                console.error("خطا در گرفتن محصولات:", error);
+                setLoading(false);
+            }
+        };
+
+        fetchProducts();
+    }, []);
+
+
+
     const tabs = [
         { label: "توضیحات", targetId: "description" },
         { label: "مشخصات", targetId: "specifications" },
@@ -49,14 +58,20 @@ const Page = () => {
         }
     };
 
-    const finalPrice = productTestData.price - productTestData.discount;
+
+    const finalPrice = product.price - (product.discount || 0);
+
+
 
     const calculateDiscountPercent = () => {
-        if (!productTestData.price || !productTestData.discount || productTestData.discount <= 0) return 0;
-        return Math.round((productTestData.discount / productTestData.price) * 100);
+        if (!product.price || !product.discount || product.discount <= 0) return 0;
+        return Math.round((product.discount / product.price) * 100);
     };
 
     const discountPercent = calculateDiscountPercent();
+    if (loading || !product || !product.images) {
+        return <p className='w-full m-auto h-screen text-center '>در حال بارگذاری...</p>;
+    }
 
     return (
         <div className="p-6 rtl space-y-2 w-full container pl-4 pr-8">
@@ -66,17 +81,17 @@ const Page = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M12.5 15L7.5 10L12.5 5" stroke="#B9B9B9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                <Link href="/category">{productTestData.category}</Link>
+                <Link href="/categories">{product.categories.slice(0, 1)}</Link>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M12.5 15L7.5 10L12.5 5" stroke="#B9B9B9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                <span className="text-gray-700 font-medium">{productTestData.name}</span>
+                <span className="text-gray-700 font-medium">{product.name}</span>
             </div>
 
-            <FullProductCard productData={productTestData} />
+            <FullProductCard productData={product} />
             {/* ///////////////////////// */}
             {/* ///////////////////////// Card icons ///////////////// */}
-            <div className="grid grid-cols-2 gap-4 lg:flex lg:flex-row lg:justify-evenly xl:mx-32 bg-[#F7F7F7] rounded-xl p-4 mt-6 lg:mt-28 xl:mt-8">
+            <div className="grid grid-cols-2 gap-4 lg:flex lg:flex-row lg:justify-evenly xl:mx-32 bg-[#F7F7F7] rounded-xl p-4 mt-12 lg:mt-28 xl:mt-8">
                 {[{ img: "/assets/images/feture-box-4.png", text: "ضمانت بازگشت کالا" },
                 { img: "/assets/images/feture-box-1.png", text: "ضمانت اصالت" },
                 { img: "/assets/images/feture-box-2.png", text: "ارسال رایگان و سریع" },
@@ -125,13 +140,23 @@ const Page = () => {
                 <h3 className="text-lg md:text-xl font-[700] text-[#464646]">توضیحات تکمیلی</h3>
                 <hr className="my-6 border-t border-[#464646] opacity-25" />
                 <div className='w-full '>
-                    {productTestData.colors && (
+                    {product.variants.colors && (
                         <div className="flex flex-row  gap-6 ">
                             <div className='py-3 px-22 bg-[#FFF] rounded-xl text-[#B0B0B0] text-nowrap my-3'>
                                 رنگ
                             </div>
                             <div className='py-3 w-full bg-[#FFF] rounded-xl text-[#464646] px-3  my-3 text-xs md:text-base'>
-                                {productTestData.colors.map((color, index) => color.name).join(', ')}
+                                {product.variants.colors.map((color, index) => color).join(', ')}
+                            </div>
+                        </div>
+                    )}
+                    {product.variants.size && (
+                        <div className="flex flex-row  gap-6 ">
+                            <div className='py-3 px-22 bg-[#FFF] rounded-xl text-[#B0B0B0] text-nowrap my-3'>
+                                سایز
+                            </div>
+                            <div className='py-3 w-full bg-[#FFF] rounded-xl text-[#464646] px-3  my-3 text-xs md:text-base'>
+                                {product.variants.size}
                             </div>
                         </div>
                     )}
@@ -162,15 +187,15 @@ const Page = () => {
                             {/* image */}
                             <div className="flex flex-col max-h-[24rem] rounded-[1rem_1rem_0_0]  m-4 mb-0 overflow-hidden">
                                 <Image
-                                    src={productTestData.images[0]}
-                                    alt={productTestData.name}
+                                    src={product.images[0]}
+                                    alt={product.name}
                                     className="w-full h-[16.5rem] object-cover "
                                     width={80}
                                     height={80}
                                 />
                             </div>
                             {/* title */}
-                            <h2 className="mt-2 font-semibold text-center text-[#595959]">{productTestData.name}</h2>
+                            <h2 className="mt-2 font-semibold text-center text-[#595959]">{product.name}</h2>
 
                             {/** price & discount */}
                             <div className="flex flex-row w-full ">
@@ -182,7 +207,7 @@ const Page = () => {
                                                     <span className="text-white text-sm bg-[#FD5504] rounded-md text-center px-1 py-[2px]">
                                                         {discountPercent}%
                                                     </span>
-                                                    <p className="text-[#AAAAAA] line-through text-sm">{productTestData.price.toLocaleString('fa-IR')}</p>
+                                                    <p className="text-[#AAAAAA] line-through text-sm">{product.price.toLocaleString('fa-IR')}</p>
                                                 </>
                                             ) : (
                                                 <>
@@ -195,10 +220,13 @@ const Page = () => {
                                             )}
                                         </div>
 
-                                        <div className="font-bold flex flex-row  text-center items-center mb-6">
+
+                                        <div className="font-bold flex flex-row text-center items-center mb-6">
                                             <span className="text-[#AAAAAA] mx-2 text-xs">تومان</span>
-                                            <h3 className="font-bold text-xl">{finalPrice.toLocaleString('fa-IR')}</h3>
+                                            {finalPrice > 1 && <h3 className="font-bold text-xl">{finalPrice.toLocaleString('fa-IR')}</h3>}
                                         </div>
+
+
                                     </div>
 
                                     <div className="bg-[#FD5504] p-2.5 rounded-2xl group ml-6 h-[5rem] flex flex-col items-center">

@@ -7,52 +7,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 
-const products = [
-    {
-        id: '3',
-        name: 'هودی ',
-        images: [
-            '/assets/images/hoodie-2.jpg',
-
-        ],
-        price: 1790000,
-        discount: 45000
-    },
-    {
-        id: '1',
-        name: '  ست رنانه ',
-        images: [
-            '/assets/images/bag-1.jpg',
-
-        ],
-        price: 820000,
-        discount: 45000
-    },
-    {
-        id: '2',
-        name: ' ست بلوز و شلوار زنانه',
-        images: [
-            '/assets/images/bloz-1.jpg',
-
-        ],
-        price: 2150000,
-
-    },
-
-    {
-        id: '4',
-        name: 'هودی سفید',
-        images: [
-            '/assets/images/hoodie-1.jpg',
-
-        ],
-        price: 950000,
-        discount: 45000
-    },
-
-
-];
-
 const timer = [
     { label: 'ثانیه', value: 23 },
     { label: 'دقیقه', value: 28 },
@@ -60,6 +14,28 @@ const timer = [
     { label: 'روز', value: 15 },
 ]
 const DiscountProducts = () => {
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const res = await fetch('https://back-production-22f1.up.railway.app/api/products/');
+                const data = await res.json();
+                const discounted = data.filter(product => product.discount); // فقط اونایی که تخفیف دارن
+                setProducts(discounted);
+                setLoading(false);
+            } catch (error) {
+                console.error("خطا در گرفتن محصولات:", error);
+                setLoading(false);
+            }
+        };
+
+        fetchProducts();
+    }, []);
+
+
+
     const [timeLeft, setTimeLeft] = useState(() => {
         const totalSeconds = (15 * 24 * 60 * 60) + (13 * 60 * 60) + (28 * 60) + 23;
         return totalSeconds;
@@ -87,6 +63,9 @@ const DiscountProducts = () => {
         ];
     };
     const timer = formatTime(timeLeft);
+
+    if (loading) return <div className="text-center py-10">در حال بارگذاری محصولات...</div>;
+    if (products.length === 0) return <div className="text-center py-10">محصولی یافت نشد.</div>;
 
     return (
         <>
@@ -149,8 +128,8 @@ const DiscountProducts = () => {
                             }}
                         >
                             {products.map((product) => (
-                                <SwiperSlide key={product.id}>
-                                    <ProductCard data={product} key={product.id} />
+                                <SwiperSlide key={product._id}>
+                                    <ProductCard data={product} key={product.id} thumbnails={false} />
                                 </SwiperSlide>
                             ))}
                         </Swiper>

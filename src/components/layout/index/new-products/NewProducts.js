@@ -1,82 +1,35 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PCard from './PCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-const products = [
-    {
-        id: '3',
-        name: 'هودی ',
-        images: [
-            '/assets/images/hoodie-2.jpg',
-            '/assets/images/hoodie-1.jpg',
-            '/assets/images/hoodie-3.jpg',
-        ],
-        price: 1790000,
-        discountPercent: 20,
-        finalPrice: 1432000,
-    },
-    {
-        id: '1',
-        name: ' کیف وزشی مدل مارتن',
-        images: [
-            '/assets/images/bag-1.jpg',
-            '/assets/images/bag-2.jpg',
-            '/assets/images/bag-3.jpg',
-            '/assets/images/bag-2.jpg',
-            '/assets/images/pic3.jpg',
-        ],
-        price: 820000,
-        discountPercent: 15,
-        finalPrice: 697000,
-    },
-    {
-        id: '2',
-        name: ' ست بلوز و شلوار زنانه',
-        images: [
-            '/assets/images/bloz-1.jpg',
-            '/assets/images/bloz-2.jpg',
-            '/assets/images/bloz-3.jpg',
-            '/assets/images/bloz-4.jpg',
-            '/assets/images/bloz-1.jpg',
-        ],
-        price: 2150000,
-        discountPercent: 10,
-        finalPrice: 1935000,
-    },
-
-    {
-        id: '4',
-        name: 'هودی ',
-        images: [
-            '/assets/images/hoodie-1.jpg',
-            '/assets/images/hoodie-2.jpg',
-            '/assets/images/hoodie-3.jpg',
-        ],
-        price: 950000,
-        discountPercent: 25,
-        finalPrice: 712000,
-    },
-    {
-        id: '5',
-        name: 'ژاکت ',
-        images: [
-            '/assets/images/jackets-1.jpg',
-            '/assets/images/jackets-2.jpg',
-            '/assets/images/jackets-3.jpg',
-            '/assets/images/jackets-4.jpg',
-            '/assets/images/jackets-2.jpg',
-        ],
-        price: 2450000,
-        discountPercent: 10,
-        finalPrice: 1935000,
-    },
-
-];
-
 const NewProducts = () => {
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const res = await fetch('https://back-production-22f1.up.railway.app/api/products/');
+                const data = await res.json();
+                setProducts(data);
+                setLoading(false);
+            } catch (error) {
+                console.error("خطا در گرفتن محصولات:", error);
+                setLoading(false);
+            }
+        };
+
+        fetchProducts();
+    }, []);
+
+
     const swiperRef = useRef(null);
+
+
+
     return (
         <div className="flex flex-col items-center justify-center text-[#2D2929] w-full mt-2 mb-24">
             <h2 className="text-2xl">
@@ -114,7 +67,7 @@ const NewProducts = () => {
                     }}
                 >
                     {products.map((product) => (
-                        <SwiperSlide key={product.id}>
+                        <SwiperSlide key={product._id}>
                             <PCard key={product.id} data={product} />
                         </SwiperSlide>
                     ))}

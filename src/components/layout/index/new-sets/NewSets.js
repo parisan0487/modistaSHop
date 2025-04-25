@@ -99,7 +99,7 @@ const NewSets = () => {
                 <div className="flex gap-6 items-center overflow-hidden">
                     {visibleItems.map((item) => (
                         <div
-                            key={item.id}
+                            key={item._id}
                             className={`transition-all duration-400 ${item.isCenter ? 'md:w-[400px]' : 'w-[20rem]'
                                 }`}
                         >
