@@ -7,64 +7,34 @@ import ImageSlider from './ImageSlider';
 import slideToleftI from 'assets/images/slide-arrow-1.svg';
 import slideToRithI from 'assets/images/slide-arrow.svg';
 
-const products = [
-    {
-        id: '1',
-        name: 'کیف وزشی مدل مارتن',
-        images: [
-            '/assets/images/bag-1.jpg',
-            '/assets/images/bag-2.jpg',
-            '/assets/images/bag-3.jpg',
-            '/assets/images/bag-2.jpg',
-
-        ],
-    },
-    {
-        id: '2',
-        name: 'ست بلوز و شلوار زنانه',
-        images: [
-            '/assets/images/bloz-1.jpg',
-            '/assets/images/bloz-2.jpg',
-            '/assets/images/bloz-3.jpg',
-            '/assets/images/bloz-4.jpg',
-
-        ],
-    },
-    {
-        id: '3',
-        name: 'کاپشن زنانه مدل کاد',
-        images: [
-            '/assets/images/capshan-1.jpg',
-
-        ],
-    },
-    {
-        id: '4',
-        name: 'هودی',
-        images: [
-            '/assets/images/hoodie-1.jpg',
-            '/assets/images/hoodie-2.jpg',
-            '/assets/images/hoodie-3.jpg',
-
-        ],
-    },
-    {
-        id: '5',
-        name: 'ژاکت ',
-        images: [
-            '/assets/images/jackets-1.jpg',
-            '/assets/images/jackets-2.jpg',
-            '/assets/images/jackets-3.jpg',
-            '/assets/images/jackets-4.jpg',
-
-        ],
-
-    },
-
-];
 const NewSets = () => {
     const [centerIndex, setCenterIndex] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const res = await fetch('https://back-production-22f1.up.railway.app/api/products/');
+                const data = await res.json();
+
+                // فقط محصولاتی که category شامل "ست" هست رو نگه می‌داریم
+                const filtered = data.filter(product =>
+                    product.categories.includes('ست')
+                );
+
+                setProducts(filtered);
+                setLoading(false);
+            } catch (error) {
+                console.error("خطا در گرفتن محصولات:", error);
+                setLoading(false);
+            }
+        };
+
+        fetchProducts();
+    }, []);
+
 
     useEffect(() => {
         const handleResize = () => {
@@ -96,8 +66,12 @@ const NewSets = () => {
 
     const visibleItems = getVisibleItems();
 
+    if (loading) return <div className="text-center py-10">در حال بارگذاری محصولات...</div>;
+    if (products.length === 0) return <div className="text-center py-10">محصولی یافت نشد.</div>;
+
     return (
         <div className="flex flex-col items-center py-10 bg-[#F7F7F7] text-[#2D2929] w-full">
+
             <h2 className="text-2xl mt-8">
                 <span className="font-black">جدیدترین</span> ست‌ها
             </h2>
@@ -125,7 +99,7 @@ const NewSets = () => {
                 <div className="flex gap-6 items-center overflow-hidden">
                     {visibleItems.map((item) => (
                         <div
-                            key={item.id}
+                            key={item._id}
                             className={`transition-all duration-400 ${item.isCenter ? 'md:w-[400px]' : 'w-[20rem]'
                                 }`}
                         >

@@ -3,11 +3,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
-function ProductCard({ data }) {
+function ProductCard({ data, thumbnails = true }) {
+
     const { id, name, images = [], price = 0, discount = 0 } = data;
     const [mainImage, setMainImage] = useState(images[0] || '/fallback.png');
 
-    const hasThumbnails = images.length > 1;
+
     const finalPrice = price - discount;
 
     const calculateDiscountPercent = () => {
@@ -35,7 +36,7 @@ function ProductCard({ data }) {
             <h2 className="mt-2 font-semibold text-center text-[#595959]">{name}</h2>
             {/** thumbnails */}
             <div className="flex justify-center gap-2 my-2 min-h-[1.5rem]">
-                {hasThumbnails ? (
+                {thumbnails == true ? (
                     images.map((img, index) => (
                         <div
                             key={index}

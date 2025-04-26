@@ -2,7 +2,7 @@
 
 'use client';
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useRef } from 'react';
 import { useState } from 'react'
@@ -17,87 +17,44 @@ const categories = [
     'مردانه',
 ]
 
-const products = [
-    {
-        id: '1',
-        name: 'کفش پیاده‌روی نایک',
-        images: [
-            '/assets/images/pic5.jpg',
 
-        ],
-        price: 820000,
-        discount: 20000,
-
-    },
-    {
-        id: '8',
-        name: ' نایک',
-        images: [
-            '/assets/images/pic5.jpg',
-            '/assets/images/pic2.jpg',
-
-        ],
-        price: 820000,
-        discount: 15,
-
-    },
-    {
-        id: '9',
-        name: 'هودی',
-        images: [
-            '/assets/images/hoodie-1.jpg',
-            '/assets/images/hoodie-2.jpg',
-        ],
-        price: 820000,
-    },
-    {
-        id: '2',
-        name: ' ست زنانه',
-        images: [
-            '/assets/images/pic2.jpg',
-            '/assets/images/pic1.jpg',
-            '/assets/images/pic3.jpg',
-
-        ],
-        price: 2150000,
-        discount: 15000,
-    },
-    {
-        id: '3',
-        name: 'ژاکت',
-        images: [
-            '/assets/images/pic3.jpg',
-
-        ],
-        price: 250000,
-        discount: 240000,
-    },
-    {
-        id: '4',
-        name: 'کاپشن زمستانی مردانه',
-        images: [
-            '/assets/images/pic4.jpg',
-        ],
-        price: 950000,
-
-    },
-    {
-        id: '5',
-        name: 'ژاکت ',
-        images: [
-            '/assets/images/jackets-1.jpg',
-            '/assets/images/jackets-3.jpg',
-        ],
-        price: 900000,
-    },
-];
-const toPersianDigits = (num) => {
-    return num.toString().replace(/\d/g, (d) => '۰۱۲۳۴۵۶۷۸۹'[parseInt(d)])
-        .replace(/\B(?=(\d{3})+(?!\d))/g, '٬');
-};
 
 export default function BestSellersSection() {
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [selected, setSelected] = useState(categories[0])
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const res = await fetch('https://back-production-22f1.up.railway.app/api/products/');
+                const data = await res.json();
+                setProducts(data);
+                setLoading(false);
+
+            } catch (error) {
+                console.error("خطا در گرفتن محصولات:", error);
+                setLoading(false);
+            }
+        };
+
+        fetchProducts();
+    }, []);
+
+
+    const categoryKeywords = {
+        'زنانه': ['زنانه', 'لباس زنانه'],
+        'مردانه': ['مردانه', 'لباس مردانه'],
+    };
+
+    const filteredProducts = products.filter(product =>
+        product.categories.some(cat =>
+            categoryKeywords[selected]?.includes(cat)
+        )
+    );
+
+
+
     const swiperRef = useRef(null);
 
     const handleNext = () => {
@@ -111,6 +68,8 @@ export default function BestSellersSection() {
             swiperRef.current.swiper.slidePrev();
         }
     };
+
+
 
     return (
         <section className="w-full px-2  py-16 flex flex-col md:flex-col gap-2">
@@ -191,8 +150,8 @@ export default function BestSellersSection() {
                             },
                         }}
                     >
-                        {products.map((product) => (
-                            <SwiperSlide key={product.id}>
+                        {filteredProducts.map((product) => (
+                            <SwiperSlide key={product._id}>
                                 <ProductCard data={product} />
                             </SwiperSlide>
                         ))}
