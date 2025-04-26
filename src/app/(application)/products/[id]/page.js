@@ -10,13 +10,6 @@ import { use, useEffect, useState } from 'react';
 
 const productTestData = {
     brand: " نایک",
-    fullBrandList: "آدیداس، اسپیکس، پوما، ریبوک، نایک",
-
-    description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.",
-    title: [
-        { title: "عنوان اول", content: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد کتابهای زیادی در شصت و سه درصد گذشته حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد" },
-    ],
-
 };
 
 
@@ -46,7 +39,6 @@ const Page = ({ params }) => {
 
 
     const tabs = [
-        { label: "توضیحات", targetId: "description" },
         { label: "مشخصات", targetId: "specifications" },
         { label: "نظرات کاربران", targetId: "reviews" },
     ];
@@ -62,6 +54,8 @@ const Page = ({ params }) => {
     const finalPrice = product.price - (product.discount || 0);
 
 
+    const size = product.variants != undefined && product.variants.map((v) => v.size);
+    const color = product.variants != undefined && product.variants.map((v) => v.color);
 
     const calculateDiscountPercent = () => {
         if (!product.price || !product.discount || product.discount <= 0) return 0;
@@ -121,42 +115,29 @@ const Page = ({ params }) => {
             </div>
             {/* ///////////////////////// */}
 
-            <div id='description' className="bg-[#F7F7F7] max-w-7xl w-full rounded-2xl mx-auto px-6 py-6">
-                <h3 className="text-lg md:text-xl font-[700] text-[#464646]">توضیحات</h3>
-                <hr className="my-8 border-t border-[#464646] opacity-25" />
-                <p dir='rtl' className='text-[#676767] leading-8 font-normal text-base md:text-[1rem] text-justify '>{productTestData.description}</p>
-                {productTestData.title.map((item, index) => (
-                    <div key={index} className="my-8">
-                        <h4 className="text-lg font-bold mb-4">{item.title}</h4>
-                        <p className="text-[#676767] text-justify leading-[2.25rem] font-normal text-base">
-                            {item.content}
-                        </p>
-                    </div>
-                ))}
-            </div>
-            {/* ///////////////////////// */}
+
 
             <div id='specifications' className="bg-[#F7F7F7] max-w-7xl w-full rounded-2xl mx-auto px-6 py-6 mt-18">
                 <h3 className="text-lg md:text-xl font-[700] text-[#464646]">توضیحات تکمیلی</h3>
                 <hr className="my-6 border-t border-[#464646] opacity-25" />
                 <div className='w-full '>
-                    {product.variants.colors && (
+                    {color && (
                         <div className="flex flex-row  gap-6 ">
                             <div className='py-3 px-22 bg-[#FFF] rounded-xl text-[#B0B0B0] text-nowrap my-3'>
                                 رنگ
                             </div>
                             <div className='py-3 w-full bg-[#FFF] rounded-xl text-[#464646] px-3  my-3 text-xs md:text-base'>
-                                {product.variants.colors.map((color, index) => color).join(', ')}
+                                {color.join(', ')}
                             </div>
                         </div>
                     )}
-                    {product.variants.size && (
+                    {size && (
                         <div className="flex flex-row  gap-6 ">
                             <div className='py-3 px-22 bg-[#FFF] rounded-xl text-[#B0B0B0] text-nowrap my-3'>
                                 سایز
                             </div>
                             <div className='py-3 w-full bg-[#FFF] rounded-xl text-[#464646] px-3  my-3 text-xs md:text-base'>
-                                {product.variants.size}
+                                {size}
                             </div>
                         </div>
                     )}
