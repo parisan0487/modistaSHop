@@ -8,8 +8,7 @@ import RecentBests from '@/components/layout/index/recent-bests/RecentBests';
 import DiscountProducts from '@/components/layout/index/discount-products/DiscountProducts';
 import Baner from '@/components/layout/index/baner/Baner';
 
-
-export default function Home() {
+export default async function Home() {
     return (
         <div className="container bg-white items-center justify-items-center min-h-screen font-kalameh font-normal">
             <Header />

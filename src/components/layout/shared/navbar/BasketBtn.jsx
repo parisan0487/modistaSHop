@@ -2,10 +2,16 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
 import toast from 'react-hot-toast';
 
 const BasketBtn = ({ cls }) => {
+    useEffect(() => {
+        fetch('https://back-production-22f1.up.railway.app/api/cart/')
+            .then((res) => res.json())
+            .then((data) => console.log("mas data: ", data));
+    });
+
     const openBasketModal = () => {
         toast(
             <div className="w-77 flex flex-col items-center justify-end gap-5">
