@@ -17,7 +17,7 @@ const Header = () => {
                     <Link href={'/about-us'} className="p-3 h-13 w-36 border-2 border-orange-500 rounded-2xl flex items-center justify-center text-orange-500 font-bold cursor-pointer">
                         درباره ما
                     </Link>
-                    <div className="p-3 h-13 bg-orange-500 rounded-2xl flex items-center justify-center gap-2 shrink-0 text-white font-bold cursor-pointer">
+                    <Link href={'/shop'} className="p-3 h-13 bg-orange-500 rounded-2xl flex items-center justify-center gap-2 shrink-0 text-white font-bold cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <g id="9">
                                 <path
@@ -30,7 +30,7 @@ const Header = () => {
                             </g>p-3 h-13 w-36 border-2 border-orange-500 rounded-2xl flex items-center justify-center text-orange-500 font-bold cursor-pointer
                         </svg>
                         <span>کالکشن جدید</span>
-                    </div>
+                    </Link>
                 </div>
             </div>
 
@@ -47,7 +47,7 @@ const Header = () => {
                 <div className="w-1/2 max-[540px]:w-full h-90 rounded-4xl bg-orange-500 rounded-bl-none flex flex-col  max-[540px]:mt-2">
                     <div className="relative -top-1 w-full h-30  bg-[url('/assets/images/hreo-off-bg.jpg')] bg-cover rounded-4xl border-8 border-white ring-white">
                         <div className="w-full h-full p-5 flex items-center justify-end gap-2 max-[575px]:p-1 max-[540px]:p-4">
-                            <span className="text-3xl font-extrabold text-right">حراج بزرگ در راه است</span>
+                            <span className="text-3xl max-[600px]:text-2xl font-extrabold text-right">حراج بزرگ در راه است</span>
                             <span className="flex items-center font-extrabold text-[3rem] text-orange-500">
                                 50
                                 <span className="flex flex-col items-center gap-1">

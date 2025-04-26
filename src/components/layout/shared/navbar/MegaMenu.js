@@ -1,5 +1,6 @@
 'use client';
-import React, { useState } from 'react';
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
 
 const categories = [
     {
@@ -59,6 +60,12 @@ const categories = [
 const MegaMenu = () => {
     const [category, setCategory] = useState('پوشاک مردانه');
 
+    useEffect(() => {
+        fetch('https://back-production-22f1.up.railway.app/api/products/category/:man')
+            .then((res) => res.json())
+            .then((data) => console.log('mas: ', data));
+    }, []);
+
     return (
         <div className="absolute top-8 bg-white right-0 w-[47rem] overflow-hidden shadow-lg rounded-2xl flex invisible opacity-0 delay-200 duration-300 group-hover:visible group-hover:opacity-100 group-hover:mt-4">
             <div dir="rtl" className="w-full bg-white p-6 pb-16 flex flex-wrap gap-15">
@@ -71,12 +78,13 @@ const MegaMenu = () => {
                                 {cate.title}
                             </li>
                             {cate.items.map((item, index) => (
-                                <li
+                                <Link
+                                    href={'/shop'}
                                     key={index}
                                     className="text-[1rem] !text-zinc-500 text-right hover:!text-orange-500 cursor-pointer"
                                 >
                                     {item}
-                                </li>
+                                </Link>
                             ))}
                         </ul>
                     ))}

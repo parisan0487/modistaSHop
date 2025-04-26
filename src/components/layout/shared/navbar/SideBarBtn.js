@@ -87,10 +87,18 @@ const SideBarBtn = () => {
                     <li className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
                         حساب کاربری
                     </li>
-                    <li className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
+                    <Link
+                        href={'/basket'}
+                        className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black"
+                    >
                         سبد خرید
-                    </li>
-                    <li className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">404</li>
+                    </Link>
+                    <Link
+                        href={'/404'}
+                        className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black"
+                    >
+                        404
+                    </Link>
                     <div
                         onClick={() => toast.dismiss(t.id)}
                         className="w-full h-10 rounded-2xl bg-orange-500 text-xl !text-white font-bold flex items-center justify-center"
@@ -229,7 +237,7 @@ const SideBarBtn = () => {
                             </svg>
                         </li>
 
-                        <li className="flex gap-1">
+                        <Link href={'/shop'} className="flex gap-1">
                             <span className="!text-black/60 text-[1.1rem]">حراج استایل</span>
                             <svg
                                 width="24"
@@ -267,8 +275,8 @@ const SideBarBtn = () => {
                                     ></path>
                                 </g>
                             </svg>
-                        </li>
-                        <li className="flex gap-1">
+                        </Link>
+                        <Link href={'/contact-us'} className="flex gap-1">
                             <span className="!text-black/60 text-[1.1rem]">تماس با ما</span>
                             <svg
                                 width="24"
@@ -292,8 +300,8 @@ const SideBarBtn = () => {
                                     ></path>
                                 </g>
                             </svg>
-                        </li>
-                        <li className="flex gap-1">
+                        </Link>
+                        <Link href={'/about-us'} className="flex gap-1">
                             <span className="!text-black/60 text-[1.1rem]">درباره ما</span>
                             <svg
                                 width="24"
@@ -317,7 +325,7 @@ const SideBarBtn = () => {
                                     ></path>
                                 </g>
                             </svg>
-                        </li>
+                        </Link>
                         <li onClick={() => setCategory('پوشاک مردانه')} className="flex gap-1">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -394,23 +402,21 @@ const SideBarBtn = () => {
                     </ul>
 
                     <div className="w-full flex flex-col gap-2">
-                        <div className="p-3 h-13 border-2 border-orange-500 rounded-2xl flex items-center  gap-2 shrink-0">
-                            <Link
-                                href={isLoggedIn ? '/account' : '/register'}
-                                className="flex items-center gap-2 w-full h-full justify-center"
-                            >
-                                <span className="!text-orange-500 font-extrabold">
-                                    {isLoggedIn ? 'حساب کاربری' : 'ورود / ثبت نام'}
-                                </span>
-                                <Image
-                                    src="https://mehdibagheridev.ir/modista/wp-content/uploads/2024/12/login-user.svg"
-                                    width={50}
-                                    height={50}
-                                    alt="buy-button"
-                                    className="size-6"
-                                />
-                            </Link>
-                        </div>
+                        <Link
+                            href={isLoggedIn ? '/account' : '/register'}
+                            className=" w-full justify-center p-3 h-13 border-2 border-orange-500 rounded-2xl flex items-center  gap-2 shrink-0"
+                        >
+                            <span className="!text-orange-500 font-extrabold">
+                                {isLoggedIn ? 'حساب کاربری' : 'ورود / ثبت نام'}
+                            </span>
+                            <Image
+                                src="https://mehdibagheridev.ir/modista/wp-content/uploads/2024/12/login-user.svg"
+                                width={50}
+                                height={50}
+                                alt="buy-button"
+                                className="size-6"
+                            />
+                        </Link>
 
                         <div className="p-3 rounded-2xl border border-black/20 flex items-center justify-center gap-2">
                             <span className="!text-black/60 font-extrabold">دانلود اپلیکیشن</span>
