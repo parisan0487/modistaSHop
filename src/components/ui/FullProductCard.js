@@ -194,7 +194,7 @@ const FullProductCard = ({ productData }) => {
 
                         {fullBrandList && (
                             <div className="text-gray-600 mt-8 mb-4 flex flex-row items-center gap-1">
-                                <div class="w-1 h-1 bg-[#FD5504] rounded-full"></div>
+                                <div className="w-1 h-1 bg-[#FD5504] rounded-full"></div>
                                 <span className="font-semibold">برند:</span> {fullBrandList}
                             </div>
                         )}

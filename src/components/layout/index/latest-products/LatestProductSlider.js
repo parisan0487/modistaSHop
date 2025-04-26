@@ -78,7 +78,7 @@ function LatestProductSlider() {
                 }}
                 breakpoints={{
                     1480: {
-                        slidesPerView: 6,
+                        slidesPerView: 5,
                     },
                     1280: {
                         slidesPerView: 4,
