@@ -109,33 +109,51 @@ const Footer = () => {
                 <div dir="rtl" className="flex gap-10">
                     <ul className="flex flex-col gap-1.5">
                         <li className="font-bold text-2xl">دسترسی سریع</li>
-                        <li className="text-black/60 cursor-pointer hover:text-orange-500">دسته بندی</li>
-                        <li className="text-black/60 cursor-pointer hover:text-orange-500">پرفروش ترین ها</li>
-                        <li className="text-black/60 cursor-pointer hover:text-orange-500">محصولات تخفیف دار</li>
-                        <li className="text-black/60 cursor-pointer hover:text-orange-500">پشتیبانی</li>
-                        <li className="text-black/60 cursor-pointer hover:text-orange-500">محبوب ترین ها</li>
-                        <li className="text-black/60 cursor-pointer hover:text-orange-500">سوالی دارید</li>
-                        <Link href={'/contact-us'}>
-                            <li className="text-black/60 cursor-pointer hover:text-orange-500">تماس با ما</li>
+
+                        <Link href="/shop">
+                            <li className="text-black/60 cursor-pointer hover:text-orange-500">لباس‌های زنانه جدید</li>
                         </Link>
-                        <Link href={'/about-us'}>
-                            <li className="text-black/60 cursor-pointer hover:text-orange-500">درباره ما</li>
+
+                        <Link href="/shop">
+                            <li className="text-black/60 cursor-pointer hover:text-orange-500">پرفروش‌های تابستانی</li>
+                        </Link>
+
+                        <Link href="/shop">
+                            <li className="text-black/60 cursor-pointer hover:text-orange-500">استایل‌های محبوب</li>
+                        </Link>
+
+                        <Link href="/shop">
+                            <li className="text-black/60 cursor-pointer hover:text-orange-500">مدل‌های جدید مجلسی</li>
+                        </Link>
+
+                        <Link href="/shop">
+                            <li className="text-black/60 cursor-pointer hover:text-orange-500">لباس‌های تخفیف‌دار</li>
+                        </Link>
+
+                        <Link href="/shop">
+                            <li className="text-black/60 cursor-pointer hover:text-orange-500">جدیدترین کالکشن‌ها</li>
                         </Link>
                     </ul>
 
                     <ul className="flex flex-col gap-1.5">
-                        <li className="font-bold text-2xl">لینک های مفید</li>
-                        <li className="text-black/60 cursor-pointer hover:text-orange-500">دسته بندی</li>
-                        <li className="text-black/60 cursor-pointer hover:text-orange-500">پرفروش ترین ها</li>
-                        <li className="text-black/60 cursor-pointer hover:text-orange-500">محصولات تخفیف دار</li>
-                        <li className="text-black/60 cursor-pointer hover:text-orange-500">پشتیبانی</li>
-                        <li className="text-black/60 cursor-pointer hover:text-orange-500">محبوب ترین ها</li>
-                        <li className="text-black/60 cursor-pointer hover:text-orange-500">سوالی دارید</li>
-                        <Link href={'/contact-us'}>
+                        <li className="font-bold text-2xl">لینک‌های مفید</li>
+                        <Link href="/favorite">
+                            <li className="text-black/60 cursor-pointer hover:text-orange-500">علاقه مندی ها</li>
+                        </Link>
+                        <Link href="/basket">
+                            <li className="text-black/60 cursor-pointer hover:text-orange-500">سبد خرید کاربر</li>
+                        </Link>
+                        <Link href="/contact-us">
                             <li className="text-black/60 cursor-pointer hover:text-orange-500">تماس با ما</li>
                         </Link>
-                        <Link href={'/about-us'}>
+                        <Link href="/about-us">
                             <li className="text-black/60 cursor-pointer hover:text-orange-500">درباره ما</li>
+                        </Link>
+                        <Link href="/shop">
+                            <li className="text-black/60 cursor-pointer hover:text-orange-500">محصـــولات</li>
+                        </Link>
+                        <Link href="/404">
+                            <li className="text-black/60 cursor-pointer hover:text-orange-500">صفحه 404</li>
                         </Link>
                     </ul>
                 </div>
@@ -148,10 +166,11 @@ const Footer = () => {
                         className="size-14"
                     />
                     <span className="text-[1rem] !text-black/50 font-bold mb-4 max-[1280px]:text-center">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی شصت و سه
-                        درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری
-                        را برای طراحان رایانه ای علی الخصوص طراحان خلاقی.
+                        به مودیسا خوش آمدید! ما در مودیسا، به شما جدیدترین و شیک‌ترین مدل‌های لباس را با بهترین کیفیت و
+                        طراحی‌های مد روز ارائه می‌دهیم. هدف ما این است که شما را در هر مناسبتی با استایل خاص و منحصر به
+                        فردتان بدرخشیم. از لباس‌های راحتی روزمره تا استایل‌های رسمی و مجلسی، هر آنچه که نیاز دارید، در
+                        مودیسا پیدا خواهید کرد. با خرید از مودیسا، علاوه بر تجربه‌ای بی‌نظیر از پوشاک با کیفیت، از خدمات
+                        سریع و امن خرید آنلاین نیز بهره‌مند خواهید شد.
                     </span>
 
                     <div dir="rtl" className="relative w-full max-w-5xl mx-auto px-14">

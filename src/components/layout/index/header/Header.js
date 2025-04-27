@@ -11,7 +11,7 @@ const Header = () => {
                     جدیدترین کالکشن لباس‌هـــــای <span className="text-orange-500">برنــــــــــــد</span>
                 </p>
                 <p className="text-zinc-500 mb-2 text-right max-[540px]:text-center">
-                    .لورم ایپسوم متن ساختگی با تولید سـادگی نامفهوم از صنعـت چاپ، و بـا استفاده از طراحان گرافیک است
+                .مدیسا انتخاب خاص خوش‌پوشان؛ جایی که استایل و کیفیت باهم معنا پیدا می‌کنند
                 </p>
                 <div className="flex gap-3">
                     <Link href={'/about-us'} className="p-3 h-13 w-36 border-2 border-orange-500 rounded-2xl flex items-center justify-center text-orange-500 font-bold cursor-pointer">
