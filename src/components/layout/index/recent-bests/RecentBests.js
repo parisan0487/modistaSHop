@@ -126,27 +126,27 @@ export default function BestSellersSection() {
                         breakpoints={{
                             0: {
                                 slidesPerView: 1.5,
-                                spaceBetween: 2,
+
                             },
                             768: {
                                 slidesPerView: 2.5,
-                                spaceBetween: 8,
+
                             },
                             930: {
                                 slidesPerView: 3,
-                                spaceBetween: 10,
+
                             },
                             1024: {
                                 slidesPerView: 4,
-                                spaceBetween: 12,
+
                             },
                             1224: {
                                 slidesPerView: 4.5,
                                 spaceBetween: 12,
                             },
                             1400: {
-                                slidesPerView: 5.5,
-                                spaceBetween: 12,
+                                slidesPerView: 5,
+
                             },
                         }}
                     >

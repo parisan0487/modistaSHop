@@ -21,7 +21,7 @@ function PCard({ data, deleteBtn = false }) {
             {/* images */}
             <div className="flex flex-col max-h-[24rem] rounded-xl border-2 border-gray-200 m-4 mb-0 overflow-hidden">
                 <Link href={`products/${id}`}>
-                    <Image src={mainImage} alt="image" className="w-full h-[18.5rem]" width={80} height={80} />
+                    <img src={mainImage} alt="image" className="w-full h-[18.5rem]" />
                 </Link>
                 {images.length > 1 ? <div className="flex flex-row items-center justify-around w-full mx-auto">
                     {images.map((image, index) => (
@@ -31,7 +31,7 @@ function PCard({ data, deleteBtn = false }) {
                             alt={name}
                             width={30}
                             height={30}
-                            className="w-[2.5rem] h-[2.5rem] cursor-pointer object-fit-cover "
+                            className="w-[2.5rem] h-[2.5rem] cursor-pointer  "
                             onClick={() => setMainImage(image)}
                         />
                     ))}

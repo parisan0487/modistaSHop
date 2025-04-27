@@ -3,7 +3,6 @@
 import BestSellersSection from '@/components/layout/index/recent-bests/RecentBests';
 import CommentForm from '@/components/ui/ComponentForm';
 import FullProductCard from '@/components/ui/FullProductCard';
-import Image from 'next/image';
 import Link from 'next/link';
 import { use, useEffect, useState } from 'react';
 
@@ -91,7 +90,7 @@ const Page = ({ params }) => {
                 { img: "/assets/images/feture-box-2.png", text: "ارسال رایگان و سریع" },
                 { img: "/assets/images/feture-box-3.png", text: "خدمات پس از خرید" },].map((feature, index) => (
                     <div key={index} className="flex flex-col items-center">
-                        <Image src={feature.img} alt={feature.text} width={70} height={70} />
+                        <img src={feature.img} alt={feature.text} width={70} height={70} />
                         <h4 className="font-bold text-[#4B4B4B]">{feature.text}</h4>
                     </div>
                 ))}
@@ -167,7 +166,7 @@ const Page = ({ params }) => {
                         <div dir='ltr' className={`bg-[#F6F6F6] w-[15rem] hidden lg:block h-[27rem] rounded-3xl overflow-hidden  cursor-pointer mx-6`}>
                             {/* image */}
                             <div className="flex flex-col max-h-[24rem] rounded-[1rem_1rem_0_0]  m-4 mb-0 overflow-hidden">
-                                <Image
+                                <img
                                     src={product.images[0]}
                                     alt={product.name}
                                     className="w-full h-[16.5rem] object-cover "
