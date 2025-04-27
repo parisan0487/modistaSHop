@@ -1,42 +1,9 @@
 'use client';
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useRef } from 'react';
 import Link from 'next/link';
-
-const products = [
-    {
-        id: 2,
-        title: 'کاپشن دخترانه خزدار',
-        image: '/assets/images/sample.png',
-        price: 2300000,
-        oldPrice: 2600000,
-        discount: '۱۵٪',
-    },
-    {
-        id: 1,
-        title: 'پلیور زنانه یقه اسکی نارنجی',
-        image: '/assets/images/sample-orange-shirt.png',
-        price: 1500000,
-    },
-    {
-        id: 3,
-        title: 'بلوز آستین بلند بچگانه',
-        image: '/assets/images/carousel-slide.png',
-        price: 900000,
-        oldPrice: 1050000,
-        discount: '۱۰٪',
-    },
-    {
-        id: 4,
-        title: 'بلوز آستین بلند بچگانه',
-        image: '/assets/images/carousel-slide.png',
-        price: 900000,
-        oldPrice: 1050000,
-        discount: '۱۰٪',
-    },
-];
 
 const toPersianDigits = (num) => {
     return num
@@ -46,6 +13,7 @@ const toPersianDigits = (num) => {
 };
 
 export default function BestProducts() {
+    const [products, setProducts] = useState([]);
     const swiperRef = useRef(null);
 
     const handleNext = () => {
@@ -59,6 +27,35 @@ export default function BestProducts() {
             swiperRef.current.swiper.slidePrev();
         }
     };
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const res = await fetch('https://back-production-22f1.up.railway.app/api/products/category/orange');
+                const data = await res.json();
+
+                const mappedProducts = data.map((product) => {
+                    const oldPrice = product.discount ? product.price + product.discount : null;
+                    const discountPercent = oldPrice ? `${Math.round((product.discount / oldPrice) * 100)}٪` : null;
+
+                    return {
+                        id: product.id,
+                        title: product.name,
+                        image: product.images[0] || '/assets/images/sample.png',
+                        price: product.price,
+                        oldPrice: oldPrice,
+                        discount: discountPercent,
+                    };
+                });
+
+                setProducts(mappedProducts);
+            } catch (error) {
+                console.error('خطا در دریافت محصولات:', error);
+            }
+        };
+
+        fetchProducts();
+    }, []);
 
     return (
         <div className="w-full flex flex-col-reverse lg:flex-row items-center justify-between gap-10 py-30 px-4">
@@ -83,7 +80,7 @@ export default function BestProducts() {
                 >
                     {products.map((product) => (
                         <SwiperSlide key={product.id}>
-                            <Link href={`http://localhost:3000/product/${product.id}`} passHref>
+                            <Link href={`/products/${product.id}`}>
                                 <div className="w-full max-w-xs mx-auto h-[280px] rounded-2xl p-4 bg-[#f7f7f7] flex flex-col justify-between cursor-pointer">
                                     <div className="relative w-full h-[200px] flex justify-center items-center">
                                         <div className="absolute inset-0 bg-[url('/assets/images/hero-bg.svg')] bg-contain bg-no-repeat bg-center brightness-75" />
@@ -97,7 +94,7 @@ export default function BestProducts() {
                                     </div>
 
                                     <div className="flex justify-between items-center" dir="rtl">
-                                        <button 
+                                        <button
                                             className="bg-white p-2 rounded-xl shadow hover:bg-gray-100 transition cursor-pointer"
                                             onClick={(e) => {
                                                 e.stopPropagation();
