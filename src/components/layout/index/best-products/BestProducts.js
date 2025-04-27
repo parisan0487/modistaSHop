@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useRef } from 'react';
+import Link from 'next/link';
 
 const products = [
     {
@@ -82,52 +83,60 @@ export default function BestProducts() {
                 >
                     {products.map((product) => (
                         <SwiperSlide key={product.id}>
-                            <div className="w-full max-w-xs mx-auto h-[280px] rounded-2xl p-4 bg-[#f7f7f7] flex flex-col justify-between">
-                                <div className="relative w-full h-[200px] flex justify-center items-center">
-                                    <div className="absolute inset-0 bg-[url('/assets/images/hero-bg.svg')] bg-contain bg-no-repeat bg-center brightness-75" />
-                                    <Image
-                                        src={product.image}
-                                        alt={product.title || 'محصول'}
-                                        width={140}
-                                        height={190}
-                                        className="relative z-10 object-contain h-40"
-                                    />
-                                </div>
-
-                                <div className="flex justify-between items-center" dir="rtl">
-                                    <button className="bg-white p-2 rounded-xl shadow hover:bg-gray-100 transition cursor-pointer">
+                            <Link href={`http://localhost:3000/product/${product.id}`} passHref>
+                                <div className="w-full max-w-xs mx-auto h-[280px] rounded-2xl p-4 bg-[#f7f7f7] flex flex-col justify-between cursor-pointer">
+                                    <div className="relative w-full h-[200px] flex justify-center items-center">
+                                        <div className="absolute inset-0 bg-[url('/assets/images/hero-bg.svg')] bg-contain bg-no-repeat bg-center brightness-75" />
                                         <Image
-                                            src="/assets/images/basket-48.png"
-                                            alt="افزودن به سبد"
-                                            width={20}
-                                            height={20}
-                                            className="w-5 h-5 text-gray-600"
+                                            src={product.image}
+                                            alt={product.title || 'محصول'}
+                                            width={140}
+                                            height={190}
+                                            className="relative z-10 object-contain h-40"
                                         />
-                                    </button>
+                                    </div>
 
-                                    <div className="flex flex-col items-end">
-                                        {product.oldPrice && (
-                                            <div className="flex items-center gap-1 mb-1">
-                                                <span className="text-xs text-gray-400 line-through">
-                                                    {toPersianDigits(product.oldPrice)}
-                                                </span>
-                                                {product.discount && (
-                                                    <span className="bg-orange-500 text-white text-[10px] px-1.5 py-0.5 rounded">
-                                                        {product.discount}
+                                    <div className="flex justify-between items-center" dir="rtl">
+                                        <button 
+                                            className="bg-white p-2 rounded-xl shadow hover:bg-gray-100 transition cursor-pointer"
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                e.preventDefault();
+                                            }}
+                                        >
+                                            <Image
+                                                src="/assets/images/basket-48.png"
+                                                alt="افزودن به سبد"
+                                                width={20}
+                                                height={20}
+                                                className="w-5 h-5 text-gray-600"
+                                            />
+                                        </button>
+
+                                        <div className="flex flex-col items-end">
+                                            {product.oldPrice && (
+                                                <div className="flex items-center gap-1 mb-1">
+                                                    <span className="text-xs text-gray-400 line-through">
+                                                        {toPersianDigits(product.oldPrice)}
                                                     </span>
-                                                )}
-                                            </div>
-                                        )}
+                                                    {product.discount && (
+                                                        <span className="bg-orange-500 text-white text-[10px] px-1.5 py-0.5 rounded">
+                                                            {product.discount}
+                                                        </span>
+                                                    )}
+                                                </div>
+                                            )}
 
-                                        <div className="flex items-baseline gap-1">
-                                            <span className="text-lg font-semibold text-black">
-                                                {toPersianDigits(product.price)}
-                                            </span>
-                                            <span className="text-sm text-gray-500">تومان</span>
+                                            <div className="flex items-baseline gap-1">
+                                                <span className="text-lg font-semibold text-black">
+                                                    {toPersianDigits(product.price)}
+                                                </span>
+                                                <span className="text-sm text-gray-500">تومان</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
                         </SwiperSlide>
                     ))}
                 </Swiper>
@@ -139,7 +148,7 @@ export default function BestProducts() {
 
             <div className="lg:w-1/4 mt-8 lg:mt-0 flex flex-col items-center">
                 <div className="w-full text-2xl lg:text-[32px] leading-[150%] text-[#2B2727] flex flex-col items-center">
-                    <span className="font-extrabold text-black text-center">پرفروش‌ ترین </span>
+                    <span className="font-extrabold text-black text-center">پرفروش‌ترین </span>
                     <span className="font-light">محصولات</span>
                 </div>
 
