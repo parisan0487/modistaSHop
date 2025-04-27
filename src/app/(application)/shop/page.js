@@ -251,6 +251,7 @@ function ProductShop() {
                       </span>
                       <p className="text-gray-400 text-sm ml-1">تومان</p>
                     </div>
+                    <Link href={`/product/${product.id}`} passHref>
                     <button 
                       className="bg-orange-500 text-white px-3 py-1 rounded-lg text-sm"
                       onClick={(e) => {
@@ -267,6 +268,7 @@ function ProductShop() {
                         <path d="M4.36425 16.4552C4.90992 18.6379 5.18275 19.7292 5.99654 20.3646C6.81032 21 7.93525 21 10.1851 21H14.8158C17.0656 21 18.1906 21 19.0044 20.3646C19.8181 19.7292 20.091 18.6379 20.6366 16.4552C21.4946 13.0234 21.9236 11.3075 21.0227 10.1538C20.1219 9 18.3532 9 14.8158 9H10.1851C6.64769 9 4.87899 9 3.97816 10.1538C3.44937 10.831 3.37879 11.702 3.58422 13" strokeWidth="1.5" strokeLinecap="round"></path>
                       </svg>
                     </button>
+                    </Link>
                   </div>
                 </div>
               );

@@ -83,7 +83,7 @@ export default function BestProducts() {
                 >
                     {products.map((product) => (
                         <SwiperSlide key={product.id}>
-                            <Link href={`http://localhost:3000/product/${product.id}`} passHref>
+                            <Link href={`/product/${product.id}`} passHref>
                                 <div className="w-full max-w-xs mx-auto h-[280px] rounded-2xl p-4 bg-[#f7f7f7] flex flex-col justify-between cursor-pointer">
                                     <div className="relative w-full h-[200px] flex justify-center items-center">
                                         <div className="absolute inset-0 bg-[url('/assets/images/hero-bg.svg')] bg-contain bg-no-repeat bg-center brightness-75" />
