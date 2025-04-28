@@ -103,9 +103,6 @@ const NavbarBottom = () => {
                             فروشگاه
                         </Link>
                         <li className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
-                            تکی مقاله
-                        </li>
-                        <li className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
                             تکی محصول
                         </li>
                         <li className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">

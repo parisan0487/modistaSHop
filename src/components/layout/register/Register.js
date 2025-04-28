@@ -34,7 +34,6 @@ export default function Register() {
         }
 
         const userData = isLogin ? { phone, password } : { name, phone, password };
-        console.log('userData:', userData);
 
         try {
             const endpoint = isLogin

@@ -22,7 +22,6 @@ export default function ProfileComp() {
             try {
                 const token = localStorage.getItem('token');
                 if (!token) {
-                    console.error('توکن یافت نشد');
                     return;
                 }
 
@@ -31,9 +30,7 @@ export default function ProfileComp() {
                 });
 
                 setUser(response.data);
-                console.log(response.data);
             } catch (error) {
-                console.error('خطا در دریافت داده‌ها:', error);
             }
         };
 
@@ -44,7 +41,6 @@ export default function ProfileComp() {
         try {
             const token = localStorage.getItem('token');
             if (!token) {
-                console.error('توکن یافت نشد');
                 return;
             }
 
@@ -61,7 +57,6 @@ export default function ProfileComp() {
             setEditName('');
             setEditPhone('');
         } catch (error) {
-            console.error('خطا در ویرایش اطلاعات', error);
         }
     };
 

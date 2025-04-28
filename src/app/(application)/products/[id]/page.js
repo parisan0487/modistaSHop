@@ -1,6 +1,7 @@
 "use client"
 
 import BestSellersSection from '@/components/layout/index/recent-bests/RecentBests';
+import Loading from '@/components/layout/loading/Loading';
 import CommentForm from '@/components/ui/ComponentForm';
 import FullProductCard from '@/components/ui/FullProductCard';
 import Image from 'next/image';
@@ -35,7 +36,6 @@ const Page = ({ params }) => {
                 setLoading(false);
 
             } catch (error) {
-                console.error("خطا در گرفتن محصولات:", error);
                 setLoading(false);
             }
         };
@@ -70,7 +70,7 @@ const Page = ({ params }) => {
 
     const discountPercent = calculateDiscountPercent();
     if (loading || !product || !product.images) {
-        return <p className='w-full m-auto h-screen text-center '>در حال بارگذاری...</p>;
+        return <Loading className="relative -top-30"/>;
     }
 
     return (

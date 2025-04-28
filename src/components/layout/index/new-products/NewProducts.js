@@ -17,7 +17,6 @@ const NewProducts = () => {
                 setProducts(data);
                 setLoading(false);
             } catch (error) {
-                console.error("خطا در گرفتن محصولات:", error);
                 setLoading(false);
             }
         };

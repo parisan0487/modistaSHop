@@ -3,27 +3,13 @@ import React from 'react';
 import SideBarBtn from './SideBarBtn';
 import Link from 'next/link';
 import BasketBtn from './BasketBtn';
+import SearchNav from './SearchNav';
 
 const NavbarMainBody = () => {
     return (
         <div className="w-full flex items-center justify-between gap-4 max-[1000px]:gap-2 py-4 max-[1000px]:py-2 border-b border-b-[#EFEFEF]">
             <BasketBtn cls={' max-[1000px]:flex hidden'} />
-            <div className="w-96 h-13 rounded-2xl bg-[#F7F7F7] p-2 pr-4 flex items-center gap-4">
-                <div className="size-10 rounded-2xl bg-white flex items-center justify-center shrink-0">
-                    <Image
-                        src="https://mehdibagheridev.ir/modista/wp-content/uploads/2024/12/Minimalistic-Magnifer.svg"
-                        width={30}
-                        height={30}
-                        alt="search-icon"
-                        className="size-6 active:scale-95 cursor-pointer"
-                    />
-                </div>
-                <input
-                    dir="rtl"
-                    placeholder="دنبال چی میگردی؟"
-                    className="w-full h-full text-[1rem] !text-black/60 outline-none focus:outline-none focus:border-0 placeholder:!text-black/50"
-                />
-            </div>
+            <SearchNav />
 
             <div className="flex items-center gap-4 max-[1000px]:hidden">
                 <div className="p-3 rounded-2xl bg-[#ECECEC] flex items-center justify-center gap-2 cursor-pointer">

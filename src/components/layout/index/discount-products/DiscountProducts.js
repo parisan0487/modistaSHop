@@ -26,7 +26,6 @@ const DiscountProducts = () => {
                 setProducts(discounted);
                 setLoading(false);
             } catch (error) {
-                console.error("خطا در گرفتن محصولات:", error);
                 setLoading(false);
             }
         };

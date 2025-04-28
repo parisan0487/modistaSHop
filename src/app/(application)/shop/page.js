@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import React from 'react';
 import Breadcrumb from '@/components/ui/Breadcrumb';
+import Loading from '@/components/layout/loading/Loading';
 function ProductShop() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedColors, setSelectedColors] = useState([]);
@@ -108,7 +109,7 @@ function ProductShop() {
     'زرد': '#fde047',
   };
 
-  if (loading) return <div className="text-center py-10">در حال بارگذاری...</div>;
+  if (loading) return <Loading className='relative -top-30'/>;
   if (error) return <div className="text-center text-red-500 py-10">{error}</div>;
 
   return (
