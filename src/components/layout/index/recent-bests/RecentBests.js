@@ -33,7 +33,6 @@ export default function BestSellersSection() {
                 setLoading(false);
 
             } catch (error) {
-                console.error("خطا در گرفتن محصولات:", error);
                 setLoading(false);
             }
         };

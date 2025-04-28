@@ -43,7 +43,6 @@ export default function CommentForm() {
         setErrors(newErrors)
 
         if (!Object.values(newErrors).some(Boolean)) {
-            console.log("Form submitted:", formData)
             alert("پیام شما با موفقیت ارسال شد")
             setFormData({ name: "", email: "", comment: "" })
         }

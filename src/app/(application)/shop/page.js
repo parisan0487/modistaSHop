@@ -2,7 +2,9 @@
 import { useState, useEffect } from 'react';
 import React from 'react';
 import Breadcrumb from '@/components/ui/Breadcrumb';
+import Loading from '@/components/layout/loading/Loading';
 import Link from 'next/link';
+
 
 function ProductShop() {
     const [searchQuery, setSearchQuery] = useState('');
@@ -94,6 +96,10 @@ function ProductShop() {
         }));
     };
 
+
+  if (loading) return <Loading className='relative -top-30'/>;
+  if (error) return <div className="text-center text-red-500 py-10">{error}</div>
+  
     const colorMap = {
         قرمز: '#f87171',
         سبز: '#4ade80',

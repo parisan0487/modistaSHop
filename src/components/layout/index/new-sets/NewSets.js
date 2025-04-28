@@ -27,7 +27,6 @@ const NewSets = () => {
                 setProducts(filtered);
                 setLoading(false);
             } catch (error) {
-                console.error("خطا در گرفتن محصولات:", error);
                 setLoading(false);
             }
         };

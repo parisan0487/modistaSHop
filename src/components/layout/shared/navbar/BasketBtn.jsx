@@ -1,16 +1,17 @@
 'use client';
 
+import Fetch from '@/hooks/Fetch';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect } from 'react';
 import toast from 'react-hot-toast';
 
 const BasketBtn = ({ cls }) => {
-    useEffect(() => {
-        fetch('https://back-production-22f1.up.railway.app/api/cart/')
-            .then((res) => res.json())
-            .then((data) => console.log("mas data: ", data));
-    });
+    // useEffect(() => {
+    //     Fetch.get('https://back-production-22f1.up.railway.app/api/cart/').then((result) =>
+    //         console.log('mas result.data: ', result.data)
+    //     );
+    // }, []);
 
     const openBasketModal = () => {
         toast(

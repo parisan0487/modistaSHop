@@ -321,7 +321,6 @@ const AddProductsToDB = () => {
 
             setStatus('اضافه شد');
         } catch {
-            console.error('خطا در افزودن محصولات');
             setStatus('خطا در ارسال محصولات');
         }
     };
@@ -331,7 +330,6 @@ const AddProductsToDB = () => {
             await axios.delete('https://back-production-22f1.up.railway.app/api/products/delete-all');
             alert('پاک شد');
         } catch {
-            console.error('خطا در حذف تمام محصولات');
             alert('خطا در حذف محصولات');
         }
     };

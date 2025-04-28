@@ -78,9 +78,7 @@ const SideBarBtn = () => {
             (t) => (
                 <ul className="w-72 flex flex-col items-center gap-2">
                     <li className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">فروشگاه</li>
-                    <li className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
-                        تکی مقاله
-                    </li>
+                 
                     <li className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
                         تکی محصول
                     </li>
