@@ -1,7 +1,6 @@
 "use client"
 
 import Image from 'next/image';
-import { useParams } from 'next/navigation';
 import React, { useState } from 'react'
 import slideToleftI from 'assets/images/slide-arrow-1.svg';
 import slideToRithI from 'assets/images/slide-arrow.svg';
@@ -96,12 +95,10 @@ const FullProductCard = ({ productData }) => {
                             className={`rounded-lg overflow-hidden border-2 w-[5rem] h-[5rem] cursor-pointer ${selectedImage === img ? 'border-blue-200' : 'border-transparent'
                                 }`}
                         >
-                            <Image
+                            <img
                                 src={img}
-                                width={80}
-                                height={80}
                                 alt='mini-picture'
-                                className="rounded-md w-[5rem] h-[5rem] object-cover"
+                                className="rounded-md w-[5rem] h-[5rem]"
                             />
                         </div>
                     ))}
@@ -116,12 +113,11 @@ const FullProductCard = ({ productData }) => {
                         <Image src={slideToRithI} alt="next" width={24} height={24} />
                     </button>
                     {selectedImage && (
-                        <Image
+                        <img
                             src={selectedImage}
-                            className="rounded-xl w-full min-h-[26rem] max-h-[28rem] object-cover"
+                            className="rounded-xl w-full min-h-[26rem] max-h-[28rem] "
                             alt="picture"
-                            width={300}
-                            height={300}
+
                         />
                     )}
 

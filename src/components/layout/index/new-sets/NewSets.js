@@ -97,26 +97,29 @@ const NewSets = () => {
                 </button>
 
                 <div className="flex gap-6 items-center overflow-hidden">
-                    {visibleItems.map((item) => (
+                    {visibleItems.map((item, index) => (
                         <div
-                            key={item._id}
-                            className={`transition-all duration-400 ${item.isCenter ? 'md:w-[400px]' : 'w-[20rem]'
+                            key={item._id + index}
+                            className={`transition-all duration-400 ${item.isCenter
+                                ? 'w-[18rem] md:w-[25rem]'  // وسطی بزرگ
+                                : 'w-[7rem] md:w-[10rem]'   // کناریا کوچیک
                                 }`}
                         >
                             {item.isCenter ? (
                                 <ImageSlider items={item} />
                             ) : (
-                                <Image
+                                <img
                                     src={item.images[0]}
                                     alt={item.name}
-                                    width={100}
-                                    height={140}
-                                    className="object-cover rounded-xl w-[20rem] h-[27rem] md:h-[34rem]"
+                                    className="object-cover rounded-xl w-full h-[20rem] md:h-[30rem]"
                                 />
                             )}
                         </div>
                     ))}
                 </div>
+
+
+
 
                 <button
                     onClick={goNext}
