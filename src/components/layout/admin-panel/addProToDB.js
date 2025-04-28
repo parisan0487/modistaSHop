@@ -21,7 +21,7 @@ const AddProductsToDB = () => {
                 '/assets/images/bag-2.jpg',
                 '/assets/images/pic3.jpg',
             ],
-            variants: [{ color: 'مشکی', size: 'xl', stock: 10 }],
+            variants: [{ color: 'مشکی', size: '2xl', stock: 10 }],
         },
         {
             id: '124',
@@ -37,7 +37,7 @@ const AddProductsToDB = () => {
                 '/assets/images/bloz-4.jpg',
                 '/assets/images/bloz-1.jpg',
             ],
-            variants: [{ color: 'مشکی', size: 'xl', stock: 15 }],
+            variants: [{ color: 'مشکی', size: '2xl', stock: 15 }],
         },
         {
             id: '125',
@@ -71,7 +71,7 @@ const AddProductsToDB = () => {
                 '/assets/images/talay-4.jpg',
                 '/assets/images/talay-1.jpg',
             ],
-            variants: [{ color: 'ابی', size: 'md', stock: 5 }],
+            variants: [{ color: 'ابی', size: '2xl', stock: 5 }],
         },
         {
             id: '127',
@@ -88,7 +88,7 @@ const AddProductsToDB = () => {
                 '/assets/images/shoe-3.jpg',
                 '/assets/images/shoe-5.jpg',
             ],
-            variants: [{ color: 'سفید', size: 'sm', stock: 20 }],
+            variants: [{ color: 'سفید', size: '2xl', stock: 20 }],
         },
         {
             id: '128',
@@ -98,7 +98,7 @@ const AddProductsToDB = () => {
             categories: ['لباس زنانه', 'ست'],
             producter: 'تهران',
             images: ['/assets/images/s.jpg'],
-            variants: [{ color: 'زرد', size: 'md', stock: 15 }],
+            variants: [{ color: 'زرد', size: '2xl', stock: 15 }],
         },
         {
             id: '129',
@@ -109,7 +109,7 @@ const AddProductsToDB = () => {
             categories: ['شلوار', 'راحتی'],
             producter: 'اصفهان',
             images: ['/assets/images/s1.jpg'],
-            variants: [{ color: 'ابی', size: 'lg', stock: 10 }],
+            variants: [{ color: 'ابی', size: '2xl', stock: 10 }],
         },
         {
             id: '130',
@@ -120,7 +120,7 @@ const AddProductsToDB = () => {
             categories: ['لباس مردانه', 'پیراهن'],
             producter: 'تهران',
             images: ['/assets/images/s2.jpg'],
-            variants: [{ color: 'آبی', size: 'xl', stock: 8 }],
+            variants: [{ color: 'آبی', size: '2xl', stock: 8 }],
         },
         {
             id: '131',
@@ -130,7 +130,7 @@ const AddProductsToDB = () => {
             categories: ['لباس بچه گانه', 'شلوار'],
             producter: 'مشهد',
             images: ['/assets/images/s3.jpg'],
-            variants: [{ color: 'سبز', size: 's', stock: 12 }],
+            variants: [{ color: 'سبز', size: '2xl', stock: 12 }],
         },
         {
             id: '132',
@@ -140,7 +140,7 @@ const AddProductsToDB = () => {
             categories: ['لباس', 'orange'],
             producter: 'تهران',
             images: ['/assets/images/s4.png'],
-            variants: [{ color: 'قرمز', size: 'm', stock: 5 }],
+            variants: [{ color: 'قرمز', size: '2xl', stock: 5 }],
         },
         {
             id: '133',
@@ -151,7 +151,7 @@ const AddProductsToDB = () => {
             categories: ['لباس مردانه', 'orange'],
             producter: 'اصفهان',
             images: ['/assets/images/s5.png'],
-            variants: [{ color: 'خاکستری', size: 'xl', stock: 10 }],
+            variants: [{ color: 'خاکستری', size: '2xl', stock: 10 }],
         },
         {
             id: '134',
@@ -161,7 +161,7 @@ const AddProductsToDB = () => {
             categories: ['لباس زنانه', 'کش باف'],
             producter: 'تهران',
             images: ['/assets/images/s6.jpg'],
-            variants: [{ color: 'مشکی', size: 'lg', stock: 15 }],
+            variants: [{ color: 'مشکی', size: '2xl', stock: 15 }],
         },
         {
             id: '135',
@@ -172,7 +172,7 @@ const AddProductsToDB = () => {
             categories: ['لباس', 'ُست', 'orange'],
             producter: 'اصفهان',
             images: ['/assets/images/s7.png'],
-            variants: [{ color: 'سبز', size: 'm', stock: 7 }],
+            variants: [{ color: 'سبز', size: '2xl', stock: 7 }],
         },
         {
             id: '136',
@@ -183,7 +183,7 @@ const AddProductsToDB = () => {
             categories: ['لباس زنانه', 'ژاکت'],
             producter: 'تهران',
             images: ['/assets/images/s8.jpg'],
-            variants: [{ color: 'زرد', size: 'md', stock: 10 }],
+            variants: [{ color: 'زرد', size: '2xl', stock: 10 }],
         },
         {
             id: '137',
@@ -193,7 +193,7 @@ const AddProductsToDB = () => {
             categories: ['کاپشن', 'بادی'],
             producter: 'مشهد',
             images: ['/assets/images/s9.png'],
-            variants: [{ color: 'سفید', size: 'lg', stock: 5 }],
+            variants: [{ color: 'سفید', size: '2xl', stock: 5 }],
         },
         {
             id: '138',
@@ -204,7 +204,7 @@ const AddProductsToDB = () => {
             categories: ['لباس مردانه', 'پیراهن'],
             producter: 'اصفهان',
             images: ['/assets/images/s10.jpg'],
-            variants: [{ color: 'سبز', size: 'xl', stock: 10 }],
+            variants: [{ color: 'سبز', size: '2xl', stock: 10 }],
         },
         {
             id: '139',
@@ -214,7 +214,7 @@ const AddProductsToDB = () => {
             categories: ['لباس زنانه', 'کش باف'],
             producter: 'تهران',
             images: ['/assets/images/s.jpg'],
-            variants: [{ color: 'قرمز', size: 'md', stock: 15 }],
+            variants: [{ color: 'قرمز', size: '2xl', stock: 15 }],
         },
         {
             id: '140',
@@ -235,7 +235,7 @@ const AddProductsToDB = () => {
             categories: ['لباس زنانه', 'ست'],
             producter: 'تهران',
             images: ['/assets/images/s12.jpg'],
-            variants: [{ color: 'ابی', size: 'lg', stock: 12 }],
+            variants: [{ color: 'ابی', size: '2xl', stock: 12 }],
         },
         {
             id: '142',
@@ -246,7 +246,7 @@ const AddProductsToDB = () => {
             categories: ['لباس زنانه', 'لباس مردانه', 'هودی'],
             producter: 'اصفهان',
             images: ['/assets/images/s13.png'],
-            variants: [{ color: 'سفید', size: 'xl', stock: 15 }],
+            variants: [{ color: 'سفید', size: '2xl', stock: 15 }],
         },
         {
             id: '143',
@@ -256,7 +256,7 @@ const AddProductsToDB = () => {
             categories: ['لباس بچگانه'],
             producter: 'تهران',
             images: ['/assets/images/s14.jpg'],
-            variants: [{ color: 'سفید', size: 'xs', stock: 8 }],
+            variants: [{ color: 'سفید', size: '2xl', stock: 8 }],
         },
         {
             id: '144',
@@ -266,7 +266,7 @@ const AddProductsToDB = () => {
             categories: ['لباس بچه گانه'],
             producter: 'اصفهان',
             images: ['/assets/images/s16.jpg'],
-            variants: [{ color: 'سبز', size: 's', stock: 12 }],
+            variants: [{ color: 'سبز', size: '2xl', stock: 12 }],
         },
         {
             id: '145',
@@ -277,7 +277,7 @@ const AddProductsToDB = () => {
             categories: ['لباس بچه گانه'],
             producter: 'تهران',
             images: ['/assets/images/s17.jpg'],
-            variants: [{ color: 'سفید', size: 'xs', stock: 10 }],
+            variants: [{ color: 'سفید', size: '2xl', stock: 10 }],
         },
         {
             id: '146',
@@ -287,7 +287,7 @@ const AddProductsToDB = () => {
             categories: ['لباس', 'ست'],
             producter: 'اصفهان',
             images: ['/assets/images/s18.jpg'],
-            variants: [{ color: 'مشکی', size: 'm', stock: 7 }],
+            variants: [{ color: 'مشکی', size: '2xl', stock: 7 }],
         },
         {
             id: '147',
@@ -298,7 +298,7 @@ const AddProductsToDB = () => {
             categories: ['لباس مردانه', 'orange'],
             producter: 'اصفهان',
             images: ['/assets/images/s4.png'],
-            variants: [{ color: 'خاکستری', size: 'xl', stock: 10 }],
+            variants: [{ color: 'خاکستری', size: '2xl', stock: 10 }],
         },
     ];
 
