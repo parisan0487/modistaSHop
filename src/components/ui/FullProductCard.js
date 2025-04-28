@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 import slideToleftI from 'assets/images/slide-arrow-1.svg';
 import slideToRithI from 'assets/images/slide-arrow.svg';
 import toast, { CheckmarkIcon, Toaster } from 'react-hot-toast';
+import axios from 'axios';
 
 const FullProductCard = ({ productData }) => {
     const {
@@ -14,6 +15,7 @@ const FullProductCard = ({ productData }) => {
         price = 0,
         discount = 0,
         id,
+        _id,
         categories = [],
         brand = '',
         fullBrandList = '',
@@ -70,16 +72,17 @@ const FullProductCard = ({ productData }) => {
             await axios.post(
                 'https://back-production-22f1.up.railway.app/api/cart/add',
                 {
-                    productId: product._id,
+                    productId: _id,
                     quantity: 1,
                     color: selectedColor,
-                    size: size,
+                    size: '2xl',
                 },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
 
-            toast.success('به سبد خرید شما اضافه شد ');
+            toast.success('به سبد خرید شما اضافه شد');
         } catch (error) {
+            console.error('خطای ثبت در سبد خرید:', error.response?.data || error.message);
             toast.error('به سبد خرید شما اضافه نشد');
         }
     };
