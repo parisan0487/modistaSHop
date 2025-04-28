@@ -9,7 +9,7 @@ function Advantages() {
             </div>
             <div className="flex flex-col items-center gap-4 shrink-0">
                 <h3 className="font-bold text-2xl text-white">مزیت‌های فروشگاه</h3>
-                <Link href="/about" className="text-lg text-white font-normal border py-2.5 px-4 rounded-xl">
+                <Link href="/shop" className="text-lg text-white font-normal border py-2.5 px-4 rounded-xl">
                     مشاهده همه
                 </Link>
             </div>

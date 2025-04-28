@@ -11,7 +11,7 @@ function LatestProduct() {
                 <h3 className="text-2xl text-white">
                     <span className="font-bold">جدیدترین</span> محصولات
                 </h3>
-                <Link href="/about" className="text-lg text-white font-normal border py-2.5 px-4 rounded-xl">
+                <Link href="/shop" className="text-lg text-white font-normal border py-2.5 px-4 rounded-xl">
                     مشاهده همه
                 </Link>
             </div>

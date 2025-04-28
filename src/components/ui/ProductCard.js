@@ -23,10 +23,10 @@ function ProductCard({ data, thumbnails = true }) {
             {/* image */}
             <div className="flex flex-col max-h-[24rem] rounded-xl border-2 border-gray-200 m-4 mb-0 overflow-hidden">
                 <Link href={`/products/${id}`}>
-                    <Image
+                    <img
                         src={mainImage}
                         alt={name}
-                        className="w-full h-[16.5rem] object-cover rounded-md"
+                        className="w-full h-[16.5rem] rounded-md"
                         width={80}
                         height={80}
                     />
@@ -43,7 +43,7 @@ function ProductCard({ data, thumbnails = true }) {
                             className={`w-6 h-6 rounded-full overflow-hidden border-2 cursor-pointer ${mainImage === img ? 'border-[#FD5504]' : 'border-gray-300'}`}
                             onClick={() => setMainImage(img)}
                         >
-                            <Image
+                            <img
                                 src={img}
                                 alt={`image-${index}`}
                                 width={32}

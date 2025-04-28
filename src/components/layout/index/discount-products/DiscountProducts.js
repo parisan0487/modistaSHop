@@ -87,47 +87,49 @@ const DiscountProducts = () => {
             <div className="rounded-3xl py-6 mb-[12rem] mt-8 w-full flex flex-col-reverse md:flex-row ">
                 <div className='w-full md:w-9/12 bg-[#FD5504] h-[18rem] rounded-[0_0_2rem_2rem] md:rounded-[2rem_0_2rem_2rem] '>
 
-                    <div className="relative w-full p-4 ">
+                    <div className="relative w-full  p-3">
                         <Swiper
                             loop={true}
                             grabCursor={true}
                             ref={swiperRef}
                             slidesPerGroup={1}
-                            // centeredSlides={true}
+                            centeredSlides={false}
                             breakpoints={{
                                 0: {
                                     slidesPerView: 1.1,
-                                    spaceBetween: 10
+                                    spaceBetween: 2
                                 },
                                 360: {
-                                    slidesPerView: 1.3,
-                                    spaceBetween: 10
+                                    slidesPerView: 1.2,
+                                    spaceBetween: 2
                                 },
                                 768: {
-                                    slidesPerView: 2,
-                                    spaceBetween: 10
+                                    slidesPerView: 2.3,
+                                    spaceBetween: 3
                                 },
                                 930: {
                                     slidesPerView: 2.5,
-                                    spaceBetween: 10
+                                    spaceBetween: 3
                                 },
-                                1024: {
-                                    slidesPerView: 2.2,
-                                    spaceBetween: 10
-                                },
+
                                 1224: {
-                                    slidesPerView: 3.3,
-                                    spaceBetween: 10
+                                    slidesPerView: 2.7,
+                                    spaceBetween: 3
                                 },
-                                1300: {
+
+                                1350: {
+                                    slidesPerView: 3.5,
+                                    spaceBetween: 3
+                                },
+                                1550: {
                                     slidesPerView: 4,
-                                    spaceBetween: 10
+                                    spaceBetween: 3
                                 },
 
                             }}
                         >
                             {products.map((product) => (
-                                <SwiperSlide key={product._id}>
+                                <SwiperSlide key={product._id} >
                                     <ProductCard data={product} key={product.id} thumbnails={false} />
                                 </SwiperSlide>
                             ))}
