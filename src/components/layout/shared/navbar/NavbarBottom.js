@@ -102,12 +102,12 @@ const NavbarBottom = () => {
                         >
                             فروشگاه
                         </Link>
-                        <li className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
+                        <Link href={"/products/124"} className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
                             تکی محصول
-                        </li>
-                        <li className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
+                        </Link>
+                        <Link href={"/account"} className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
                             حساب کاربری
-                        </li>
+                        </Link>
                         <li className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
                             سبد خرید
                         </li>

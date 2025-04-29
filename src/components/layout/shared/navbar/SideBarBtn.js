@@ -77,14 +77,14 @@ const SideBarBtn = () => {
         toast(
             (t) => (
                 <ul className="w-72 flex flex-col items-center gap-2">
-                    <li className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">فروشگاه</li>
+                    <Link href={"/shop"} className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">فروشگاه</Link>
                  
-                    <li className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
+                    <Link href={"/products/124"}  className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
                         تکی محصول
-                    </li>
-                    <li className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
+                    </Link>
+                    <Link href={'/account'} className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
                         حساب کاربری
-                    </li>
+                    </Link>
                     <Link
                         href={'/basket'}
                         className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black"
@@ -185,6 +185,31 @@ const SideBarBtn = () => {
             <div className="w-full h-full bg-white flex flex-col justify-between">
                 <div className="w-full h-full flex flex-col justify-between p-4">
                     <ul className="flex flex-col gap-5 items-end">
+                    <Link href={'/'} className="flex gap-1">
+                            <span className="!text-black/60 text-[1.1rem]">صفحه اصلی</span>
+                            <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <g id="Broken / Nature, Travel / Fire Minimalistic">
+                                    <path
+                                        id="Vector 131"
+                                        d="M16.5 20L4.5 10H4L3.5 13.5L5 17L8 20L12.5 21L16 20H16.5Z"
+                                        fill="#F4694C"
+                                    ></path>
+                                    <path
+                                        id="Vector"
+                                        d="M16 19.9972C14.8233 20.635 13.4571 21 12 21C7.58172 21 4 17.6439 4 13.504C4 12.3727 4.14916 11.3124 4.40527 10.3284M19.1761 16.8211C19.7036 15.8211 20 14.695 20 13.504C20 9.76257 17.9654 6.83811 16.562 5.44436C16.3017 5.18584 15.8683 5.30006 15.7212 5.63288C14.9742 7.3229 13.4178 9.75607 11.4286 9.75607C10.1975 9.92086 8.31688 8.86844 9.83483 3.64868C9.97151 3.17868 9.46972 2.80113 9.08645 3.11539C8.09335 3.92966 6.95052 5.1206 6 6.64741"
+                                        stroke="#3B3B3B"
+                                        strokeWidth="1.5"
+                                        strokeLinecap="round"
+                                    ></path>
+                                </g>
+                            </svg>
+                        </Link>
                         <li onClick={openTemplateModal} className="relative flex items-center gap-1">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"

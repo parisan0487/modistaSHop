@@ -1,67 +1,112 @@
 'use client';
-
 import Fetch from '@/hooks/Fetch';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect } from 'react';
+import React, { useMemo, useRef } from 'react';
 import toast from 'react-hot-toast';
+import Loading from '../../loading/Loading';
 
 const BasketBtn = ({ cls }) => {
-    // useEffect(() => {
-    //     Fetch.get('https://back-production-22f1.up.railway.app/api/cart/').then((result) =>
-    //         console.log('mas result.data: ', result.data)
-    //     );
-    // }, []);
+    const queryClient = useQueryClient();
+    const ref = useRef()
+
+    const fetchHandler = async () => {
+        try {
+            const res = await Fetch.get('https://back-production-22f1.up.railway.app/api/cart/');
+            return res.data;
+        } catch (error) {
+            throw error;
+        }
+    };
+
+    const { data, isLoading, isSuccess } = useQuery({
+        queryKey: ['basketProduct'],
+        queryFn: fetchHandler,
+    });
+
+    useMemo(async () => {
+        if (isSuccess && ref?.current) {
+            await toast.dismiss('basket-modal');
+            openBasketModal();
+        }
+    }, [isSuccess]);
+
+    const totalPrice = useMemo(() => {
+        return data?.items?.reduce((acc, { product }) => acc + product.price, 0) || 0;
+    }, [data]);
+
+    const deleteProduct = useMutation({
+        mutationFn: async (id) => {
+            await Fetch.delete(`https://back-production-22f1.up.railway.app/api/cart/remove/${id}`);
+        },
+        onSuccess: () => {
+            queryClient.refetchQueries(['basketProduct']);
+        },
+    });
 
     const openBasketModal = () => {
         toast(
-            <div className="w-77 flex flex-col items-center justify-end gap-5">
+            <div ref={ref} className="w-77 flex flex-col items-center justify-end gap-5">
                 <div className="w-full pb-4 flex justify-between border-b border-b-zinc-500/30">
                     <span className="flex flex-row-reverse gap-1">
-                        <span>۳</span> <span>مورد</span>
+                        <span>{(data?.items?.length || 0).toLocaleString('fa-IR')}</span> <span>مورد</span>
                     </span>
                     <span>سبد خرید من</span>
                 </div>
 
-                <div className="w-full h-[15rem] overflow-y-scroll">
-                    <div className="w-full rounded-2xl flex items-center justify-between gap-3 cursor-pointer hover:bg-gradient-to-l from-black/5 to-transparent">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth="1.5"
-                            stroke="currentColor"
-                            className="size-6 stroke-zinc-600/80 cursor-pointer shrink-0 active:scale-95"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                            />
-                        </svg>
-                        <div className="w-full flex flex-col items-end gap-2 font-bold text-zinc-700/80">
-                            <p className="text-[0.9rem] line-clamp-1">پولوشرت آستین کوتاه مردانه</p>
-                            <p className="flex gap-1 font-normal">
-                                <span className="text-zinc-700/60">تومان</span>
-                                <span className="text-zinc-700">۲,۵۰۰,۰۰۰</span>
-                            </p>
+                <div className="w-full h-[15rem] overflow-y-scroll space-y-2">
+                    {data?.items?.length ? (
+                        data.items.map(({ product }) => (
+                            <div
+                                key={product._id}
+                                className="w-full rounded-2xl flex items-center justify-between gap-3 cursor-pointer hover:bg-gradient-to-l from-black/5 to-transparent"
+                            >
+                                <svg
+                                    onClick={() => deleteProduct.mutate(product._id)}
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth="1.5"
+                                    stroke="currentColor"
+                                    className="size-6 stroke-zinc-600/80 cursor-pointer shrink-0 active:scale-95"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                                    />
+                                </svg>
+                                <div className="w-full flex flex-col items-end gap-2 font-bold text-zinc-700/80">
+                                    <p className="text-[0.9rem] line-clamp-1">{product.name}</p>
+                                    <p className="flex gap-1 font-normal">
+                                        <span className="text-zinc-700/60">تومان</span>
+                                        <span className="text-zinc-700">{product.price.toLocaleString('fa-IR')}</span>
+                                    </p>
+                                </div>
+                                <Image
+                                    src={
+                                        product.images[0] ||
+                                        'https://mehdibagheridev.ir/modista/wp-content/uploads/2024/12/wool-blend-jumper-women-bright-orange-moncler3-1.png'
+                                    }
+                                    width={100}
+                                    height={100}
+                                    alt="product-Image"
+                                    className="size-15 object-cover shrink-0 rounded-2xl"
+                                />
+                            </div>
+                        ))
+                    ) : (
+                        <div className="w-full h-full text-zinc-500 flex items-center justify-center">
+                            {isLoading ? <Loading /> : <span>محصولی در سبد شما وجود ندارد</span>}
                         </div>
-                        <Image
-                            src={
-                                'https://mehdibagheridev.ir/modista/wp-content/uploads/2024/12/wool-blend-jumper-women-bright-orange-moncler3-1.png'
-                            }
-                            width={100}
-                            height={100}
-                            alt="product-Image"
-                            className="size-20"
-                        />
-                    </div>
+                    )}
                 </div>
 
                 <div className="w-full flex flex-col items-center gap-2 border-t !border-b-zinc-500/30">
                     <div className="w-full py-6 flex items-center justify-between">
                         <span className="flex flex-row-reverse gap-1">
-                            <span className="font-bold">۱,۵۰۰,۰۰۰</span> <span>تومان</span>
+                            <span className="font-bold">{totalPrice.toLocaleString('fa-IR')}</span> <span>تومان</span>
                         </span>
 
                         <div className="flex items-center gap-1">
@@ -84,7 +129,7 @@ const BasketBtn = ({ cls }) => {
                     </div>
                     <Link
                         href={'/basket'}
-                        onClick={() => toast.dismiss(t.id)}
+                        onClick={() => toast.dismiss(toast.id)}
                         className="w-full h-13 p-3 bg-orange-500 rounded-2xl flex items-center justify-center gap-4 cursor-pointer"
                     >
                         <svg
