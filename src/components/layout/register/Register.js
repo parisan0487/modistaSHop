@@ -18,6 +18,11 @@ export default function Register() {
     const validateName = (name) => /^[\u0600-\u06FF\sA-Za-z]{3,}$/.test(name);
     const validatePhone = (phone) => /^09\d{9}$/.test(phone);
 
+    const convertPersianToEnglishDigits = (str) => {
+        const persianDigits = '۰۱۲۳۴۵۶۷۸۹';
+        return str.replace(/[۰-۹]/g, (d) => persianDigits.indexOf(d).toString());
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -33,7 +38,9 @@ export default function Register() {
             }
         }
 
-        const userData = isLogin ? { phone, password } : { name, phone, password };
+        const cleanedPhone = convertPersianToEnglishDigits(phone);
+
+        const userData = isLogin ? { phone: cleanedPhone, password } : { name, phone: cleanedPhone, password };
 
         try {
             const endpoint = isLogin
@@ -55,7 +62,8 @@ export default function Register() {
             login(res.data.token);
             router.push('/');
         } catch (err) {
-            toast.error('خطایی رخ داده است ');
+            const errorMessage = err.response.data.message || 'خطایی رخ داده است. لطفاً دوباره تلاش کنید';
+            toast.error(errorMessage);
         }
     };
 
