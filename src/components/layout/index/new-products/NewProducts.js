@@ -60,6 +60,10 @@ const NewProducts = () => {
 
                     breakpoints={{
                         0: {
+                            slidesPerView: 1.3,
+
+                        },
+                        400: {
                             slidesPerView: 1.5,
 
                         },
@@ -72,7 +76,7 @@ const NewProducts = () => {
                             spaceBetween: 3
                         },
                         1200: {
-                            slidesPerView: 3.8,
+                            slidesPerView: 3.5,
 
                         },
 
@@ -81,10 +85,7 @@ const NewProducts = () => {
 
                         },
 
-                        1550: {
-                            slidesPerView: 5,
 
-                        },
 
 
                     }}

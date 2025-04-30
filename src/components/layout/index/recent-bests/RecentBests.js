@@ -72,7 +72,7 @@ export default function BestSellersSection() {
 
     return (
         <section className="w-full px-2  py-16 flex flex-col md:flex-col gap-2">
-            <div className="flex items-center justify-between flex-row gap-2 px-8 md:px-16">
+            <div className="flex items-center justify-between flex-row gap-2 px-3">
                 <div className="flex items-center gap-2">
                     <div className=" gap-3 hidden lg:flex">
                         <button onClick={handleNext} className="w-12 h-12 cursor-pointer bg-gray-100 rounded-md flex items-center justify-center text-gray-500 hover:bg-gray-200">
@@ -102,7 +102,7 @@ export default function BestSellersSection() {
                             <button
                                 key={cat}
                                 onClick={() => setSelected(cat)}
-                                className={`rounded-xl px-6 py-3 text-sm border transition-all font-bold cursor-pointer  ${selected === cat
+                                className={`rounded-xl px-6 py-3 text-sm border  font-bold cursor-pointer  ${selected === cat
                                     ? 'bg-orange-500 text-white border-orange-500'
                                     : 'text-[#BABABA] border-gray-300 hover:border-orange-400'
                                     }`}
