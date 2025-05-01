@@ -17,7 +17,7 @@ const banners = [
 
 export default function Banner() {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 mt-20 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-20 w-full">
             {banners.map((banner, i) => (
                 <div key={i} className="relative rounded-2xl overflow-hidden shadow-lg">
                     <Image
