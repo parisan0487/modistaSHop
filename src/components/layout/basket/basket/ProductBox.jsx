@@ -1,10 +1,100 @@
 'use client';
-import { BasketContext } from '@/context/BasketContext';
 import Image from 'next/image';
-import { useContext, useState } from 'react';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import Fetch from '@/utils/Fetch';
+import { MoonLoader } from 'react-spinners';
 
-const ProductBox = ({ id, title, price, image, quantity }) => {
-    const { updateQuantity } = useContext(BasketContext);
+const ProductBox = ({ data }) => {
+    const queryClient = useQueryClient();
+    const {
+        product: { _id, title, price, images },
+        quantity,
+        variant: { color, size },
+    } = data;
+
+    const { mutate: increment, isPending: isIncrementing } = useMutation({
+        mutationFn: async (id) => {
+            await Fetch.post('https://back-production-22f1.up.railway.app/api/cart/add', {
+                productId: id,
+                quantity: 1,
+                color,
+                size,
+            });
+        },
+        onMutate: async (id) => {
+            await queryClient.cancelQueries(['basket-product']);
+            const previousData = queryClient.getQueryData(['basket-product']);
+
+            queryClient.setQueryData(['basket-product'], (old) => {
+                if (!old) return old;
+                return {
+                    ...old,
+                    items: old.items.map((item) => {
+                        if (item.product._id === id) {
+                            return {
+                                ...item,
+                                quantity: item.quantity + 1,
+                            };
+                        }
+                        return item;
+                    }),
+                };
+            });
+
+            return { previousData };
+        },
+        onError: (error, variable, context) => {
+            queryClient.setQueryData(['basket-product'], context.previousData);
+        },
+        onSettled: () => {
+            queryClient.invalidateQueries(['basket-product']);
+        },
+    });
+
+    const { mutate: decrement, isPending: isDecrementing } = useMutation({
+        mutationFn: async (id) => {
+            if (data.quantity === 1) {
+                await Fetch.delete(
+                    `https://back-production-22f1.up.railway.app/api/cart/remove/${data.product._id}?color=${data.variant.color}&size=${data.variant.size}`
+                );
+            } else {
+                await Fetch.post('https://back-production-22f1.up.railway.app/api/cart/add', {
+                    productId: id,
+                    quantity: -1,
+                    color,
+                    size,
+                });
+            }
+        },
+        onMutate: async (id) => {
+            await queryClient.cancelQueries(['basket-product']);
+            const previousData = queryClient.getQueryData(['basket-product']);
+
+            queryClient.setQueryData(['basket-product'], (old) => {
+                if (!old) return old;
+                return {
+                    ...old,
+                    items: old.items.map((item) => {
+                        if (item.product._id === id) {
+                            return {
+                                ...item,
+                                quantity: item.quantity - 1,
+                            };
+                        }
+                        return item;
+                    }),
+                };
+            });
+
+            return { previousData };
+        },
+        onError: (error, variable, context) => {
+            queryClient.setQueryData(['basket-product'], context.previousData);
+        },
+        onSettled: () => {
+            queryClient.invalidateQueries(['basket-product']);
+        },
+    });
 
     return (
         <div
@@ -15,7 +105,7 @@ const ProductBox = ({ id, title, price, image, quantity }) => {
         >
             <div className="w-full flex max-[640px]:flex-row-reverse items-center max-[640px]:justify-between gap-4 max-[450px]:flex-col">
                 <Image
-                    src={image}
+                    src={images[0]}
                     width={80}
                     height={80}
                     alt="product-image"
@@ -30,21 +120,23 @@ const ProductBox = ({ id, title, price, image, quantity }) => {
 
             <div className="flex items-center gap-2">
                 <button
-                    onClick={() => updateQuantity(id, -1)}
-                    disabled={quantity < 1}
+                    onClick={() => decrement(_id)}
+                    disabled={isDecrementing || isIncrementing}
                     className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center cursor-pointer"
                 >
-                    -
+                    {isDecrementing || isIncrementing ? <MoonLoader size={17} color="#fff" /> : '-'}
                 </button>
+
                 <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center font-semibold">
                     {quantity}
                 </div>
+
                 <button
-                    onClick={() => updateQuantity(id, 1)}
-                    disabled={quantity < 1}
+                    onClick={() => increment(_id)}
+                    disabled={isIncrementing || isDecrementing}
                     className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center cursor-pointer"
                 >
-                    +
+                    {isIncrementing || isDecrementing ? <MoonLoader size={17} color="#fff" /> : '+'}
                 </button>
             </div>
         </div>

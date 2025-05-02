@@ -74,7 +74,8 @@ const DiscountProducts = () => {
                     quality={100}
                     width={38}
                     height={38}
-                    className="z-0 w-[15rem] h-[15rem] absolute  top-0"
+                    className="z-0 w-[15rem] h-[15rem] absolute top-0"
+                   
                 />
                 <div className="z-10 flex flex-col items-center justify-center">
                     <h3 className="text-[#FD5504] text-2xl md:text-3xl font-[800] mt-10 mx-5">تخفیف های شگفت انگیز</h3>

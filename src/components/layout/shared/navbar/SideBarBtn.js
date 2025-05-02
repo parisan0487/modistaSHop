@@ -77,12 +77,23 @@ const SideBarBtn = () => {
         toast(
             (t) => (
                 <ul className="w-72 flex flex-col items-center gap-2">
-                    <Link href={"/shop"} className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">فروشگاه</Link>
-                 
-                    <Link href={"/products/124"}  className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
+                    <Link
+                        href={'/shop'}
+                        className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black"
+                    >
+                        فروشگاه
+                    </Link>
+
+                    <Link
+                        href={'/products/124'}
+                        className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black"
+                    >
                         تکی محصول
                     </Link>
-                    <Link href={'/account'} className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
+                    <Link
+                        href={'/account'}
+                        className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black"
+                    >
                         حساب کاربری
                     </Link>
                     <Link
@@ -127,12 +138,13 @@ const SideBarBtn = () => {
                                         {cate.title}
                                     </li>
                                     {cate.items.map((item, index) => (
-                                        <li
+                                        <Link
+                                            href={'/shop'}
                                             key={index}
                                             className="text-[1rem] !text-zinc-500 text-right hover:!text-orange-500 cursor-pointer"
                                         >
                                             {item}
-                                        </li>
+                                        </Link>
                                     ))}
                                 </ul>
                             ))}
@@ -185,7 +197,7 @@ const SideBarBtn = () => {
             <div className="w-full h-full bg-white flex flex-col justify-between">
                 <div className="w-full h-full flex flex-col justify-between p-4">
                     <ul className="flex flex-col gap-5 items-end">
-                    <Link href={'/'} className="flex gap-1">
+                        <Link href={'/'} className="flex gap-1">
                             <span className="!text-black/60 text-[1.1rem]">صفحه اصلی</span>
                             <svg
                                 width="24"

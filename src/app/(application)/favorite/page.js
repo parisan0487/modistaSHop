@@ -1,102 +1,47 @@
+'use client';
+
 import PCard from '@/components/layout/index/new-products/PCard';
+import Loading from '@/components/layout/loading/Loading';
+import { useAuth } from '@/context/AuthContext';
+import Fetch from '@/utils/Fetch';
+import { useQuery } from '@tanstack/react-query';
+import Link from 'next/link';
 import React from 'react';
 
-const products = [
-    {
-        id: '3',
-        name: 'هودی ',
-        images: ['/assets/images/hoodie-2.jpg', '/assets/images/hoodie-1.jpg', '/assets/images/hoodie-3.jpg'],
-        price: 1790000,
-        discountPercent: 20,
-        finalPrice: 1432000,
-    },
-    {
-        id: '1',
-        name: ' کیف وزشی مدل مارتن',
-        images: [
-            '/assets/images/bag-1.jpg',
-            '/assets/images/bag-2.jpg',
-            '/assets/images/bag-3.jpg',
-            '/assets/images/bag-2.jpg',
-            '/assets/images/pic3.jpg',
-        ],
-        price: 820000,
-        discountPercent: 15,
-        finalPrice: 697000,
-    },
-    {
-        id: '2',
-        name: ' ست بلوز و شلوار زنانه',
-        images: [
-            '/assets/images/bloz-1.jpg',
-            '/assets/images/bloz-2.jpg',
-            '/assets/images/bloz-3.jpg',
-            '/assets/images/bloz-4.jpg',
-            '/assets/images/bloz-1.jpg',
-        ],
-        price: 2150000,
-        discountPercent: 10,
-        finalPrice: 1935000,
-    },
-
-    {
-        id: '4',
-        name: 'هودی ',
-        images: ['/assets/images/hoodie-1.jpg', '/assets/images/hoodie-2.jpg', '/assets/images/hoodie-3.jpg'],
-        price: 950000,
-        discountPercent: 25,
-        finalPrice: 712000,
-    },
-    {
-        id: '5',
-        name: 'ژاکت ',
-        images: [
-            '/assets/images/jackets-1.jpg',
-            '/assets/images/jackets-2.jpg',
-            '/assets/images/jackets-3.jpg',
-            '/assets/images/jackets-4.jpg',
-            '/assets/images/jackets-2.jpg',
-        ],
-        price: 2450000,
-        discountPercent: 10,
-        finalPrice: 1935000,
-    },
-    {
-        id: '5',
-        name: 'ژاکت ',
-        images: [
-            '/assets/images/jackets-1.jpg',
-            '/assets/images/jackets-2.jpg',
-            '/assets/images/jackets-3.jpg',
-            '/assets/images/jackets-4.jpg',
-            '/assets/images/jackets-2.jpg',
-        ],
-        price: 2450000,
-        discountPercent: 10,
-        finalPrice: 1935000,
-    },
-    {
-        id: '5',
-        name: 'ژاکت ',
-        images: [
-            '/assets/images/jackets-1.jpg',
-            '/assets/images/jackets-2.jpg',
-            '/assets/images/jackets-3.jpg',
-            '/assets/images/jackets-4.jpg',
-            '/assets/images/jackets-2.jpg',
-        ],
-        price: 2450000,
-        discountPercent: 10,
-        finalPrice: 1935000,
-    },
-];
-
 const page = () => {
+    const { isLoggedIn } = useAuth();
+
+    const fetchHandler = async () => {
+        const res = await Fetch.get('https://back-production-22f1.up.railway.app/api/wishlist/', {
+            token: true,
+        });
+        return res.data;
+    };
+
+    const { data, isLoading } = useQuery({
+        queryKey: ['favorite-product'],
+        queryFn: fetchHandler,
+    });
+
     return (
         <div className="container flex flex-wrap justify-end max-[1024px]:justify-center gap-3 py-10">
-            {products.map((product) => (
-                <PCard key={product.id} data={product} deleteBtn={true} />
-            ))}
+            {isLoading ? (
+                <Loading className='-top-20' />
+            ) : isLoggedIn ? (
+                (data?.items || []).map((product) => (
+                    <PCard key={product.product._id} data={product.product} deleteBtn={true} />
+                ))
+            ) : (
+                <div className="w-full h-50 flex flex-col gap-4 items-center justify-center text-2xl font-bold text-zinc-700/70">
+                    <span> ابتدا در سایت ثبت نام کنید</span>
+                    <Link
+                        href={'/register'}
+                        className="py-1 px-6 text-xl font-normal text-white bg-orange-500 rounded-2xl shadow-md"
+                    >
+                        ثبت نام
+                    </Link>
+                </div>
+            )}
         </div>
     );
 };

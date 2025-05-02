@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const NoExistProduct = () => {
@@ -16,7 +17,9 @@ const NoExistProduct = () => {
                 />
             </svg>
             <p className="text-zinc-600">هیچ سفارشی هنوز ثبت نشده است.</p>
-            <div className="p-4 py-2 bg-orange-500 text-white rounded-2xl cursor-pointer">مرور محصولات</div>
+            <Link href={'/shop'}>
+                <div className="p-4 py-2 bg-orange-500 text-white rounded-2xl cursor-pointer">مرور محصولات</div>
+            </Link>
         </div>
     );
 };

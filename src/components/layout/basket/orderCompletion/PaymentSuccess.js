@@ -31,7 +31,7 @@ const PaymentSuccess = () => {
 
             <button
                 onClick={() => (window.location.href = '/')}
-                className="mt-6 w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-2 rounded-xl shadow-md transition-all duration-200"
+                className="mt-6 w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-2 rounded-xl shadow-md transition-all duration-200 cursor-pointer"
             >
                 بازگشت به خانه
             </button>

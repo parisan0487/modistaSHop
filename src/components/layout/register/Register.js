@@ -1,13 +1,10 @@
 'use client';
-
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import axios from 'axios';
-import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 
 export default function Register() {
-    const router = useRouter();
     const [isLogin, setIsLogin] = useState(true);
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
@@ -53,7 +50,9 @@ export default function Register() {
             setPassword('');
 
             login(res.data.token);
-            router.push('/');
+            setTimeout(() => {
+                window.location.pathname = '/';
+            }, 1000);
         } catch (err) {
             const errorMessage =
                 typeof err.response?.data === 'string'

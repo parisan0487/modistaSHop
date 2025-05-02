@@ -1,11 +1,12 @@
 'use client';
 
-import { BasketContext } from '@/context/BasketContext';
-import { useContext, useState } from 'react';
+import useGetBasketProducts from '@/hooks/useGetBasketProducts';
+import { useState } from 'react';
 
 const PaymentDetailsBox = () => {
     const [discountCode, setDiscountCode] = useState('');
-    const { totalPrice } = useContext(BasketContext);
+
+    const { totalPrice } = useGetBasketProducts();
 
     return (
         <div dir="rtl" className="max-[640px]:w-full p-6 rounded-2xl bg-white shadow-md shrink-0">
