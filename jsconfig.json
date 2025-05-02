@@ -4,5 +4,6 @@
             "@/*": ["./src/*"],
             "assets/*": ["./public/assets/*"]
         }
-    }
+    },
+    "exclude": ["node_modules", ".next"]
 }
