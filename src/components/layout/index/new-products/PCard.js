@@ -17,7 +17,7 @@ function PCard({ data, deleteBtn = false }) {
     const discountPercent = calculateDiscountPercent();
 
     return (
-        <div dir='rtl' className="bg-[#F6F6F6] w-[16rem] min-w-[14rem] h-[30rem] rounded-3xl overflow-hidden border-1 border-transparent transition hover:border-[#FD5504] cursor-pointer">
+        <div dir='rtl' className="bg-[#F6F6F6] w-[14rem] md:w-[16rem] min-w-[14rem] min-h-[28rem] h-[30rem] rounded-3xl overflow-hidden border-1 border-transparent transition hover:border-[#FD5504] cursor-pointer">
             {/* images */}
             <div className="flex flex-col max-h-[24rem] rounded-xl border-2 border-gray-200 m-4 mb-0 overflow-hidden">
                 <Link href={`products/${id}`}>
