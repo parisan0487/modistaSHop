@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PCard from './PCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import MiniLoading from '../../loading/miniLoading';
 
 const NewProducts = () => {
     const [products, setProducts] = useState([]);
@@ -27,7 +28,7 @@ const NewProducts = () => {
 
     const swiperRef = useRef(null);
 
-
+    if (loading) return <MiniLoading />;
 
     return (
         <div className="flex flex-col items-center justify-center text-[#2D2929] w-full mt-2 mb-24">
@@ -82,6 +83,10 @@ const NewProducts = () => {
 
                         1400: {
                             slidesPerView: 4.5,
+
+                        },
+                        1550: {
+                            slidesPerView: 5,
 
                         },
 

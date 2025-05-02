@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
+import MiniLoading from '../../loading/miniLoading';
 
 
 const timer = [
@@ -63,8 +64,7 @@ const DiscountProducts = () => {
     };
     const timer = formatTime(timeLeft);
 
-    if (loading) return <div className="text-center py-10">در حال بارگذاری محصولات...</div>;
-    if (products.length === 0) return <div className="text-center py-10">محصولی یافت نشد.</div>;
+    if (loading) return <MiniLoading />;
 
     return (
         <>
