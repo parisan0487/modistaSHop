@@ -3,6 +3,8 @@ import { Toaster } from 'react-hot-toast';
 import './globals.css';
 import { AuthProvider } from '@/context/AuthContext';
 import QueryProvider from '@/providers/QueryProviders';
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 
 const kalameh = localFont({
     src: [
