@@ -6,8 +6,7 @@ import 'swiper/css';
 import ImageSlider from './ImageSlider';
 import slideToleftI from 'assets/images/slide-arrow-1.svg';
 import slideToRithI from 'assets/images/slide-arrow.svg';
-import MiniLoading from '../../loading/miniLoading';
-
+import MiniLoading from '../../loading/MiniLoading';
 
 const NewSets = () => {
     const [centerIndex, setCenterIndex] = useState(0);
@@ -22,9 +21,7 @@ const NewSets = () => {
                 const data = await res.json();
 
                 // فقط محصولاتی که category شامل "ست" هست رو نگه می‌داریم
-                const filtered = data.filter(product =>
-                    product.categories.includes('ست')
-                );
+                const filtered = data.filter((product) => product.categories.includes('ست'));
 
                 setProducts(filtered);
                 setLoading(false);
@@ -35,7 +32,6 @@ const NewSets = () => {
 
         fetchProducts();
     }, []);
-
 
     useEffect(() => {
         const handleResize = () => {
@@ -71,7 +67,6 @@ const NewSets = () => {
 
     return (
         <div className="flex flex-col items-center py-10 bg-[#F7F7F7] text-[#2D2929] w-full">
-
             <h2 className="text-2xl mt-8">
                 <span className="font-black">جدیدترین</span> ست‌ها
             </h2>
@@ -89,10 +84,7 @@ const NewSets = () => {
             </div>
 
             <div className="relative w-full max-w-[1300px] flex items-center justify-center mt-12">
-                <button
-                    onClick={goPrev}
-                    className="absolute left-2 z-10 bg-white p-2 rounded-xl shadow cursor-pointer"
-                >
+                <button onClick={goPrev} className="absolute left-2 z-10 bg-white p-2 rounded-xl shadow cursor-pointer">
                     <Image src={slideToleftI} alt="prev" width={24} height={24} />
                 </button>
 
@@ -100,10 +92,11 @@ const NewSets = () => {
                     {visibleItems.map((item, index) => (
                         <div
                             key={item._id + index}
-                            className={`transition-all duration-400 ${item.isCenter
-                                ? 'w-[18rem] md:w-[25rem]'  // وسطی بزرگ
-                                : 'w-[7rem] md:w-[10rem]'   // کناریا کوچیک
-                                }`}
+                            className={`transition-all duration-400 ${
+                                item.isCenter
+                                    ? 'w-[18rem] md:w-[25rem]' // وسطی بزرگ
+                                    : 'w-[7rem] md:w-[10rem]' // کناریا کوچیک
+                            }`}
                         >
                             {item.isCenter ? (
                                 <ImageSlider items={item} />
@@ -117,9 +110,6 @@ const NewSets = () => {
                         </div>
                     ))}
                 </div>
-
-
-
 
                 <button
                     onClick={goNext}
