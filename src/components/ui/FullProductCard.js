@@ -1,14 +1,14 @@
 'use client';
-
 import Image from 'next/image';
-import { useParams } from 'next/navigation';
 import React, { useState } from 'react';
 import slideToleftI from 'assets/images/slide-arrow-1.svg';
 import slideToRithI from 'assets/images/slide-arrow.svg';
-import toast, { CheckmarkIcon, Toaster } from 'react-hot-toast';
+import toast, { CheckmarkIcon } from 'react-hot-toast';
 import axios from 'axios';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 const FullProductCard = ({ productData }) => {
+    const queryClient = useQueryClient();
     const {
         name,
         images = [],
@@ -60,32 +60,36 @@ const FullProductCard = ({ productData }) => {
         return Math.round((discount / price) * 100);
     };
 
-    const handelAddToBasket = async () => {
-        try {
-            const token = localStorage.getItem('token');
+    const handelAddToBasket = useMutation({
+        mutationFn: async () => {
+            try {
+                const token = localStorage.getItem('token');
 
-            if (!token) {
-                toast('لطفاً ابتدا وارد حساب کاربری خود شوید');
-                return;
+                if (!token) {
+                    toast('لطفاً ابتدا وارد حساب کاربری خود شوید');
+                    return;
+                }
+
+                await axios.post(
+                    'https://back-production-22f1.up.railway.app/api/cart/add',
+                    {
+                        productId: _id,
+                        quantity: 1,
+                        color: selectedColor,
+                        size: '2xl',
+                    },
+                    { headers: { Authorization: `Bearer ${token}` } }
+                );
+
+                toast.success('به سبد خرید شما اضافه شد');
+            } catch (error) {
+                toast.error('به سبد خرید شما اضافه نشد');
             }
-
-            await axios.post(
-                'https://back-production-22f1.up.railway.app/api/cart/add',
-                {
-                    productId: _id,
-                    quantity: 1,
-                    color: selectedColor,
-                    size: '2xl',
-                },
-                { headers: { Authorization: `Bearer ${token}` } }
-            );
-
-            toast.success('به سبد خرید شما اضافه شد');
-        } catch (error) {
-            console.error('خطای ثبت در سبد خرید:', error.response?.data || error.message);
-            toast.error('به سبد خرید شما اضافه نشد');
-        }
-    };
+        },
+        onSuccess: () => {
+            queryClient.refetchQueries(['basket-product']);
+        },
+    });
 
     const discountPercent = calculateDiscountPercent();
     const finalPrice = price - discount;
@@ -367,7 +371,7 @@ const FullProductCard = ({ productData }) => {
                     </div>
                     <button
                         disabled={stock == 0}
-                        onClick={handelAddToBasket}
+                        onClick={() => handelAddToBasket.mutate()}
                         className={`w-full p-4 h-[3rem] ${
                             stock >= 1 ? 'bg-[#FD5504] ' : 'bg-[#FAA67D] '
                         } rounded-2xl mt-6 text-center text-white font-bold flex items-center justify-center cursor-pointer`}

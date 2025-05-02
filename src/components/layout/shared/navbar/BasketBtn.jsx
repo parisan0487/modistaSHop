@@ -1,19 +1,21 @@
 'use client';
-import Fetch from '@/hooks/Fetch';
+import Fetch from '@/utils/Fetch';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import toast from 'react-hot-toast';
 import Loading from '../../loading/Loading';
+import { useAuth } from '@/context/AuthContext';
 
 const BasketBtn = ({ cls }) => {
     const queryClient = useQueryClient();
-    const ref = useRef()
+    const { isLoggedIn } = useAuth();
+    const ref = useRef();
 
     const fetchHandler = async () => {
         try {
-            const res = await Fetch.get('https://back-production-22f1.up.railway.app/api/cart/');
+            const res = await Fetch.get('https://back-production-22f1.up.railway.app/api/cart/', { token: true });
             return res.data;
         } catch (error) {
             throw error;
@@ -21,31 +23,64 @@ const BasketBtn = ({ cls }) => {
     };
 
     const { data, isLoading, isSuccess } = useQuery({
-        queryKey: ['basketProduct'],
+        queryKey: ['basket-product'],
         queryFn: fetchHandler,
     });
 
-    useMemo(async () => {
-        if (isSuccess && ref?.current) {
-            await toast.dismiss('basket-modal');
-            openBasketModal();
-        }
-    }, [isSuccess]);
+    useEffect(() => {
+        (() => {
+            if (isSuccess && ref?.current) {
+                if (data?.items?.length || isSuccess) {
+                    toast.dismiss('basket-modal');
+                    openBasketModal();
+                }
+            }
+        })();
+    }, [isSuccess, data?.items?.length]);
 
     const totalPrice = useMemo(() => {
         return data?.items?.reduce((acc, { product }) => acc + product.price, 0) || 0;
     }, [data]);
 
     const deleteProduct = useMutation({
-        mutationFn: async (id) => {
-            await Fetch.delete(`https://back-production-22f1.up.railway.app/api/cart/remove/${id}`);
+        mutationFn: async (item) => {
+            await Fetch.delete(
+                `https://back-production-22f1.up.railway.app/api/cart/remove/${item.product._id}?color=${item.variant.color}&size=${item.variant.size}`
+            );
         },
-        onSuccess: () => {
-            queryClient.refetchQueries(['basketProduct']);
+
+        onMutate: async (item) => {
+            await queryClient.cancelQueries(['basket-product']);
+
+            const previousData = queryClient.getQueryData(['basket-product']);
+
+            queryClient.setQueryData(['basket-product'], (old) => {
+                return {
+                    ...old,
+                    items: old.items.filter(
+                        (i) =>
+                            i.product._id !== item.product._id ||
+                            i.variant.color !== item.variant.color ||
+                            i.variant.size !== item.variant.size
+                    ),
+                };
+            });
+
+            return { previousData };
+        },
+
+        onError: (err, variables, context) => {
+            queryClient.setQueryData(['basket-product'], context.previousData);
+        },
+
+        onSettled: () => {
+            queryClient.invalidateQueries(['basket-product']);
         },
     });
 
     const openBasketModal = () => {
+        toast.dismiss('basket-modal');
+
         toast(
             <div ref={ref} className="w-77 flex flex-col items-center justify-end gap-5">
                 <div className="w-full pb-4 flex justify-between border-b border-b-zinc-500/30">
@@ -57,13 +92,13 @@ const BasketBtn = ({ cls }) => {
 
                 <div className="w-full h-[15rem] overflow-y-scroll space-y-2">
                     {data?.items?.length ? (
-                        data.items.map(({ product }) => (
+                        data.items.map((item) => (
                             <div
-                                key={product._id}
+                                key={item.product._id}
                                 className="w-full rounded-2xl flex items-center justify-between gap-3 cursor-pointer hover:bg-gradient-to-l from-black/5 to-transparent"
                             >
                                 <svg
-                                    onClick={() => deleteProduct.mutate(product._id)}
+                                    onClick={() => deleteProduct.mutate(item)}
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
                                     viewBox="0 0 24 24"
@@ -77,16 +112,19 @@ const BasketBtn = ({ cls }) => {
                                         d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
                                     />
                                 </svg>
+
                                 <div className="w-full flex flex-col items-end gap-2 font-bold text-zinc-700/80">
-                                    <p className="text-[0.9rem] line-clamp-1">{product.name}</p>
+                                    <p className="text-[0.9rem] line-clamp-1">{item.product.name}</p>
                                     <p className="flex gap-1 font-normal">
                                         <span className="text-zinc-700/60">تومان</span>
-                                        <span className="text-zinc-700">{product.price.toLocaleString('fa-IR')}</span>
+                                        <span className="text-zinc-700">
+                                            {item.product.price.toLocaleString('fa-IR')}
+                                        </span>
                                     </p>
                                 </div>
                                 <Image
                                     src={
-                                        product.images[0] ||
+                                        item.product.images[0] ||
                                         'https://mehdibagheridev.ir/modista/wp-content/uploads/2024/12/wool-blend-jumper-women-bright-orange-moncler3-1.png'
                                     }
                                     width={100}
@@ -98,7 +136,15 @@ const BasketBtn = ({ cls }) => {
                         ))
                     ) : (
                         <div className="w-full h-full text-zinc-500 flex items-center justify-center">
-                            {isLoading ? <Loading /> : <span>محصولی در سبد شما وجود ندارد</span>}
+                            {isLoggedIn ? (
+                                isLoading ? (
+                                    <Loading />
+                                ) : (
+                                    <span>محصولی در سبد شما وجود ندارد</span>
+                                )
+                            ) : (
+                                <span>ابتدا در سایت ثبت نام کنید</span>
+                            )}
                         </div>
                     )}
                 </div>
@@ -146,7 +192,7 @@ const BasketBtn = ({ cls }) => {
                                 d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
                             />
                         </svg>
-                        <span className="text-xl text-white">تسویه حساب</span>
+                        <span className="text-xl text-white">{isLoggedIn ? 'تسویه حساب' : 'ثبت نام'}</span>
                     </Link>
                     <div
                         onClick={() => toast.dismiss(toast.id)}

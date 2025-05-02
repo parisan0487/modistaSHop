@@ -1,8 +1,10 @@
 'use client';
 import React, { useEffect } from 'react';
 import useLocalStore from '@/hooks/useLocalStorage';
+import { usePathname } from 'next/navigation';
 
 const SideBar = ({ children, sideBarName, cls = '' }) => {
+    const pathName = usePathname();
     const [sideFlag, setSideFlag] = useLocalStore(sideBarName, false);
 
     useEffect(() => {
@@ -17,6 +19,10 @@ const SideBar = ({ children, sideBarName, cls = '' }) => {
             window.removeEventListener('click', closeSideBarHandler);
         };
     }, [setSideFlag]);
+
+    useEffect(() => {
+        setSideFlag(false);
+    }, [pathName]);
 
     return (
         <div className={`${cls}`}>
@@ -40,16 +46,14 @@ const SideBar = ({ children, sideBarName, cls = '' }) => {
                 </svg>
             </div>
             <div
-                className={`w-60 h-screen bg-white shadow-2xl !fixed top-0 transition-all ease-in-out duration-[0.4s] z-[1002] ${
+                className={`w-60 h-dvh bg-white shadow-2xl !fixed top-0 bottom-0 transition-all ease-in-out duration-[0.4s] z-[1002] ${
                     sideFlag ? 'right-0' : '-right-[30rem]'
                 }`}
             >
                 {children}
             </div>
             <div
-                className={
-                    sideFlag ? 'bgActive !w-full !h-screen z-[1001] bg-black/20 !fixed !top-0 !left-0' : 'hidden'
-                }
+                className={sideFlag ? 'bgActive !w-full !h-dvh z-[1001] bg-black/20 !fixed !top-0 !left-0' : 'hidden'}
             ></div>
         </div>
     );

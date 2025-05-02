@@ -1,7 +1,7 @@
 'use client';
 
 import { useDeferredValue, useEffect, useState } from 'react';
-import Fetch from '@/hooks/Fetch';
+import Fetch from '@/utils/Fetch';
 import Image from 'next/image';
 
 const SearchNav = () => {

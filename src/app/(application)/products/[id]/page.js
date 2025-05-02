@@ -63,7 +63,7 @@ const Page = ({ params }) => {
 
     const discountPercent = calculateDiscountPercent();
     if (loading || !product || !product.images) {
-        return <Loading className="relative -top-30"/>;
+        return <Loading className="-top-30"/>;
     }
 
     return (

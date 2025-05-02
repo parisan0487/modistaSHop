@@ -18,7 +18,7 @@ function Error({ reset }) {
                     ]}
                 />
                 <div className="flex flex-col gap-y-16 justify-center items-center">
-                    <h2 className="text-5xl font-medium text-gray-800">مشکلی پیش اومده، لطفا دوباره تلاش کنید</h2>
+                    <h2 className="text-5xl font-medium text-gray-800 text-center">مشکلی پیش اومده، لطفا دوباره تلاش کنید</h2>
                     <Image src={'assets/images/not-found.svg'} alt="not found" width={400} height={400} />
                     <div className="flex gap-4">
                         <button

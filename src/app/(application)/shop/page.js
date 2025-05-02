@@ -97,7 +97,7 @@ function ProductShop() {
     };
 
 
-  if (loading) return <Loading className='relative -top-30'/>;
+  if (loading) return <Loading className='-top-30'/>;
   if (error) return <div className="text-center text-red-500 py-10">{error}</div>
   
     const colorMap = {

@@ -1,18 +1,18 @@
 'use client';
 
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
 import MegaMenu from './MegaMenu';
 import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
 import BasketBtn from './BasketBtn';
+import { ScaleLoader } from 'react-spinners';
 
 const NavbarBottom = () => {
-    const { isLoggedIn } = useAuth();
+    const { isLoggedIn, isLoading } = useAuth();
 
     return (
         <div className="w-full flex items-center justify-between gap-4 py-4 pb-7 max-[1000px]:hidden">
-            <div className="size-10 flex gap-2">
+            <div className="size-10 flex items-center gap-2">
                 <BasketBtn />
                 <Link
                     href={'/favorite'}
@@ -33,23 +33,27 @@ const NavbarBottom = () => {
                         />
                     </svg>
                 </Link>
-                <div className="p-3 h-12.5 border-2 border-orange-500 rounded-2xl flex items-center justify-center gap-2 shrink-0 cursor-pointer">
-                    <Link
-                        href={isLoggedIn ? '/account' : '/register'}
-                        className="flex items-center gap-2 w-full h-full"
-                    >
-                        <span className="!text-orange-500 font-extrabold">
-                            {isLoggedIn ? 'حساب کاربری' : 'ورود / ثبت نام'}
-                        </span>
-                        <Image
-                            src="https://mehdibagheridev.ir/modista/wp-content/uploads/2024/12/login-user.svg"
-                            width={50}
-                            height={50}
-                            alt="user-icon"
-                            className="size-6"
-                        />
-                    </Link>
-                </div>
+                {isLoading ? (
+                    <ScaleLoader size={40} color="#FF6900" className="shrink-0" />
+                ) : (
+                    <div className="p-3 h-12.5 border-2 border-orange-500 rounded-2xl flex items-center justify-center gap-2 shrink-0 cursor-pointer">
+                        <Link
+                            href={isLoggedIn ? '/account' : '/register'}
+                            className="flex items-center gap-2 w-full h-full"
+                        >
+                            <span className="!text-orange-500 font-extrabold">
+                                {isLoggedIn ? 'حساب کاربری' : 'ورود / ثبت نام'}
+                            </span>
+                            <Image
+                                src="https://mehdibagheridev.ir/modista/wp-content/uploads/2024/12/login-user.svg"
+                                width={50}
+                                height={50}
+                                alt="user-icon"
+                                className="size-6"
+                            />
+                        </Link>
+                    </div>
+                )}
             </div>
 
             <ul className="flex gap-4 items-center">
@@ -102,16 +106,27 @@ const NavbarBottom = () => {
                         >
                             فروشگاه
                         </Link>
-                        <Link href={"/products/124"} className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
+                        <Link
+                            href={'/products/124'}
+                            className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black"
+                        >
                             تکی محصول
                         </Link>
-                        <Link href={"/account"} className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
+                        <Link
+                            href={'/account'}
+                            className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black"
+                        >
                             حساب کاربری
                         </Link>
                         <li className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">
                             سبد خرید
                         </li>
-                        <Link href={'/404'} className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black">404</Link>
+                        <Link
+                            href={'/404'}
+                            className="text-[1.1rem] font-bold !text-zinc-600 cursor-pointer hover:!text-black"
+                        >
+                            404
+                        </Link>
                     </ul>
                 </li>
                 <Link href={'/shop'} className="flex gap-1 cursor-pointer">

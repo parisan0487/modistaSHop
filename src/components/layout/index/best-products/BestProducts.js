@@ -50,7 +50,6 @@ export default function BestProducts() {
 
                 setProducts(mappedProducts);
             } catch (error) {
-                console.error('خطا در دریافت محصولات:', error);
             }
         };
 

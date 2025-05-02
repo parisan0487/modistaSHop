@@ -4,7 +4,7 @@ import { PropagateLoader } from 'react-spinners';
 
 export default function Loading({ className = '' }) {
     return (
-        <div className={`flex flex-col justify-center items-center min-h-screen bg-white gap-4 ${className}`}>
+        <div className={`relative flex flex-col justify-center items-center min-h-screen bg-white gap-4 ${className}`}>
             <p className="text-3xl text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-orange-400 to-orange-600 font-semibold animate-bounce">
                 لطفاً صبر کنید
             </p>

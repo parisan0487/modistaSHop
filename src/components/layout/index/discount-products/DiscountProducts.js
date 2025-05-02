@@ -77,7 +77,7 @@ const DiscountProducts = () => {
                     quality={100}
                     width={38}
                     height={38}
-                    className="z-0 w-[15rem] h-[15rem] absolute  top-0"
+                    className="z-0 w-[15rem] h-[15rem] absolute top-0"
 
                 />
                 <div className="z-10 flex flex-col items-center justify-center">
