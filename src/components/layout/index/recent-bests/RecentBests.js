@@ -10,6 +10,7 @@ import slideToleftI from 'assets/images/slide-arrow-1.svg';
 import slideToRithI from 'assets/images/slide-arrow.svg';
 import Link from 'next/link';
 import ProductCard from '@/components/ui/ProductCard';
+import MiniLoading from '../../loading/miniLoading';
 
 
 const categories = [
@@ -68,7 +69,7 @@ export default function BestSellersSection() {
         }
     };
 
-
+    if (loading) return <MiniLoading />;
 
     return (
         <section className="w-full px-2  py-16 flex flex-col md:flex-col gap-2">
@@ -143,7 +144,7 @@ export default function BestSellersSection() {
                                 slidesPerView: 4.5,
                                 spaceBetween: 12,
                             },
-                            1400: {
+                            1500: {
                                 slidesPerView: 5,
 
                             },
