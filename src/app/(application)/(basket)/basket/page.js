@@ -4,7 +4,7 @@ import NoExistProduct from '@/components/layout/basket/basket/NoExistProduct';
 import Loading from '@/components/layout/loading/Loading';
 import useGetBasketProducts from '@/hooks/useGetBasketProducts';
 
-const page = () => {
+const Page = () => {
     const { isLoading, data } = useGetBasketProducts();
 
     return (
@@ -12,4 +12,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Page;

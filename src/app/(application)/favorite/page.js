@@ -8,7 +8,7 @@ import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
 import React from 'react';
 
-const page = () => {
+const Page = () => {
     const { isLoggedIn } = useAuth();
 
     const fetchHandler = async () => {
@@ -46,4 +46,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Page;
