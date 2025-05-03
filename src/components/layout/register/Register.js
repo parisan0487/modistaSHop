@@ -54,7 +54,12 @@ export default function Register() {
                 window.location.pathname = '/';
             }, 1000);
         } catch (err) {
-            toast.error('خطایی رخ داده است ');
+            const errorMessage =
+                typeof err.response?.data === 'string'
+                    ? err.response.data
+                    : err.response?.data?.message || 'خطایی رخ داده است. لطفاً دوباره تلاش کنید';
+
+            toast.error(errorMessage);
         }
     };
 

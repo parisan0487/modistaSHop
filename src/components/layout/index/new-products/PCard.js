@@ -17,11 +17,11 @@ function PCard({ data, deleteBtn = false }) {
     const discountPercent = calculateDiscountPercent();
 
     return (
-        <div dir='rtl' className="bg-[#F6F6F6] w-[16rem] min-w-[14rem] h-[30rem] rounded-3xl overflow-hidden border-1 border-transparent transition hover:border-[#FD5504] cursor-pointer">
+        <div dir='rtl' className="bg-[#F6F6F6] w-[14rem] md:w-[15rem] min-w-[14rem] h-[24rem] md:h-[30rem] rounded-3xl overflow-hidden border-1 border-transparent transition hover:border-[#FD5504] cursor-pointer">
             {/* images */}
             <div className="flex flex-col max-h-[24rem] rounded-xl border-2 border-gray-200 m-4 mb-0 overflow-hidden">
                 <Link href={`products/${id}`}>
-                    <img src={mainImage} alt="image" className="w-full h-[18.5rem]" />
+                    <img src={mainImage} alt="image" className="w-full h-[14rem] md:h-[18.5rem] object-cover" />
                 </Link>
                 {images.length > 1 ? <div className="flex flex-row items-center justify-around w-full mx-auto">
                     {images.map((image, index) => (
@@ -38,7 +38,7 @@ function PCard({ data, deleteBtn = false }) {
                 </div> : <div className="w-[2.5rem] h-[2.5rem] object-fit-cover "></div>}
             </div>
             {/* decription */}
-            <h2 className="mt-2 mb-3 font-semibold text-center text-[#595959]">{name}</h2>
+            <h2 className="mt-0.5 md:mt-3 mb-3 font-semibold text-center text-[#595959]">{name}</h2>
             <div className="flex flex-row w-full">
                 <div className="w-full flex items-center mx-4 gap-2">
                     {deleteBtn ? (
@@ -103,7 +103,7 @@ function PCard({ data, deleteBtn = false }) {
                         }
                     </div>
 
-                    <div className="font-bold flex flex-row mt-3 text-center items-center">
+                    <div className="font-bold flex flex-row mt-1 md:mt-3 text-center items-center">
                         <h3 className="font-bold text-xl">{finalPrice.toLocaleString('fa-IR')}</h3>
                         <span className="text-[#AAAAAA] mx-2 text-xs">تومان</span> {/* اضافه کردن فاصله */}
                     </div>
