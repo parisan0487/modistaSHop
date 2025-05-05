@@ -1,9 +1,9 @@
 'use client';
-import useGetBasketProducts from '@/hooks/useGetBasketProducts';
+import getBasketProducts from '@/utils/fetchers/getBasketProducts';
 import ProductBox from './ProductBox';
 
 const ProductList = ({ className = '' }) => {
-    const { data } = useGetBasketProducts();
+    const { data } = getBasketProducts();
 
     return (
         <div className={`flex flex-col gap-4 ${className}`}>

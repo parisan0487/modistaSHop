@@ -1,12 +1,19 @@
 'use client';
-
-import useGetBasketProducts from '@/hooks/useGetBasketProducts';
 import { useState } from 'react';
+import getBasketProducts from '@/utils/fetchers/getBasketProducts';
+import Link from 'next/link';
 
 const PaymentDetailsBox = () => {
     const [discountCode, setDiscountCode] = useState('');
 
-    const { totalPrice } = useGetBasketProducts();
+    const { data } = getBasketProducts();
+
+    const totalPrice = useMemo(() => {
+        if (data?.items?.length) {
+            return data.items.reduce((acc, { product: { price }, quantity }) => acc + price * quantity, 0);
+        }
+        return 0;
+    }, [data]);
 
     return (
         <div dir="rtl" className="max-[640px]:w-full p-6 rounded-2xl bg-white shadow-md shrink-0">
@@ -29,11 +36,13 @@ const PaymentDetailsBox = () => {
                 </div>
             </div>
 
-            <p className="font-bold mb-4">مبلغ قابل پرداخت: {totalPrice.toLocaleString()} تومان</p>
+            <p className="font-bold mb-4">مبلغ قابل پرداخت: {totalPrice.toLocaleString('fa-IR')} تومان</p>
 
-            <button className="text-white w-full py-3 rounded-2xl font-semibold bg-orange-500 hover:bg-orange-600 transition cursor-pointer">
-                ادامه مراحل خرید
-            </button>
+            <Link href={'/paymentDetails'}>
+                <div className="text-white w-full py-3 rounded-2xl font-semibold bg-orange-500 flex items-center justify-center hover:bg-orange-600 transition cursor-pointer">
+                    ادامه مراحل خرید
+                </div>
+            </Link>
         </div>
     );
 };

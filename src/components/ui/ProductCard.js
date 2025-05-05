@@ -1,13 +1,10 @@
 'use client';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
 function ProductCard({ data, thumbnails = true }) {
-
     const { id, name, images = [], price = 0, discount = 0 } = data;
     const [mainImage, setMainImage] = useState(images[0] || '/fallback.png');
-
 
     const finalPrice = price - discount;
 
@@ -19,17 +16,13 @@ function ProductCard({ data, thumbnails = true }) {
     const discountPercent = calculateDiscountPercent();
 
     return (
-        <div className={`bg-[#F6F6F6] w-[14rem] min-w-[12rem] h-[27rem] rounded-3xl overflow-hidden border border-transparent transition hover:border-[#FD5504] cursor-pointer`}>
+        <div
+            className={`bg-[#F6F6F6] w-[14rem] min-w-[12rem] h-[27rem] rounded-3xl overflow-hidden border border-transparent transition hover:border-[#FD5504] cursor-pointer`}
+        >
             {/* image */}
             <div className="flex flex-col max-h-[24rem] rounded-xl border-2 border-gray-200 m-4 mb-0 overflow-hidden">
                 <Link href={`/products/${id}`}>
-                    <img
-                        src={mainImage}
-                        alt={name}
-                        className="w-full h-[16.5rem] rounded-md"
-                        width={80}
-                        height={80}
-                    />
+                    <img src={mainImage} alt={name} className="w-full h-[16.5rem] rounded-md" width={80} height={80} />
                 </Link>
             </div>
             {/* title */}
@@ -40,7 +33,9 @@ function ProductCard({ data, thumbnails = true }) {
                     images.map((img, index) => (
                         <div
                             key={index}
-                            className={`w-6 h-6 rounded-full overflow-hidden border-2 cursor-pointer ${mainImage === img ? 'border-[#FD5504]' : 'border-gray-300'}`}
+                            className={`w-6 h-6 rounded-full overflow-hidden border-2 cursor-pointer ${
+                                mainImage === img ? 'border-[#FD5504]' : 'border-gray-300'
+                            }`}
                             onClick={() => setMainImage(img)}
                         >
                             <img
@@ -66,7 +61,9 @@ function ProductCard({ data, thumbnails = true }) {
                                     <span className="text-white text-sm bg-[#FD5504] rounded-md text-center px-1 py-[2px]">
                                         {discountPercent}%
                                     </span>
-                                    <p className="text-[#AAAAAA] line-through text-sm">{price.toLocaleString('fa-IR')}</p>
+                                    <p className="text-[#AAAAAA] line-through text-sm">
+                                        {price.toLocaleString('fa-IR')}
+                                    </p>
                                 </>
                             ) : (
                                 <>
@@ -75,7 +72,6 @@ function ProductCard({ data, thumbnails = true }) {
                                     </span>
                                     <p className="text-[#AAAAAA] line-through text-sm opacity-0">999999</p>
                                 </>
-
                             )}
                         </div>
 

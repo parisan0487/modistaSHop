@@ -2,10 +2,10 @@
 import Basket from '@/components/layout/basket/basket/Basket';
 import NoExistProduct from '@/components/layout/basket/basket/NoExistProduct';
 import Loading from '@/components/layout/loading/Loading';
-import useGetBasketProducts from '@/hooks/useGetBasketProducts';
+import getBasketProducts from '@/utils/fetchers/getBasketProducts';
 
 const Page = () => {
-    const { isLoading, data } = useGetBasketProducts();
+    const { isLoading, data } = getBasketProducts();
 
     return (
         <div className="w-full">{isLoading ? <Loading className='-top-60'/> : data?.items?.length ? <Basket /> : <NoExistProduct />}</div>

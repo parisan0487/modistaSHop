@@ -39,7 +39,7 @@ const BasketBtn = ({ cls }) => {
     }, [isSuccess, data?.items?.length]);
 
     const totalPrice = useMemo(() => {
-        return data?.items?.reduce((acc, { product }) => acc + product.price, 0) || 0;
+        return data?.items?.reduce((acc, { product, quantity }) => acc + product.price * quantity, 0) || 0;
     }, [data]);
 
     const deleteProduct = useMutation({
@@ -52,7 +52,7 @@ const BasketBtn = ({ cls }) => {
         onMutate: async (item) => {
             await queryClient.cancelQueries(['basket-product']);
 
-            const previousData = queryClient.getQueryData(['basket-product']);
+            const previousData = queryClient.getQueriesData(['basket-product']);
 
             queryClient.setQueryData(['basket-product'], (old) => {
                 return {

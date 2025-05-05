@@ -1,9 +1,7 @@
 'use client';
-
-import React, { useEffect, useRef, useState } from 'react';
-import PCard from './PCard';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import React, { useEffect, useState } from 'react';
 import MiniLoading from '../../loading/MiniLoading';
+import ProductsSlider from '../shared/ProductsSlider';
 
 const NewProducts = () => {
     const [products, setProducts] = useState([]);
@@ -23,8 +21,6 @@ const NewProducts = () => {
 
         fetchProducts();
     }, []);
-
-    const swiperRef = useRef(null);
 
     if (loading) return <MiniLoading />;
 
@@ -47,47 +43,7 @@ const NewProducts = () => {
                 </span>
                 <span className="h-px flex-grow bg-gray-200"></span>
             </div>
-            <div className="flex flex-row items-center justify-center  gap-1 w-full xl:max-w-7xl">
-                <Swiper
-                    spaceBetween={12}
-                    loop
-                    grabCursor
-                    ref={swiperRef}
-                    slidesPerGroup={1}
-                    className="w-full"
-                    breakpoints={{
-                        0: {
-                            slidesPerView: 1.3,
-                        },
-                        400: {
-                            slidesPerView: 1.5,
-                        },
-                        600: {
-                            slidesPerView: 2.3,
-                        },
-                        900: {
-                            slidesPerView: 3.2,
-                            spaceBetween: 3,
-                        },
-                        1200: {
-                            slidesPerView: 3.5,
-                        },
-
-                        1400: {
-                            slidesPerView: 4.5,
-                        },
-                        1550: {
-                            slidesPerView: 5,
-                        },
-                    }}
-                >
-                    {products.map((product) => (
-                        <SwiperSlide key={product._id}>
-                            <PCard key={product.id} data={product} />
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-            </div>
+            <ProductsSlider products={products} />
         </div>
     );
 };
