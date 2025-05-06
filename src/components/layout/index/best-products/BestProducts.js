@@ -1,14 +1,12 @@
 'use client';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useRef } from 'react';
-import Link from 'next/link';
-import 'swiper/css';
-import { Autoplay } from 'swiper/modules';
+import useGetBestProducts from '@/hooks/fetchers-hook/useGetBestProducts';
+import BestProductCard from '../shared/BestProductCard';
+import BestProductsSkeletonSlider from '@/components/skeleton/BestProductsSkeletonSlider';
 
 export default function BestProducts() {
-    const [products, setProducts] = useState([]);
     const swiperRef = useRef(null);
 
     const handleNext = () => {
@@ -23,115 +21,37 @@ export default function BestProducts() {
         }
     };
 
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const res = await fetch('https://back-production-22f1.up.railway.app/api/products/category/orange');
-                const data = await res.json();
-
-                const mappedProducts = data.map((product) => {
-                    const oldPrice = product.discount ? product.price + product.discount : null;
-                    const discountPercent = oldPrice ? `${Math.round((product.discount / oldPrice) * 100)}٪` : null;
-
-                    return {
-                        id: product.id,
-                        title: product.name,
-                        image: product.images[0] || '/assets/images/sample.png',
-                        price: product.price,
-                        oldPrice: oldPrice,
-                        discount: discountPercent,
-                    };
-                });
-
-                setProducts(mappedProducts);
-                useEffect(() => {
-                    if (products.length > 0 && swiperRef.current?.swiper) {
-                        swiperRef.current.swiper.update();
-                    }
-                }, [products]);
-            } catch (error) {}
-        };
-
-        fetchProducts();
-    }, []);
+    const { data } = useGetBestProducts();
 
     return (
-        <div className="w-full flex flex-col-reverse lg:flex-row items-center justify-between gap-10 py-30">
+        <div className="w-full flex flex-col-reverse lg:flex-row items-center justify-between gap-10 py-30 px-4">
             <div className="w-full lg:w-3/4 flex flex-col lg:flex-row items-center justify-between gap-4">
                 <button onClick={handlePrev} className="size-11 bg-[#f7f7f7] rounded-2xl cursor-pointer">
                     <Image src="/assets/images/slide-arrow-1.svg" alt="slide-arrow" width={40} height={40} />
                 </button>
-                <div className="w-full">
+
+                {data?.length ? (
                     <Swiper
-                        modules={[Autoplay]}
-                        autoplay={{
-                            pauseOnMouseEnter: true,
-                            disableOnInteraction: true,
-                            delay: 4000,
-                        }}
                         spaceBetween={12}
                         loop
+                        grabCursor
                         ref={swiperRef}
+                        className="w-full"
                         breakpoints={{
                             0: { slidesPerView: 1 },
                             600: { slidesPerView: 2 },
                             1300: { slidesPerView: 3 },
                         }}
                     >
-                        {products.map((product) => (
+                        {data.map((product) => (
                             <SwiperSlide key={product.id}>
-                                <div className="w-full max-w-xs mx-auto h-[280px] rounded-2xl p-4 bg-[#f7f7f7] flex flex-col justify-between">
-                                    <div className="relative w-full h-[200px] flex justify-center items-center">
-                                        <div className="absolute inset-0 bg-[url('/assets/images/hero-bg.svg')] bg-contain bg-no-repeat bg-center brightness-75" />
-                                        <Image
-                                            src={product.image}
-                                            alt={product.title || 'محصول'}
-                                            width={140}
-                                            height={190}
-                                            className="relative z-10 object-contain h-40"
-                                        />
-                                    </div>
-
-                                    <div className="flex justify-between items-center" dir="rtl">
-                                        <Link href={`/products/${product.id}`}>
-                                            <button className="bg-white p-2 rounded-xl shadow hover:bg-gray-100 transition cursor-pointer">
-                                                <Image
-                                                    src="/assets/images/basket-48.png"
-                                                    alt="افزودن به سبد"
-                                                    width={20}
-                                                    height={20}
-                                                    className="w-5 h-5 text-gray-600"
-                                                />
-                                            </button>
-                                        </Link>
-
-                                        <div className="flex flex-col items-end">
-                                            {product.oldPrice && (
-                                                <div className="flex items-center gap-1 mb-1">
-                                                    <span className="text-xs text-gray-400 line-through">
-                                                        {product.oldPrice.toLocaleString('fa-IR')}
-                                                    </span>
-                                                    {product.discount && (
-                                                        <span className="bg-orange-500 text-white text-[10px] px-1.5 py-0.5 rounded">
-                                                            {product.discount}
-                                                        </span>
-                                                    )}
-                                                </div>
-                                            )}
-
-                                            <div className="flex items-baseline gap-1">
-                                                <span className="text-lg font-semibold text-black">
-                                                    {product.price.toLocaleString('fa-IR')}
-                                                </span>
-                                                <span className="text-sm text-gray-500">تومان</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <BestProductCard {...product} />
                             </SwiperSlide>
                         ))}
                     </Swiper>
-                </div>
+                ) : (
+                    <BestProductsSkeletonSlider />
+                )}
 
                 <button onClick={handleNext} className="size-11 bg-[#f7f7f7] rounded-2xl cursor-pointer">
                     <Image src="/assets/images/slide-arrow.svg" alt="slide-arrow" width={40} height={40} />

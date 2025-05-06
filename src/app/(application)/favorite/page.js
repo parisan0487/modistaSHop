@@ -4,14 +4,14 @@ import NoExistProduct from '@/components/layout/basket/basket/NoExistProduct';
 import PCard from '@/components/layout/index/new-products/PCard';
 import Loading from '@/components/layout/loading/Loading';
 import { useAuth } from '@/context/AuthContext';
-import getFavoriteProducts from '@/utils/fetchers/getFavoriteProducts';
+import useGetFavoriteProducts from '@/hooks/fetchers-hook/useGetFavoriteProducts';
 import Link from 'next/link';
 import React from 'react';
 
 const Page = () => {
     const { isLoggedIn } = useAuth();
 
-    const { data, isLoading } = getFavoriteProducts();
+    const { data, isLoading } = useGetFavoriteProducts();
 
     return isLoading ? (
         <Loading className="-top-20" />

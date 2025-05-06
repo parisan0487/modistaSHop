@@ -25,7 +25,8 @@ export default function Banner() {
                         alt="banner"
                         width={800}
                         height={400}
-                        className="w-full h-auto object-cover"
+                        priority
+                        className="object-cover"
                     />
                     <div className="absolute inset-0 flex flex-col justify-center items-end pr-6 text-black text-right">
                         <h2 className="text-lg md:text-2xl font-bold mb-2 drop-shadow-sm">{banner.title}</h2>

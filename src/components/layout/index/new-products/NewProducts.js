@@ -1,28 +1,9 @@
 'use client';
-import React, { useEffect, useState } from 'react';
-import MiniLoading from '../../loading/MiniLoading';
 import ProductsSlider from '../shared/ProductsSlider';
+import useGetNewProducts from '@/hooks/fetchers-hook/useGetNewProducts';
 
 const NewProducts = () => {
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const res = await fetch('https://back-production-22f1.up.railway.app/api/products/');
-                const data = await res.json();
-                setProducts(data);
-                setLoading(false);
-            } catch (error) {
-                setLoading(false);
-            }
-        };
-
-        fetchProducts();
-    }, []);
-
-    if (loading) return <MiniLoading />;
+    const { data } = useGetNewProducts();
 
     return (
         <div className="flex flex-col items-center justify-center text-[#2D2929] w-full mt-2 mb-24">
@@ -43,7 +24,7 @@ const NewProducts = () => {
                 </span>
                 <span className="h-px flex-grow bg-gray-200"></span>
             </div>
-            <ProductsSlider products={products} />
+            <ProductsSlider products={data} />
         </div>
     );
 };

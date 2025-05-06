@@ -2,7 +2,7 @@
 import Fetch from '@/utils/Fetch';
 import { useQuery } from '@tanstack/react-query';
 
-const getBasketProducts = () => {
+const useGetBasketProducts = () => {
     const fetchHandler = async () => {
         try {
             const res = await Fetch.get('https://back-production-22f1.up.railway.app/api/cart/', { token: true });
@@ -20,4 +20,4 @@ const getBasketProducts = () => {
     return { data, isLoading, error };
 };
 
-export default getBasketProducts;
+export default useGetBasketProducts;

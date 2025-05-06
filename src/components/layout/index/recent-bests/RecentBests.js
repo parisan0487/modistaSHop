@@ -1,23 +1,13 @@
-// app/components/BestSellersSection.jsx
-
 'use client';
-import Image from 'next/image';
 import React, { useEffect } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { useRef } from 'react';
 import { useState } from 'react';
-import slideToleftI from 'assets/images/slide-arrow-1.svg';
-import slideToRithI from 'assets/images/slide-arrow.svg';
 import Link from 'next/link';
-import ProductCard from '@/components/ui/ProductCard';
-import MiniLoading from '../../loading/MiniLoading';
 import ProductsSlider from '../shared/ProductsSlider';
 
 const categories = ['زنانه', 'مردانه'];
 
 export default function BestSellersSection() {
     const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
     const [selected, setSelected] = useState(categories[0]);
 
     useEffect(() => {
@@ -26,10 +16,7 @@ export default function BestSellersSection() {
                 const res = await fetch('https://back-production-22f1.up.railway.app/api/products/');
                 const data = await res.json();
                 setProducts(data);
-                setLoading(false);
-            } catch (error) {
-                setLoading(false);
-            }
+            } catch (error) {}
         };
 
         fetchProducts();
@@ -44,21 +31,7 @@ export default function BestSellersSection() {
         product.categories.some((cat) => categoryKeywords[selected]?.includes(cat))
     );
 
-    const swiperRef = useRef(null);
-
-    const handleNext = () => {
-        if (swiperRef.current && swiperRef.current.swiper) {
-            swiperRef.current.swiper.slideNext();
-        }
-    };
-
-    const handlePrev = () => {
-        if (swiperRef.current && swiperRef.current.swiper) {
-            swiperRef.current.swiper.slidePrev();
-        }
-    };
-
-    if (loading) return <MiniLoading />;
+    
 
     return (
         <section className="w-full py-16 flex flex-col md:flex-col md:items-center gap-2">

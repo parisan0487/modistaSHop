@@ -6,7 +6,7 @@ import MiniLoading from '../../loading/MiniLoading';
 import ProductsSlider from '../shared/ProductsSlider';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import getFavoriteProducts from '@/utils/fetchers/getFavoriteProducts';
+import useGetFavoriteProducts from '@/hooks/fetchers-hook/useGetFavoriteProducts';
 import PCard from '../new-products/PCard';
 
 const timer = [
@@ -19,7 +19,7 @@ const DiscountProducts = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const { data } = getFavoriteProducts();
+    const { data } = useGetFavoriteProducts();
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -69,16 +69,15 @@ const DiscountProducts = () => {
     if (loading) return <MiniLoading />;
 
     return (
-        <div className="w-full mb-80">
+        <div className="w-full mb-70 max-[768px]:mb-0">
             <div className="relative flex-col items-center justify-center flex md:hidden w-full mx-2">
                 <Image
                     src="/assets/images/hero-bg.svg"
                     alt="Hero background"
-                    objectFit="cover"
-                    quality={100}
-                    width={38}
-                    height={38}
-                    className="z-0 w-[15rem] h-[15rem] absolute top-0"
+                    width={34}
+                    height={34}
+                    priority
+                    className="z-0 size-56 absolute top-0"
                 />
                 <div className="z-10 flex flex-col items-center justify-center">
                     <h3 className="text-[#FD5504] text-2xl md:text-3xl font-[800] mt-10 mx-5">تخفیف های شگفت انگیز</h3>
@@ -160,11 +159,11 @@ const DiscountProducts = () => {
                         <Image
                             src="/assets/images/hero-bg.svg"
                             alt="Hero background"
-                            objectFit="cover"
                             quality={100}
                             width={38}
                             height={38}
-                            className="z-0 w-[14rem] h-[14rem] absolute  top-0"
+                            priority
+                            className="z-0 size-56 absolute top-0 object-cover"
                         />
                         <div className="z-10 flex flex-col items-center justify-center">
                             <h3 className="text-[#FD5504] text-2xl font-[800] mt-10 mx-5">تخفیف های شگفت انگیز</h3>

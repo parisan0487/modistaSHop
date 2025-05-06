@@ -106,6 +106,7 @@ function PCard({ _id, id, name, images, price, discount, deleteBtn = false, favo
                     width={300}
                     height={400}
                     alt="image"
+                    priority
                     className="w-full h-[14rem] md:h-[18.5rem] object-cover rounded-2xl"
                 />
             </Link>

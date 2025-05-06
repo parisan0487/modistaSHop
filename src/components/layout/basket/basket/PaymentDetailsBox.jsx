@@ -1,12 +1,12 @@
 'use client';
 import { useState } from 'react';
-import getBasketProducts from '@/utils/fetchers/getBasketProducts';
+import useGetBasketProducts from '@/hooks/fetchers-hook/useGetBasketProducts';
 import Link from 'next/link';
 
 const PaymentDetailsBox = () => {
     const [discountCode, setDiscountCode] = useState('');
 
-    const { data } = getBasketProducts();
+    const { data } = useGetBasketProducts();
 
     const totalPrice = useMemo(() => {
         if (data?.items?.length) {

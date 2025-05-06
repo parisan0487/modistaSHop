@@ -41,6 +41,7 @@ const Header = () => {
                         width={300}
                         height={500}
                         alt="model-photo"
+                        priority
                         className="absolute w-[30rem] bottom-0"
                     />
                 </div>

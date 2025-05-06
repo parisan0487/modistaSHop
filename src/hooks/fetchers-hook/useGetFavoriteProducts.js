@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import Fetch from '../Fetch';
+import Fetch from '../../utils/Fetch';
 
-const getFavoriteProducts = () => {
+const useGetFavoriteProducts = () => {
     const fetchHandler = async () => {
         const res = await Fetch.get('https://back-production-22f1.up.railway.app/api/wishlist/', {
             token: true,
@@ -17,4 +17,4 @@ const getFavoriteProducts = () => {
     return { data, isLoading };
 };
 
-export default getFavoriteProducts;
+export default useGetFavoriteProducts;
