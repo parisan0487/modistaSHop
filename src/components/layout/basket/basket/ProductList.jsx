@@ -1,5 +1,5 @@
 'use client';
-import useGetBasketProducts from '@/hooks/useGetBasketProducts';
+import useGetBasketProducts from '@/hooks/fetchers-hook/useGetBasketProducts';
 import ProductBox from './ProductBox';
 
 const ProductList = ({ className = '' }) => {

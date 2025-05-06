@@ -1,11 +1,13 @@
 'use client';
-
-import ProductCard from '@/components/ui/ProductCard';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import MiniLoading from '../../loading/MiniLoading';
+import ProductsSlider from '../shared/ProductsSlider';
+import { Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import useGetFavoriteProducts from '@/hooks/fetchers-hook/useGetFavoriteProducts';
+import PCard from '../new-products/PCard';
 
 const timer = [
     { label: 'ثانیه', value: 23 },
@@ -16,6 +18,8 @@ const timer = [
 const DiscountProducts = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    const { data } = useGetFavoriteProducts();
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -37,6 +41,7 @@ const DiscountProducts = () => {
         const totalSeconds = 15 * 24 * 60 * 60 + 13 * 60 * 60 + 28 * 60 + 23;
         return totalSeconds;
     });
+
     useEffect(() => {
         const interval = setInterval(() => {
             setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
@@ -44,7 +49,6 @@ const DiscountProducts = () => {
 
         return () => clearInterval(interval);
     }, []);
-    const swiperRef = useRef(null);
 
     const formatTime = (seconds) => {
         const days = Math.floor(seconds / (24 * 60 * 60));
@@ -59,73 +63,54 @@ const DiscountProducts = () => {
             { label: 'روز', value: days },
         ];
     };
+
     const timer = formatTime(timeLeft);
 
     if (loading) return <MiniLoading />;
 
     return (
-        <>
-            {/* //////////////// */}
+        <div className="w-full mb-70 max-[768px]:mb-0">
             <div className="relative flex-col items-center justify-center flex md:hidden w-full mx-2">
                 <Image
                     src="/assets/images/hero-bg.svg"
                     alt="Hero background"
-                    objectFit="cover"
-                    quality={100}
-                    width={38}
-                    height={38}
-                    className="z-0 w-[15rem] h-[15rem] absolute top-0"
-                   
+                    width={34}
+                    height={34}
+                    priority
+                    className="z-0 size-56 absolute top-0"
                 />
                 <div className="z-10 flex flex-col items-center justify-center">
                     <h3 className="text-[#FD5504] text-2xl md:text-3xl font-[800] mt-10 mx-5">تخفیف های شگفت انگیز</h3>
                 </div>
             </div>
-            <div className="rounded-3xl py-6 mb-[12rem] mt-8 w-full flex flex-col-reverse md:flex-row ">
+        
+            <div className="rounded-3xl py-6 mb-[12rem] mt-8 w-full flex flex-col-reverse md:flex-row max-[768px]:mb-25">
                 <div className="w-full md:w-9/12 bg-[#FD5504] h-[18rem] rounded-[0_0_2rem_2rem] md:rounded-[2rem_0_2rem_2rem] ">
-                    <div className="relative w-full  p-3">
+                    <div className="w-full py-3">
                         <Swiper
-                            loop={true}
-                            grabCursor={true}
-                            ref={swiperRef}
-                            slidesPerGroup={1}
-                            centeredSlides={false}
+                            modules={[Autoplay]}
+                            loop
+                            autoplay={{
+                                delay: 4000,
+                                disableOnInteraction: false,
+                                pauseOnMouseEnter: true,
+                            }}
+                            spaceBetween={2}
                             breakpoints={{
                                 0: {
-                                    slidesPerView: 1.1,
-                                    spaceBetween: 2,
+                                    slidesPerView: 1,
                                 },
-                                360: {
-                                    slidesPerView: 1.2,
-                                    spaceBetween: 2,
+                                1024: {
+                                    slidesPerView: 2,
                                 },
-                                768: {
-                                    slidesPerView: 2.3,
-                                    spaceBetween: 3,
-                                },
-                                930: {
-                                    slidesPerView: 2.5,
-                                    spaceBetween: 3,
-                                },
-
-                                1224: {
-                                    slidesPerView: 2.7,
-                                    spaceBetween: 3,
-                                },
-
-                                1350: {
-                                    slidesPerView: 3.5,
-                                    spaceBetween: 3,
-                                },
-                                1550: {
-                                    slidesPerView: 4,
-                                    spaceBetween: 3,
+                                1300: {
+                                    slidesPerView: 3,
                                 },
                             }}
                         >
                             {products.map((product) => (
-                                <SwiperSlide key={product._id}>
-                                    <ProductCard data={product} key={product.id} thumbnails={false} />
+                                <SwiperSlide key={product._id} className="!flex !justify-center">
+                                    <PCard key={product.id} {...product} favorites={data} />
                                 </SwiperSlide>
                             ))}
                         </Swiper>
@@ -133,7 +118,7 @@ const DiscountProducts = () => {
                 </div>
                 <div className="w-full md:w-3/12 ">
                     <div className="h-[9rem] bg-[#FD5504] rounded-[2rem_2rem_0_0] md:rounded-[0_2rem_2rem_0]">
-                        <div className="flex justify-center items-center gap-2  p-4 rounded-xl w-full">
+                        <div className="flex justify-center items-center gap-2  p-4 rounded-xl w-full max-[1024px]:absolute max-[768px]:static left-55">
                             {timer.map((item, index) => (
                                 <div
                                     key={index}
@@ -174,17 +159,17 @@ const DiscountProducts = () => {
                         <Image
                             src="/assets/images/hero-bg.svg"
                             alt="Hero background"
-                            objectFit="cover"
                             quality={100}
                             width={38}
                             height={38}
-                            className="z-0 w-[14rem] h-[14rem] absolute  top-0"
+                            priority
+                            className="z-0 size-56 absolute top-0 object-cover"
                         />
                         <div className="z-10 flex flex-col items-center justify-center">
                             <h3 className="text-[#FD5504] text-2xl font-[800] mt-10 mx-5">تخفیف های شگفت انگیز</h3>
                             <Link
                                 href={''}
-                                className="text-md text-nowrap  border rounded-2xl text-center px-6  py-3 mt-3 text-[#BABABA] font-[500] cursor-pointer"
+                                className="text-md border rounded-2xl text-center px-6  py-3 mt-3 text-[#BABABA] font-[500] cursor-pointer"
                             >
                                 مشاهدهٔ همه
                             </Link>
@@ -194,11 +179,11 @@ const DiscountProducts = () => {
             </div>
             <Link
                 href={''}
-                className="text-md block md:hidden text-nowrap  border rounded-2xl text-center px-6  py-3 mt-3 mb-12 text-[#BABABA] font-[500] cursor-pointer"
+                className="max-[768px]:block hidden text-md border rounded-2xl text-center px-6  py-3 mt-3 text-[#BABABA] font-[500] cursor-pointer"
             >
                 مشاهدهٔ همه
             </Link>
-        </>
+        </div>
     );
 };
 

@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import React from 'react';
 
 const NoExistProduct = () => {
     return (
@@ -16,7 +15,7 @@ const NoExistProduct = () => {
                     clipRule="evenodd"
                 />
             </svg>
-            <p className="text-zinc-600">هیچ سفارشی هنوز ثبت نشده است.</p>
+            <p className="text-zinc-600">هیچ محصولی ثبت نشده است</p>
             <Link href={'/shop'}>
                 <div className="p-4 py-2 bg-orange-500 text-white rounded-2xl cursor-pointer">مرور محصولات</div>
             </Link>

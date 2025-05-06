@@ -3,6 +3,7 @@
 import { useDeferredValue, useEffect, useState } from 'react';
 import Fetch from '@/utils/Fetch';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const SearchNav = () => {
     const [value, setValue] = useState('');
@@ -11,8 +12,9 @@ const SearchNav = () => {
 
     useEffect(() => {
         if (search.trim()) {
-            Fetch.get(`https://back-production-22f1.up.railway.app/api/products/search?q=${search}`)
-                .then((res) => setProducts(res.data))
+            Fetch.get(`https://back-production-22f1.up.railway.app/api/products/search?q=${search}`).then((res) =>
+                setProducts(res.data)
+            );
         } else {
             setProducts([]);
         }
@@ -42,7 +44,8 @@ const SearchNav = () => {
             {products.length > 0 && (
                 <div className="absolute top-14 left-0 w-full bg-white rounded-2xl shadow-lg p-3 flex flex-col gap-2 z-10 max-h-80 overflow-y-auto">
                     {products.map((item) => (
-                        <div
+                        <Link
+                            href={`/products/${item.id}`}
                             key={item.id}
                             className="flex items-center justify-between max-[500px]:justify-end gap-4 p-2 hover:bg-gray-100 rounded-xl transition-colors duration-200 cursor-pointer"
                         >
@@ -55,8 +58,10 @@ const SearchNav = () => {
                                     className="w-full h-full object-cover"
                                 />
                             </div>
-                            <span dir='rtl' className="text-sm md:text-base font-medium text-black">{item.name}</span>
-                        </div>
+                            <span dir="rtl" className="text-sm md:text-base font-medium text-black">
+                                {item.name}
+                            </span>
+                        </Link>
                     ))}
                 </div>
             )}

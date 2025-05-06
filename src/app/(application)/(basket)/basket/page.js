@@ -2,7 +2,7 @@
 import Basket from '@/components/layout/basket/basket/Basket';
 import NoExistProduct from '@/components/layout/basket/basket/NoExistProduct';
 import Loading from '@/components/layout/loading/Loading';
-import useGetBasketProducts from '@/hooks/useGetBasketProducts';
+import useGetBasketProducts from '@/hooks/fetchers-hook/useGetBasketProducts';
 
 const Page = () => {
     const { isLoading, data } = useGetBasketProducts();

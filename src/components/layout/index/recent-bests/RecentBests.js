@@ -1,22 +1,13 @@
-// app/components/BestSellersSection.jsx
-
 'use client';
-import Image from 'next/image';
 import React, { useEffect } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { useRef } from 'react';
 import { useState } from 'react';
-import slideToleftI from 'assets/images/slide-arrow-1.svg';
-import slideToRithI from 'assets/images/slide-arrow.svg';
 import Link from 'next/link';
-import ProductCard from '@/components/ui/ProductCard';
-import MiniLoading from '../../loading/MiniLoading';
+import ProductsSlider from '../shared/ProductsSlider';
 
 const categories = ['زنانه', 'مردانه'];
 
 export default function BestSellersSection() {
     const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
     const [selected, setSelected] = useState(categories[0]);
 
     useEffect(() => {
@@ -25,10 +16,7 @@ export default function BestSellersSection() {
                 const res = await fetch('https://back-production-22f1.up.railway.app/api/products/');
                 const data = await res.json();
                 setProducts(data);
-                setLoading(false);
-            } catch (error) {
-                setLoading(false);
-            }
+            } catch (error) {}
         };
 
         fetchProducts();
@@ -43,47 +31,34 @@ export default function BestSellersSection() {
         product.categories.some((cat) => categoryKeywords[selected]?.includes(cat))
     );
 
-    const swiperRef = useRef(null);
-
-    const handleNext = () => {
-        if (swiperRef.current && swiperRef.current.swiper) {
-            swiperRef.current.swiper.slideNext();
-        }
-    };
-
-    const handlePrev = () => {
-        if (swiperRef.current && swiperRef.current.swiper) {
-            swiperRef.current.swiper.slidePrev();
-        }
-    };
-
-    if (loading) return <MiniLoading />;
+    
 
     return (
-        <section className="w-full px-2  py-16 flex flex-col md:flex-col gap-2">
-            <div className="flex items-center justify-between flex-row gap-2 px-3">
+        <section className="w-full py-16 flex flex-col md:flex-col md:items-center gap-2">
+            <div className="w-full flex max-[600px]:flex-col-reverse items-center justify-between gap-2 max-[600px]:gap-6 mb-8">
                 <div className="flex items-center gap-2">
-                    <div className=" gap-3 hidden lg:flex">
-                        <button
-                            onClick={handleNext}
-                            className="w-12 h-12 cursor-pointer bg-gray-100 rounded-md flex items-center justify-center text-gray-500 hover:bg-gray-200"
-                        >
-                            <Image src={slideToleftI} alt="prev" width={34} height={34} />
-                        </button>
-                        <button
-                            onClick={handlePrev}
-                            className="w-12 h-12 cursor-pointer bg-gray-100 rounded-md flex items-center justify-center text-gray-500 hover:bg-gray-200"
-                        >
-                            <Image src={slideToRithI} alt="next" width={34} height={34} />
-                        </button>
+                    <div className="flex items-center gap-2">
+                        {categories.map((cat) => (
+                            <button
+                                key={cat}
+                                onClick={() => setSelected(cat)}
+                                className={`rounded-xl px-6 py-3 text-sm border  font-bold cursor-pointer  ${
+                                    selected === cat
+                                        ? 'bg-orange-500 text-white border-orange-500'
+                                        : 'text-[#BABABA] border-gray-300 hover:border-orange-400'
+                                }`}
+                            >
+                                {cat}
+                            </button>
+                        ))}
+                        <Link href={'/shop'}>
+                            <div className="text-sm border border-gray-300 rounded-xl text-center p-3 text-[#BABABA] cursor-pointer">
+                                مشاهدهٔ همه
+                            </div>
+                        </Link>
                     </div>
-                    <Link
-                        href={''}
-                        className="text-sm hidden md:block border rounded-xl px-3 text-nowrap py-3 text-[#BABABA] font-bold cursor-pointer"
-                    >
-                        مشاهدهٔ همه
-                    </Link>
                 </div>
+
                 <div className="flex flex-col md:flex-row-reverse items-center gap-4  ">
                     <div className="flex flex-1 items-center gap-1">
                         <span className="text-xl">اخیر</span>
@@ -103,70 +78,10 @@ export default function BestSellersSection() {
                             </svg>
                         </span>
                     </div>
-                    <div className="flex flex-1 gap-2">
-                        {categories.map((cat) => (
-                            <button
-                                key={cat}
-                                onClick={() => setSelected(cat)}
-                                className={`rounded-xl px-6 py-3 text-sm border  font-bold cursor-pointer  ${
-                                    selected === cat
-                                        ? 'bg-orange-500 text-white border-orange-500'
-                                        : 'text-[#BABABA] border-gray-300 hover:border-orange-400'
-                                }`}
-                            >
-                                {cat}
-                            </button>
-                        ))}
-                    </div>
-                </div>
-            </div>
-            {/* ///////////// */}
-            <div className="w-full py-10 mx-auto max-w-[82rem]">
-                <div className="relative flex items-center justify-between gap-3">
-                    <Swiper
-                        loop={true}
-                        grabCursor={true}
-                        ref={swiperRef}
-                        spaceBetween={10}
-                        slidesPerGroup={1}
-                        breakpoints={{
-                            0: {
-                                slidesPerView: 1.5,
-                            },
-                            768: {
-                                slidesPerView: 2.5,
-                            },
-                            930: {
-                                slidesPerView: 3,
-                            },
-                            1024: {
-                                slidesPerView: 4,
-                            },
-                            1224: {
-                                slidesPerView: 4.5,
-                                spaceBetween: 12,
-                            },
-                            1500: {
-                                slidesPerView: 5,
-                            },
-                        }}
-                    >
-                        {filteredProducts.map((product) => (
-                            <SwiperSlide key={product._id}>
-                                <ProductCard data={product} />
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
                 </div>
             </div>
 
-            {/* ///////////// */}
-            <Link
-                href={''}
-                className="text-sm block md:hidden border rounded-xl text-center mx-32 py-3 text-[#BABABA] font-[400] cursor-pointer"
-            >
-                مشاهدهٔ همه
-            </Link>
+            <ProductsSlider products={filteredProducts} />
         </section>
     );
 }

@@ -23,7 +23,7 @@ const ProductBox = ({ data }) => {
         },
         onMutate: async (id) => {
             await queryClient.cancelQueries(['basket-product']);
-            const previousData = queryClient.getQueryData(['basket-product']);
+            const previousData = queryClient.getQueriesData(['basket-product']);
 
             queryClient.setQueryData(['basket-product'], (old) => {
                 if (!old) return old;
@@ -68,7 +68,7 @@ const ProductBox = ({ data }) => {
         },
         onMutate: async (id) => {
             await queryClient.cancelQueries(['basket-product']);
-            const previousData = queryClient.getQueryData(['basket-product']);
+            const previousData = queryClient.getQueriesData(['basket-product']);
 
             queryClient.setQueryData(['basket-product'], (old) => {
                 if (!old) return old;
