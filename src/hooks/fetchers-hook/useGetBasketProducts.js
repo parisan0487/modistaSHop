@@ -17,7 +17,7 @@ const useGetBasketProducts = () => {
         queryKey: ['basket-product'],
     });
 
-    return { data, isLoading, error };
+    return { data, isLoading };
 };
 
 export default useGetBasketProducts;
