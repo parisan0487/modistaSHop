@@ -14,7 +14,7 @@ const ProductBox = ({ data }) => {
 
     const { mutate: increment, isPending: isIncrementing } = useMutation({
         mutationFn: async (id) => {
-            await Fetch.post('https://back-production-22f1.up.railway.app/api/cart/add', {
+            await Fetch.post('https://modistaback.onrender.com/api/cart/add', {
                 productId: id,
                 quantity: 1,
                 color,
@@ -55,10 +55,10 @@ const ProductBox = ({ data }) => {
         mutationFn: async (id) => {
             if (data.quantity === 1) {
                 await Fetch.delete(
-                    `https://back-production-22f1.up.railway.app/api/cart/remove/${data.product._id}?color=${data.variant.color}&size=${data.variant.size}`
+                    `https://modistaback.onrender.com/api/cart/remove/${data.product._id}?color=${data.variant.color}&size=${data.variant.size}`
                 );
             } else {
-                await Fetch.post('https://back-production-22f1.up.railway.app/api/cart/add', {
+                await Fetch.post('https://modistaback.onrender.com/api/cart/add', {
                     productId: id,
                     quantity: -1,
                     color,

@@ -17,7 +17,7 @@ const NewSets = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const res = await fetch('https://back-production-22f1.up.railway.app/api/products/');
+                const res = await fetch('https://modistaback.onrender.com/api/products/');
                 const data = await res.json();
 
                 // فقط محصولاتی که category شامل "ست" هست رو نگه می‌داریم

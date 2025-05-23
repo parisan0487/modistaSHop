@@ -19,7 +19,7 @@ const Page = ({ params }) => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const res = await fetch(`https://back-production-22f1.up.railway.app/api/products/${id}`);
+                const res = await fetch(`https://modistaback.onrender.com/api/products/${id}`);
                 const data = await res.json();
                 setProduct(data);
                 setLoading(false);

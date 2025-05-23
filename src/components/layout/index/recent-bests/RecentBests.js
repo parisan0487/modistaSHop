@@ -13,7 +13,7 @@ export default function BestSellersSection() {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const res = await fetch('https://back-production-22f1.up.railway.app/api/products/');
+                const res = await fetch('https://modistaback.onrender.com/api/products/');
                 const data = await res.json();
                 setProducts(data);
             } catch (error) {}
@@ -30,8 +30,6 @@ export default function BestSellersSection() {
     const filteredProducts = products.filter((product) =>
         product.categories.some((cat) => categoryKeywords[selected]?.includes(cat))
     );
-
-    
 
     return (
         <section className="w-full py-16 flex flex-col md:flex-col md:items-center gap-2">

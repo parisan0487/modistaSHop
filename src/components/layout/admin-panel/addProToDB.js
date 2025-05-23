@@ -310,7 +310,7 @@ const AddProductsToDB = () => {
             }));
 
             await axios.post(
-                'https://back-production-22f1.up.railway.app/api/products/add-multiple',
+                'https://modistaback.onrender.com/api/products/add-multiple',
                 { products: productsToSend },
                 {
                     headers: {
@@ -327,7 +327,7 @@ const AddProductsToDB = () => {
 
     const deleteAllProducts = async () => {
         try {
-            await axios.delete('https://back-production-22f1.up.railway.app/api/products/delete-all');
+            await axios.delete('https://modistaback.onrender.com/api/products/delete-all');
             alert('پاک شد');
         } catch {
             alert('خطا در حذف محصولات');

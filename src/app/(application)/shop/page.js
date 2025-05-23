@@ -5,7 +5,6 @@ import Breadcrumb from '@/components/ui/Breadcrumb';
 import Loading from '@/components/layout/loading/Loading';
 import Link from 'next/link';
 
-
 function ProductShop() {
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedColors, setSelectedColors] = useState([]);
@@ -20,7 +19,7 @@ function ProductShop() {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch('https://back-production-22f1.up.railway.app/api/products/');
+                const response = await fetch('https://modistaback.onrender.com/api/products/');
                 if (!response.ok) throw new Error('خطا در دریافت داده‌ها');
                 const data = await response.json();
                 setProducts(data);
@@ -96,10 +95,9 @@ function ProductShop() {
         }));
     };
 
+    if (loading) return <Loading className="-top-30" />;
+    if (error) return <div className="text-center text-red-500 py-10">{error}</div>;
 
-  if (loading) return <Loading className='-top-30'/>;
-  if (error) return <div className="text-center text-red-500 py-10">{error}</div>
-  
     const colorMap = {
         قرمز: '#f87171',
         سبز: '#4ade80',

@@ -24,7 +24,7 @@ const DiscountProducts = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const res = await fetch('https://back-production-22f1.up.railway.app/api/products/');
+                const res = await fetch('https://modistaback.onrender.com/api/products/');
                 const data = await res.json();
                 const discounted = data.filter((product) => product.discount); // فقط اونایی که تخفیف دارن
                 setProducts(discounted);
@@ -83,7 +83,7 @@ const DiscountProducts = () => {
                     <h3 className="text-[#FD5504] text-2xl md:text-3xl font-[800] mt-10 mx-5">تخفیف های شگفت انگیز</h3>
                 </div>
             </div>
-        
+
             <div className="rounded-3xl py-6 mb-[12rem] mt-8 w-full flex flex-col-reverse md:flex-row max-[768px]:mb-25">
                 <div className="w-full md:w-9/12 bg-[#FD5504] h-[18rem] rounded-[0_0_2rem_2rem] md:rounded-[2rem_0_2rem_2rem] ">
                     <div className="w-full py-3">
