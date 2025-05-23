@@ -71,7 +71,7 @@ const FullProductCard = ({ productData }) => {
                 }
 
                 await axios.post(
-                    'https://back-production-22f1.up.railway.app/api/cart/add',
+                    'https://modistaback.onrender.com/api/cart/add',
                     {
                         productId: _id,
                         quantity: 1,

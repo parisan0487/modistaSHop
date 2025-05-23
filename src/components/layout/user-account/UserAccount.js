@@ -26,13 +26,12 @@ export default function ProfileComp() {
                     return;
                 }
 
-                const response = await axios.get('https://back-production-22f1.up.railway.app/api/users', {
+                const response = await axios.get('https://modistaback.onrender.com/api/users', {
                     headers: { Authorization: `Bearer ${token}` },
                 });
 
                 setUser(response.data);
-            } catch (error) {
-            }
+            } catch (error) {}
         };
 
         fetchUserData();
@@ -46,7 +45,7 @@ export default function ProfileComp() {
             }
 
             const response = await axios.put(
-                'https://back-production-22f1.up.railway.app/api/users/update',
+                'https://modistaback.onrender.com/api/users/update',
                 { name: editName, phone: editPhone },
                 {
                     headers: { Authorization: `Bearer ${token}` },
@@ -57,8 +56,7 @@ export default function ProfileComp() {
             setShowEditProfileModal(false);
             setEditName('');
             setEditPhone('');
-        } catch (error) {
-        }
+        } catch (error) {}
     };
 
     const handleLogout = () => {

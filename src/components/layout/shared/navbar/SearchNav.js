@@ -12,7 +12,7 @@ const SearchNav = () => {
 
     useEffect(() => {
         if (search.trim()) {
-            Fetch.get(`https://back-production-22f1.up.railway.app/api/products/search?q=${search}`).then((res) =>
+            Fetch.get(`https://modistaback.onrender.com/api/products/search?q=${search}`).then((res) =>
                 setProducts(res.data)
             );
         } else {

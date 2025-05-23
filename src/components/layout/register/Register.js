@@ -34,8 +34,8 @@ export default function Register() {
 
         try {
             const endpoint = isLogin
-                ? 'https://back-production-22f1.up.railway.app/api/users/login'
-                : 'https://back-production-22f1.up.railway.app/api/users/register';
+                ? 'https://modistaback.onrender.com/api/users/login'
+                : 'https://modistaback.onrender.com/api/users/register';
 
             const res = await axios.post(endpoint, userData, {
                 headers: { 'Content-Type': 'application/json' },
