@@ -1,7 +1,15 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 
-const BestProductCard = ({id,images,discount, price}) => {
+const BestProductCard = ({ id, images, discount, price }) => {
+    const finalPrice = !!discount ? price - discount : price;
+
+    const calculateDiscountPercent = () => {
+        if (!price || !discount || discount <= 0) return 0;
+        return Math.round((discount / price) * 100);
+    };
+
+    const discountPercent = calculateDiscountPercent();
 
     return (
         <Link href={`/products/${id}`}>
@@ -36,14 +44,14 @@ const BestProductCard = ({id,images,discount, price}) => {
                     </button>
 
                     <div className="flex flex-col items-end">
-                        {price && (
+                        {!!discount && (
                             <div className="flex items-center gap-1 mb-1">
                                 <span className="text-xs text-gray-400 line-through">
                                     {price.toLocaleString('fa-IR')}
                                 </span>
                                 {discount && (
                                     <span className="bg-orange-500 text-white text-[10px] px-1.5 py-0.5 rounded">
-                                        {discount}
+                                        % {discountPercent}
                                     </span>
                                 )}
                             </div>
@@ -51,7 +59,7 @@ const BestProductCard = ({id,images,discount, price}) => {
 
                         <div className="flex items-baseline gap-1">
                             <span className="text-lg font-semibold text-black">
-                                {(price-discount)?.toLocaleString('fa-IR')}
+                                {finalPrice?.toLocaleString('fa-IR')}
                             </span>
                             <span className="text-sm text-gray-500">تومان</span>
                         </div>
