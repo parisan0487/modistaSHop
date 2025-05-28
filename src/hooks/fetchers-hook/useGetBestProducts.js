@@ -19,6 +19,8 @@ const useGetBestProducts = () => {
     const { data, isPending } = useQuery({
         queryKey: ['best-products'],
         queryFn: fetchHandler,
+        refetchOnMount: false,
+
     });
 
     return { data, isPending };
