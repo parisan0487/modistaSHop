@@ -9,6 +9,8 @@ const useGetNewProducts = () => {
     const { data, isPending } = useQuery({
         queryKey: ['new-product'],
         queryFn: fetchHandler,
+        refetchOnMount: false,
+
     });
 
     return { data, isPending };

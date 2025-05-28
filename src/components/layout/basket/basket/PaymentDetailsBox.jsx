@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import useGetBasketProducts from '@/hooks/fetchers-hook/useGetBasketProducts';
 import Link from 'next/link';
 

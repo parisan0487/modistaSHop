@@ -12,9 +12,11 @@ const useGetBasketProducts = () => {
         }
     };
 
-    const { data, isLoading, error } = useQuery({
+    const { data, isLoading } = useQuery({
         queryFn: fetchHandler,
         queryKey: ['basket-product'],
+        refetchOnMount: false,
+        
     });
 
     return { data, isLoading };

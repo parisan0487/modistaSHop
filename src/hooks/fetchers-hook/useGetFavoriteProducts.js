@@ -12,6 +12,8 @@ const useGetFavoriteProducts = () => {
     const { data, isLoading } = useQuery({
         queryKey: ['favorite-product'],
         queryFn: fetchHandler,
+        refetchOnMount: false,
+
     });
 
     return { data, isLoading };

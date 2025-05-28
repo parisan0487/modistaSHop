@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
 import MiniLoading from '../../loading/MiniLoading';
-import ProductsSlider from '../shared/ProductsSlider';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import useGetFavoriteProducts from '@/hooks/fetchers-hook/useGetFavoriteProducts';
