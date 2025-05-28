@@ -18,7 +18,7 @@ function PCard({ _id, id, name, images, price, discount, deleteBtn = false, favo
         }
     }, [favorites, _id]);
 
-    const finalPrice = price - discount;
+    const finalPrice = !!discount ? price - discount : price;
 
     const calculateDiscountPercent = () => {
         if (!price || !discount || discount <= 0) return 0;
