@@ -15,7 +15,7 @@ const BasketBtn = ({ cls }) => {
 
     const fetchHandler = async () => {
         try {
-            const res = await Fetch.get('https://back-production-22f1.up.railway.app/api/cart/', { token: true });
+            const res = await Fetch.get('https://modistaback.onrender.com/api/cart/', { token: true });
             return res.data;
         } catch (error) {
             throw error;
@@ -45,7 +45,7 @@ const BasketBtn = ({ cls }) => {
     const deleteProduct = useMutation({
         mutationFn: async (item) => {
             await Fetch.delete(
-                `https://back-production-22f1.up.railway.app/api/cart/remove/${item.product._id}?color=${item.variant.color}&size=${item.variant.size}`
+                `https://modistaback.onrender.com/api/cart/remove/${item.product._id}?color=${item.variant.color}&size=${item.variant.size}`
             );
         },
 

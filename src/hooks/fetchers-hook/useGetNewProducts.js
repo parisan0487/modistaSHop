@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 
 const useGetNewProducts = () => {
     const fetchHandler = async () =>
-        await Fetch.get('https://back-production-22f1.up.railway.app/api/products/').then((res) => res.data);
+        await Fetch.get('https://modistaback.onrender.com/api/products/').then((res) => res.data);
 
     const { data, isPending } = useQuery({
         queryKey: ['new-product'],

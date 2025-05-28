@@ -34,7 +34,7 @@ function PCard({ _id, id, name, images, price, discount, deleteBtn = false, favo
                     return toast.error('قبلا اضافه کردید');
                 }
                 setIsLike(true);
-                await Fetch.post(`https://back-production-22f1.up.railway.app/api/wishlist/add`, {
+                await Fetch.post(`https://modistaback.onrender.com/api/wishlist/add`, {
                     token: true,
                     productId: _id,
                 });
@@ -60,7 +60,7 @@ function PCard({ _id, id, name, images, price, discount, deleteBtn = false, favo
     const { mutate: deleteFavoriteProduct, isPending: isDeleteFavoriteProduct } = useMutation({
         mutationFn: async () => {
             try {
-                await Fetch.delete(`https://back-production-22f1.up.railway.app/api/wishlist/remove/${_id}`, {
+                await Fetch.delete(`https://modistaback.onrender.com/api/wishlist/remove/${_id}`, {
                     token: true,
                 });
 
