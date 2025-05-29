@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@/context/AuthContext';
+import { useAuth } from '@/providers/AuthContext';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 
 export default function ProfileComp() {

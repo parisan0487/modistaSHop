@@ -10,7 +10,9 @@ const ProductsSlider = ({ products }) => {
     const { data } = useGetFavoriteProducts();
     return (
         <div className="w-full">
-            {!!products ? (
+            {!products ? (
+                <PCardSkeleton />
+            ) : (
                 <Swiper
                     modules={[Autoplay]}
                     loop
@@ -41,8 +43,6 @@ const ProductsSlider = ({ products }) => {
                         </SwiperSlide>
                     ))}
                 </Swiper>
-            ) : (
-                <PCardSkeleton />
             )}
         </div>
     );

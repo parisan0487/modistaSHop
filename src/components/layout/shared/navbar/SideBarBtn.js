@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import SideBar from './sideBar';
 import Image from 'next/image';
 import toast from 'react-hot-toast';
-import { useAuth } from '@/context/AuthContext';
+import { useAuth } from '@/providers/AuthContext';
 import Link from 'next/link';
 
 const categories = [

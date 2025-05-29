@@ -3,7 +3,7 @@
 import NoExistProduct from '@/components/layout/basket/basket/NoExistProduct';
 import PCard from '@/components/layout/index/new-products/PCard';
 import Loading from '@/components/layout/loading/Loading';
-import { useAuth } from '@/context/AuthContext';
+import { useAuth } from '@/providers/AuthContext';
 import useGetFavoriteProducts from '@/hooks/fetchers-hook/useGetFavoriteProducts';
 import Link from 'next/link';
 import React from 'react';

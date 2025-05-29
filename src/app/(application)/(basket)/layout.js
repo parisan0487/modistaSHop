@@ -2,7 +2,7 @@
 
 import RoadMap from '@/components/layout/basket/shared/RoadMap';
 import Loading from '@/components/layout/loading/Loading';
-import { useAuth } from '@/context/AuthContext';
+import { useAuth } from '@/providers/AuthContext';
 import Link from 'next/link';
 
 const Layout = ({ children }) => {
