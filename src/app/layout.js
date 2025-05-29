@@ -1,7 +1,7 @@
 import localFont from 'next/font/local';
 import { Toaster } from 'react-hot-toast';
 import './globals.css';
-import { AuthProvider } from '@/context/AuthContext';
+import { AuthProvider } from '@/providers/AuthContext';
 import QueryProvider from '@/providers/QueryProviders';
 
 const kalameh = localFont({

@@ -3,31 +3,21 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import Link from 'next/link';
 import ProductsSlider from '../shared/ProductsSlider';
+import useGetRecentBestProducts from '@/hooks/fetchers-hook/useGetRecentBestProducts';
 
 const categories = ['زنانه', 'مردانه'];
 
 export default function BestSellersSection() {
-    const [products, setProducts] = useState([]);
     const [selected, setSelected] = useState(categories[0]);
 
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const res = await fetch('https://modistaback.onrender.com/api/products/');
-                const data = await res.json();
-                setProducts(data);
-            } catch (error) {}
-        };
-
-        fetchProducts();
-    }, []);
+    const { data } = useGetRecentBestProducts();
 
     const categoryKeywords = {
         زنانه: ['زنانه', 'لباس زنانه'],
         مردانه: ['مردانه', 'لباس مردانه'],
     };
 
-    const filteredProducts = products.filter((product) =>
+    const filteredProducts = data?.filter((product) =>
         product.categories.some((cat) => categoryKeywords[selected]?.includes(cat))
     );
 

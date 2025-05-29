@@ -100,7 +100,7 @@ function PCard({ _id, id, name, images, price, discount, deleteBtn = false, favo
             className="bg-[#F6F6F6] w-[17rem] h-[24rem] p-2 md:h-[30rem] rounded-3xl overflow-hidden border-1 border-transparent transition hover:transform-3d"
         >
             {/* images */}
-            <Link href={`products/${id}`}>
+            <Link href={`/products/${id}`}>
                 <Image
                     src={mainImage}
                     width={300}

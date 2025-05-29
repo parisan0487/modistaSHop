@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import MegaMenu from './MegaMenu';
 import Link from 'next/link';
-import { useAuth } from '@/context/AuthContext';
+import { useAuth } from '@/providers/AuthContext';
 import BasketBtn from './BasketBtn';
 import { ScaleLoader } from 'react-spinners';
 

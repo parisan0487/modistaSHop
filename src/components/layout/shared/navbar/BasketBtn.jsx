@@ -6,7 +6,7 @@ import Link from 'next/link';
 import React, { useEffect, useMemo, useRef } from 'react';
 import toast from 'react-hot-toast';
 import Loading from '../../loading/Loading';
-import { useAuth } from '@/context/AuthContext';
+import { useAuth } from '@/providers/AuthContext';
 
 const BasketBtn = ({ cls }) => {
     const queryClient = useQueryClient();
